@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
   get 'welcome/home',  to: 'welcome#home'
 
-  resources :stations, only: [:index, :show]
+  resources :stations, only: [:index]
+  resources :stations, only: [:show], param: :slug
 end
