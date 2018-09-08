@@ -10,6 +10,12 @@ feature 'New user can create an account' do
         expect(current_path).to eq(login_path)
         expect(page).to have_link("Create Account")
       end
+
+        context 'I click on Create Account' do
+          scenario 'I view a form for creating an account' do
+            expect(current_path).to eq(new_user_path)
+          end
+        end
     end
   end
 end
