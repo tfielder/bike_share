@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+describe Condition, type: :model do
   describe 'validations' do
     it {should validate_presence_of :date}
     it {should validate_presence_of :max_temp}
@@ -9,7 +10,8 @@ require 'rails_helper'
     it {should validate_presence_of :mean_visibility}
     it {should validate_presence_of :mean_wind_speed}
     it {should validate_presence_of :precip}
+  end
   describe 'relationships' do
-    
+
   end
 end
