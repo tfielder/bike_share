@@ -35,7 +35,9 @@ describe 'trip index' do
     trip_28 = Trip.create(duration: 2, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
     trip_29 = Trip.create(duration: 2, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
     trip_30 = Trip.create(duration: 2, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
-    trip_31 = Trip.create(duration: 2, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+    trip_31 = Trip.create(duration: 70, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+    trip_32 = Trip.create(duration: 100, start_date:"09/01/2018", start_station:station_1, end_date:"09/01/2018", end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+
     visit trips_path
     save_and_open_page
     expect(page).to have_content(trip_1.duration)
@@ -46,8 +48,8 @@ describe 'trip index' do
     expect(page).to have_content(trip_15.bike_id)
     expect(page).to have_content(trip_20.subscription_type)
     expect(page).to have_content(trip_30.zip_code)
-    expect(page).to_not have_content(trip_31.duration)
-    expect(page).to have_selector(:link_or_button, 'Next Page')
+    expect(page).to_not have_content(trip_32.duration)
+    expect(page).to have_selector(:link_or_button, 'Next')
 
   end
 end
