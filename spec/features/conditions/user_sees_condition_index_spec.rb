@@ -2,17 +2,17 @@ require 'rails_helper'
 
 describe 'as a user' do
   describe 'when visiting /conditions' do
-    condition_1 = Condition.create(date: , max_temp:, mean_temp:, min_temp:, mean_humidity:, mean_visibility:, mean_wind_speed:, precip:)
+    condition_1 = Condition.create(date:2018-09-01, max_temp:80.0, mean_temp:75.0, min_temp:40.0, mean_humidity:12.5, mean_visibility:10.0, mean_wind_speed:10.0, precip:1.0)
 
     visit conditions_path
 
-    expect(page).to have_content("#{condition_1.date}")
-    expect(page).to have_content("#{condition_1.max_temp}")
-    expect(page).to have_content("#{condition_1.mean_temp}")
-    expect(page).to have_content("#{condition_1.min_temp}")
-    expect(page).to have_content("#{condition_1.mean_humidity}")
-    expect(page).to have_content("#{condition_1.mean_visibility}")
-    expect(page).to have_content("#{condition_1.mean_wind_speed}")
-    expect(page).to have_content("#{condition_1.precip}")
+    expect(page).to have_content("Date: #{condition_1.date}")
+    expect(page).to have_content("Max Temperature: #{condition_1.max_temp}")
+    expect(page).to have_content("Mean Temperature: #{condition_1.mean_temp}")
+    expect(page).to have_content("Min Temperature: #{condition_1.min_temp}")
+    expect(page).to have_content("Mean Humidity: #{condition_1.mean_humidity}")
+    expect(page).to have_content("Mean Visibility: #{condition_1.mean_visibility}")
+    expect(page).to have_content("Mean Wind Speed: #{condition_1.mean_wind_speed}")
+    expect(page).to have_content("Precipitation: #{condition_1.precip}")
   end
 end
