@@ -24,4 +24,36 @@ ActiveRecord::Schema.define(version: 20180908221142) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "accessories", force: :cascade do |t|
+    t.string "image"
+    t.string "title"
+    t.string "description"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.datetime "date"
+    t.float "max_temp"
+    t.float "mean_temp"
+    t.float "min_temp"
+    t.float "mean_humidity"
+    t.float "mean_visibility"
+    t.float "mean_wind_speed"
+    t.float "precip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "name"
+    t.integer "dock_count"
+    t.string "city"
+    t.string "installation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+  end
+
 end

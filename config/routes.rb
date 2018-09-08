@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   resources :user, only: [:new, :create]
 
+  resources :stations, only: [:index, :show], param: :slug
+
+  resources :conditions, only: [:index, :show]
+
+
 end
