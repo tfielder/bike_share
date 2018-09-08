@@ -1,0 +1,11 @@
+<h1>All Stations</h1>
+<div class='card-holder'>
+  <% @stations.each do |station| %>
+    <ul class="station-card">
+      <li><%= link_to station.name , station_path(station) %></li>
+      <li><%= station.dock_count %></li>
+      <li><%= station.city %></li>
+      <li><%= station.installation_date %></li>
+    </ul>
+  <% end %>
+</div>
