@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'as a user' do
   describe 'when visiting /conditions' do
     it 'shows all conditions on index page' do
-      condition_1 = Condition.create(date: "09/01/2018", max_temp:80.0, mean_temp:75.0, min_temp:40.0, mean_humidity:12.5, mean_visibility:10.0, mean_wind_speed:10.0, precip:1.0)
+      condition_1 = Condition.create(date:"09/01/2018", max_temp:80.0, mean_temp:75.0, min_temp:40.0, mean_humidity:12.5, mean_visibility:10.0, mean_wind_speed:10.0, precip:1.0)
 
       visit conditions_path
 
