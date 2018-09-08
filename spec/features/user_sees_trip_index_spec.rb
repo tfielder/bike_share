@@ -51,6 +51,11 @@ describe 'trip index' do
     expect(page).to_not have_content(trip_32.duration)
     expect(page).to have_selector(:link_or_button, 'Next')
 
+    click_on "Next"
+    expect(page).to have_content(trip_31.duration)
+
+    expect(page).to have_content(trip_32.duration)
+
   end
 end
 # As a visitor,
