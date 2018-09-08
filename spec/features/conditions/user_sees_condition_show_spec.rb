@@ -6,7 +6,6 @@ describe 'as a visitor' do
       condition_1 = Condition.create(date:"09/01/2018", max_temp:80.0, mean_temp:75.0, min_temp:40.0, mean_humidity:12.5, mean_visibility:10.0, mean_wind_speed:10.0, precip:1.0)
       condition_2 = Condition.create(date:"09/02/2018", max_temp:81.0, mean_temp:76.0, min_temp:41.0, mean_humidity:13.0, mean_visibility:12.0, mean_wind_speed:5.0, precip:0.0)
 
-
       visit condition_path(condition_2)
 
       expect(page).to_not have_content("Date: #{condition_1.date}")
