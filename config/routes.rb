@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :stations, only: [:index, :show], param: :slug
 
   resources :conditions, only: [:index, :show]
+
+  resources :accessories, only: [:show], param: :slug
 end
