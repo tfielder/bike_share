@@ -1,0 +1,4 @@
+class StationsController < ApplicationController
+
+
+end 
