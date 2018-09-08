@@ -1,0 +1,10 @@
+<h1><%= @accessory.title %></h1>
+
+<ul>
+  <div class='image-holder'>
+    <img class='accessory-image' src="holder.jpg" alt="a holder image">
+  </div>
+  <li>Price: $<%= @accessory.price %></li>
+  <li>Description: <%= @accessory.description %></li>
+  <li><%= link_to "Add To Cart", accessory_path(@accessory) %></li>
+</ul>
