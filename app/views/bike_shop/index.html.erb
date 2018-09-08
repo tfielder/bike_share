@@ -1,0 +1,13 @@
+<h1>Bike Shop</h1>
+
+<% @accessories.each do |item| %>
+  <div class="bike_shop_item">
+    <ul>
+      <img src= "<%= item.image %>" />
+      <li><%= item.title %></li>
+      <li><%= item.price %></li>
+      <li><%= item.description %></li>
+      <li><%= link_to "Add to Cart" %></li>
+    </ul>
+  </div>
+<% end %>
