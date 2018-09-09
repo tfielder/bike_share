@@ -13,9 +13,8 @@ feature 'User views a navbar' do
       expect(page).to have_link("Log In")
       expect(page).to have_link("Cart")
 
-      ## uncomment this later ##
-      # expect(page).to_not have_link("Log Out")
-    end
+      expect(page).to_not have_link("Log Out")
+      end
     end
   end
 end
