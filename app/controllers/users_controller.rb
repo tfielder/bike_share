@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user.email.downcase!
 
     if @user.save
-      flash[:notece] = "Wecome to Bike Share #{@user.name}"
+      flash[:notice] = "Wecome to Bike Share #{@user.name}"
       session[:user_id] = @user.id
 
       redirect_to :dashboard
