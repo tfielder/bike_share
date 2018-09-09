@@ -1,11 +1,14 @@
 <h1>Cart</h1>
-<% @items.each do |item| %>
+<% @accessories.each do |accessory, count| %>
   <ul>
     <li>
-      <%= item.title %>
+      <%= accessory.title %>
     </li>
     <li>
-      <%= item.price %>
+      <%= accessory.price %>
+    </li>
+    <li>
+      Qty: <%= count %>
     </li>
   </ul>
   <% end %>

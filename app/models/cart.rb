@@ -8,4 +8,15 @@ class Cart
   def total_count
     @contents.values.sum
   end
+
+  def add_accessory(id)
+    binding.pry
+    @contents[id] = @contents[id] + 1
+  end
+
+  def accessories
+    @contents.map do |id, count|
+      [Accessory.find(id), count]
+    end
+  end
 end

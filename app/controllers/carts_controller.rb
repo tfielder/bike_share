@@ -2,7 +2,6 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
   def create
     accessory = Accessory.find(params[:item_id])
-    @cart= Cart.new(session[:cart])
     @cart.add_accessory(accessory.id)
     session[:cart] = @cart.contents
 
@@ -11,6 +10,6 @@ class CartsController < ApplicationController
   end
 
   def show
-
+    @accessories = @cart.accessories
   end
 end
