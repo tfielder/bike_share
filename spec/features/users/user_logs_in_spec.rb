@@ -1,8 +1,5 @@
 require 'rails_helper'
-# I see a message in the navbar that says "Logged in as SOME_USER",
-# I see my profile information,
-# I do not see a link for "Login",
-# I also see a link for "Logout".
+
 feature 'Registered user can log in' do
   context 'as a registered user' do
     context 'when I can click on login' do
