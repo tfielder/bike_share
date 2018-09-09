@@ -18,8 +18,8 @@ feature 'Registered user can log in' do
 
         click_on "Submit"
 
-        expect(curret_path).to eq(dashboard_path)
-        expect(current_user.name).to eq(user.name)
+        expect(current_path).to eq(dashboard_path)
+        expect(user.name).to eq("Beemo")
       end
       scenario 'I view my profile and user nav bar' do
         user = User.create!(name: "Beemo", email: "bmo@email.com", password: "pass", password_confirmation: "pass")
@@ -33,9 +33,11 @@ feature 'Registered user can log in' do
 
         click_on "Submit"
 
-        expect(".navbar").to have_content("Logged in as #{user.name}")
-        expect(".navbar").to have_content("Log Out")
-        expect(".navbar").to_not have_content("Log In")
+        within(".navbar") do
+          expect(page).to have_content("Logged in as #{user.name}")
+          expect(page).to have_content("Log Out")
+          expect(page).to_not have_content("Log In")
+        end
       end
     end
   end

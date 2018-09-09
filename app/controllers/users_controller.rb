@@ -5,8 +5,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    @user.email.downcase!
 
-    redirect_to :dashboard
+    if @user.save
+      flash[:notece] = "Wecome to Bike Share #{@user.name}"
+      session[:user_id] = @user.id
+
+      redirect_to :dashboard
+    else
+      flash.now.alert "Please try again."
+      render :new
+    end 
   end
 
   def dashboard
