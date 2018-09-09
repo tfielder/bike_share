@@ -2,9 +2,14 @@
 
 <ul>
   <div class='image-holder'>
-    <img class='accessory-image' src="holder.jpg" alt="a holder image">
+    <img class='accessory-image' src="holder.jpg" alt="holder.jpg">
   </div>
   <li>Price: $<%= @accessory.price %></li>
   <li>Description: <%= @accessory.description %></li>
-  <li><%= link_to "Add To Cart", accessory_path(@accessory) %></li>
+  <li><% if @accessory.retired == true %>
+        <%= "Accessory Retired" %>
+      <% else %>
+        <%= link_to "Add To Cart", accessory_path(@accessory) %>
+      <% end %>
+  </li>
 </ul>
