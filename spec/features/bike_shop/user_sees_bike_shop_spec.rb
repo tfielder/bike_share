@@ -39,7 +39,7 @@ describe 'As a visitor' do
       expect(page).to have_content("#{@item_6.price}")
     end
     it 'shows a button near each item that says add to cart' do
-      expect(page).to have_content("Add to Cart")
+      expect(page).to have_button("Add to Cart")
     end
   end
 end
