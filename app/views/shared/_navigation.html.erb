@@ -1,5 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" style="">
   <h1 class="navbar-brand">Bike Share</h1>
+  <% if current_user.present? %>
+    <p class="navbar-brand">
+      <%= "Logged in as #{current_user.name} " %>
+    </p>
+  <% end %>
+
   <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,9 +14,11 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %>
-      <li class="nav-item">
-        <%= link_to "Log In", login_path, class: "nav-link" %>
-      </li>
+      <% unless current_user %>
+        <li class="nav-item">
+          <%= link_to "Log In", login_path, class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to "Cart", class: "nav-link" %>
       </li>
@@ -23,11 +31,11 @@
       <li class="nav-item">
         <%= link_to "Conditions", class: "nav-link" %>
       </li>
-
+      <% if current_user %>
         <li class="nav-item">
           <%= link_to "Log Out", class: "nav-link" %>
         </li>
-
+      <% end %>
     </ul>
   </div>
 </nav>

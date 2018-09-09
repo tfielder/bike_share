@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   get 'welcome/home',  to: 'welcome#home'
   get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 
-  resources :user, only: [:new, :create]
+
+  resources :users, only: [:new, :create]
+  get '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
   resources :stations, only: [:index, :show], param: :slug
