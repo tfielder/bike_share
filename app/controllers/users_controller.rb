@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+
+    redirect_to :dashboard
+  end
+
+  def dashboard
+
   end
 
   private

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
 
   resources :users, only: [:new, :create]
+  get '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
   resources :stations, only: [:index, :show], param: :slug

@@ -20,6 +20,8 @@ feature 'New user can create an account' do
 
               click_on "Create Account"
 
+              expect(current_path).to eq(new_user_path)
+
               fill_in :user_name, with: "Finn"
               fill_in :user_email, with: "finn@jake.com"
               fill_in :user_password, with: "123"
@@ -31,7 +33,7 @@ feature 'New user can create an account' do
 
               expect(user.name).to eq("Finn")
               expect(user.email).to eq("finn@jake.com")
-              expect(current_path).to eq(new_user_path)
+              expect(current_path).to eq(dashboard_path)
             end
           end
         end
