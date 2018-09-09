@@ -1,7 +1,7 @@
 <h1>Bike Shop</h1>
 
-<% @accessories.each do |item| %>
-  <div class="bike_shop_item">
+<% @accessories.each_with_index do |item, index| %>
+  <div class="bike_shop_item_<%=index + 1%>">
     <ul>
       <img src= "<%= item.image %>" />
       <li><%= item.title %></li>
