@@ -11,7 +11,7 @@ describe "User visits an accessory show page" do
       visit accessory_path(accessory)
 
       within('.image-holder') do
-        expect(page).to have_content(accessory.image)
+        expect(page).to have_css("img[src*='holder.jpg']")
       end
       expect(page).to have_content(accessory.title)
       expect(page).to have_content(accessory.description)
