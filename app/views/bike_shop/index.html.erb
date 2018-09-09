@@ -7,7 +7,8 @@
       <li><%= item.title %></li>
       <li><%= item.price %></li>
       <li><%= item.description %></li>
-      <li><%= link_to "Add to Cart" #carts_path(item_id: item.id), class: %></li>
+      <li><%= link_to "Add to Cart"%></li>
+      <% #carts_path(item_id: item.id), class: %>
     </ul>
   </div>
 <% end %>
