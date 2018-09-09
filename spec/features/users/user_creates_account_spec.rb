@@ -17,6 +17,7 @@ feature 'New user can create an account' do
             scenario 'I create a new user account' do
 
               visit login_path
+              save_and_open_page
               click_on "Create Account"
 
               fill_in :user_name, with: "Finn"
