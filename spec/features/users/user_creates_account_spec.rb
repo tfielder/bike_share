@@ -17,7 +17,7 @@ feature 'New user can create an account' do
             scenario 'I create a new user account' do
 
               visit login_path
-              save_and_open_page
+
               click_on "Create Account"
 
               fill_in :user_name, with: "Finn"
@@ -27,7 +27,7 @@ feature 'New user can create an account' do
 
               click_on "Submit"
 
-              user = user.last
+              user = User.last
 
               expect(user.name).to eq("Finn")
               expect(user.email).to eq("finn@jake.com")
