@@ -13,8 +13,8 @@ feature 'Registered user can log in' do
 
         click_on "Log In"
 
-        fill_in :user_email, with: user.email
-        fill_in :user_password, with: user.password
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
 
         click_on "Submit"
 
@@ -28,8 +28,8 @@ feature 'Registered user can log in' do
 
         click_on "Log In"
 
-        fill_in :user_email, with: user.email
-        fill_in :user_password, with: user.password
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
 
         click_on "Submit"
 
