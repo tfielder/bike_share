@@ -13,11 +13,25 @@ feature 'New user can create an account' do
       end
     context 'on the login page' do
         context 'I click on Create Account' do
-          scenario 'I view a form for creating an account' do
-            
-            visit login_path
-            click_on "Create Account"
-            expect(current_path).to eq(new_user_path)
+          context 'I fill out form and click submit' do
+            scenario 'I create a new user account' do
+
+              visit login_path
+              click_on "Create Account"
+
+              fill_in :user_name, with: "Finn"
+              fill_in :user_email, with: "finn@jake.com"
+              fill_in :user_password, with: "123"
+              fill_in :user_password_confirmation, with: "123"
+
+              click_on "Submit"
+
+              user = user.last
+
+              expect(user.name).to eq("Finn")
+              expect(user.email).to eq("finn@jake.com")
+              expect(current_path).to eq(new_user_path)
+            end
           end
         end
       end
