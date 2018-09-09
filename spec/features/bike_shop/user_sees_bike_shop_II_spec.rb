@@ -30,6 +30,7 @@ describe 'as a visitor to /bike_shop' do
       first('.bike_shop_item_2').click_on("Add to Cart")
 
       expect(page).to have_content("#{@item_2.title} was added to the cart.")
+
     end
   end
 end
