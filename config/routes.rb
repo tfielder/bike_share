@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :accessories, only: [:show], param: :slug
 
-  resources :cart, only: [:show, :create, :update]
+  resource :cart, only: [:show, :create, :update]
 end
