@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'User adds item to cart' do
-  context 'as a visitor' do
+describe 'as a visitor to /bike_shop' do
+  describe 'When clicking on Add to Cart' do
     before(:each) do
       @item_1 = Accessory.create(title: "happy1", image: "image1", description: "sogood1", price: 10.01)
       @item_2 = Accessory.create(title: "happy2", image: "image2", description: "sogood2", price: 10.02)
@@ -15,33 +15,27 @@ describe 'User adds item to cart' do
       @item_10 = Accessory.create(title: "happy10", image: "image10", description: "sogood10", price: 10.10)
       @item_11 = Accessory.create(title: "happy11", image: "image11", description: "sogood11", price: 10.20)
       @item_12 = Accessory.create(title: "happy12", image: "image12", description: "sogood12", price: 10.30)
+
+      visit bike_shop_path
     end
 
-    it 'displays a message' do
-      visit bike_shop_path
+    it 'shows a flash message that a specific accessory was added to the cart' do
+      first('.bike_shop_item_2').click_on("Add to Cart")
 
-      within('.bike_shop_item_2') do
-        click_on("Add to Cart")
-      end
+      expect(page).to have_content("#{@item_2.title} was added to the cart.")
 
-      within('.bike_shop_item_2') do
-        click_on("Add to Cart")
-      end
+    end
 
-      within('.bike_shop_item_3') do
-        click_on("Add to Cart")
-      end
+    xit 'shows the cart count updated on all pages' do
+      expect(page).to have_content("Cart: 0")
 
-      click_on "Cart"
+      first('.bike_shop_item_2').click_on("Add to Cart")
 
-      expect(current_path).to eq(cart_path)
-      expect(page).to have_content(@item_2.title)
-      expect(page).to have_content(@item_2.price)
-      expect(page).to have_content("Qty: 2")
-      expect(page).to have_content(@item_3.title)
-      expect(page).to have_content(@item_3.price)
-      expect(page).to have_content("Qty: 1")
-      expect(page).to have_content("Total: $30.07")
+      expect(page).to have_content("Cart: 1")
+
+      first('.bike_shop_item_3').click_on("Add to Cart")
+
+      expect(page).to have_content("Cart: 2")
     end
   end
 end
