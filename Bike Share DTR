@@ -1,0 +1,106 @@
+# DTR: Define the Relationship
+
+Use this template to when conducting DTR with your project partners. It's recommended that you copy/paste this template into your own gist each time you conduct a DTR to take notes on the conversation.
+
+### Guiding Questions to Define The Relationship:
+
+* What are your learning goals for this project?
+Learn how to make a rails app that works, how to work with a larger group, how to manage a ton of user stories,
+best practices for implementing, testing, and review.
+What drives us in this project?
+A desire to learn, getting things done, crushing those goals.
+* What is your collaboration style? How do you feel about pair programming vs. divide-and-conquer approaches?
+Divide and conquer together.
+* How do you communicate best? How do you appreciate receiving communication from others?
+Tim - In person, but will be available on slack. Honesty is the best policy. Open to feedback.
+Autumn - In person, for constructive feedback. Be honest.
+Ben - What Tim said.
+Maria - Pretty open, coaching feedback asap, in person is best for feedback.
+* How would you describe your work style?
+Tim - Process the goods, wrap my head around it. Struggle a little before reaching out.
+Autumn - Usually like to struggle through with self. Reaching out last option usually.
+Ben - Likes to dive in and get hands dirty, wants to be more processy.
+Maria - Process the goods, maybe reach out a little too late.
+* What are your strengths?
+Maria - Communication, testing, flexibility, problem solver, willing to learn
+Autumn - Strategic, creative, testing, bootstrap, tables af
+Tim - Learning, Strategic, high achiever sometimes
+Ben - Attacks problems head on, maximizer, won't stop till I get enough
+How can our strengths compliment each other?
+Willingness to learn from each other, and other sources, flexibility to hear ideas and thoughts.
+All gon git it.
+* What’s gone well or poorly in your previous projects?
+Maria - In depth planning was very helpful, problems with commitment can ruin moral.
+Tim - Waffle.io was a very helpful tool, problems with ideas not being communicated effectively.
+Autumn - Walle.io fo sho was great, taking care of testing earlier than later is good, problem with not getting time to work how we work best.
+Ben - Keeping a comfortable working speed is preferable, holding in my frustrations can lead to resentments.
+* How will we set direction and make decisions as a team?
+Thorough discussion, but the project manager watches us all.
+* How will we overcome obstacles?
+Regular Check-Ins
+Together #CareBearStare
+* What do you need (resources, environment, communication) to do your best work?
+Autumn - Mentor time, solo time, less distractions the better, team availability, never NO COFFEE(caffeinated), some snacks.
+Tim - Best work in afternoon/evening, time as a team, some solo time, snacks 4 dayz, regular check-ins
+Maria - solo work team time, afternoon/evening best work, need quiet, access to team, ALWAYS COFFEE, snayucks, regular poms
+Ben - Solo work/team time, relaxed environment, light music, regular poms, CAFFEINE, snacks.
+* What scheduling restraints do you have? What are your scheduling preferences?
+Weekends 10-4, STAY NO LATER THAN 8PM on weekdays.
+Maria - Mentor, thursday/friday around 4:30.
+Autumn - Mentor, tuesday evenings, weekend mornings.
+* What is your style for giving feedback? Does anything ever hold you back from giving feedback?
+All - Face to face, polite and actionable.
+Tim - Hold back because they may not be open to it.
+Autumn - Hold back in front of others.
+Ben - Hold back because I may be a littttttttle heated, and don't wanna be snappy.
+Maria - Hold back to spare the feelings of the victim.
+* What tools do you want to use to manage the project?
+waffle.io, PR Template, slack, GitHub
+* How do you want the group to solve problems when members run into issues with features of the project?
+Explain someone elses process, rubber ducking.
+* How do you know if a project is successful? How can we achieve that as a group?
+Get two's, and some three's, and not hate each other anymore than we do right now.
+Through our strengths that we defined thrice above.
+* How will we recognize each other's successes and celebrate them?
+Regular encouragement, public praise, snack rewards.
+
+
+
+Communicate clearly what you're working on.
+Adopt similar topics, try to group by type.
+
+
+
+### Template for DTR Memo
+
+Project:
+
+Group Member Names:
+
+Project Expectations: What does each group member hope to get out of this project?
+
+Goals and expectations:
+
+Team strengths:
+
+How to overcome obstacles:
+
+Schedule Expectations (When are we available to work together and individually?):
+
+Communication Expectations (How and often will we communicate? How do we keep lines of communication open?):
+
+Abilities Expectations (Technical strengths and areas for desired improvement):
+
+Workload Expectations (What features do we each want to work on?):
+
+Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests):
+
+Expectations for giving and receiving feedback:
+
+Agenda to discuss project launch:
+
+Ideas:
+
+Tools:
+
+Additional Notes:
