@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
-  resources :stations, only: [:index, :show], param: :slug
+  resources :stations, only: [:index], param: :slug
+  get '/:slug', to: 'stations#show', as: "station"
 
   resources :conditions, only: [:index, :show]
 
