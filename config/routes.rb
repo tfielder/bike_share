@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
+  resources :orders, only: [:show]
 
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#dashboard'
