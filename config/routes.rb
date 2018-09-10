@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
+  delete '/cart', to: 'carts#destroy'
 
   get '/:slug', to: 'stations#show', as: "station"
 

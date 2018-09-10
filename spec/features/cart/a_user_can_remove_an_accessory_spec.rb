@@ -25,8 +25,9 @@ describe 'a user should be able to remove an accessroy' do
 
     click_on "Cart"
     expect(current_path).to eq(cart_path)
-    save_and_open_page
-    click_on "Remove"
+
+    first(".accessory").click_on("Remove")
+
 
   end
 end

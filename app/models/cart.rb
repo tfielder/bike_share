@@ -23,6 +23,10 @@ class Cart
     @contents[id] = @contents[id] + 1
   end
 
+  def remove_accessory(id)
+   @contents.delete(id)
+ end
+
   def accessories
     @contents.map do |id, count|
       [Accessory.find(id), count]
