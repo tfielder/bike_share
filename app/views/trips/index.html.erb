@@ -2,6 +2,7 @@
 
 <% @trips.each do |trip| %>
   <ul>
+    <li><%= link_to trip.id, trip_path(trip) %></li>
     <li>Duration: <%= trip.duration %></li>
     <li>Start Date: <%= trip.start_date %></li>
     <li>Start Station: <%= trip.start_station.name %></li>
