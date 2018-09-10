@@ -77,13 +77,13 @@ class Seed
     weathers = read_weather
     weathers.each do |weather|
       weather_hash = {date: Date.strptime(weather[:date], '%m/%d/%y'),
-                    max_temp: weather[:max_temp].to_f,
-                    mean_temp: weather[:mean_temp].to_f,
-                    min_temp: weather[:min_temp].to_f,
+                    max_temp: weather[:max_temperature_f].to_f,
+                    mean_temp: weather[:mean_temperature_f].to_f,
+                    min_temp: weather[:min_temperature_f].to_f,
                     mean_humidity: weather[:mean_humidity].to_f,
-                    mean_visibility: weather[:mean_visibility].to_f,
-                    mean_wind_speed: weather[:mean_wind_speed].to_f,
-                    precip: weather[:precip].to_f
+                    mean_visibility: weather[:mean_visibility_miles].to_f,
+                    mean_wind_speed: weather[:mean_wind_speed_mph].to_f,
+                    precip: weather[:precipitation_inches].to_f
                   }
       if
         weather = Condition.create!(weather_hash)
