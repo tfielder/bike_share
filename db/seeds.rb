@@ -38,7 +38,7 @@ class Seed
 
   def self.read_stations
     @stations = []
-    CSV.foreach(Rails.root.join('db', 'csv', 'station.csv'), OPTIONS) do |station|
+    CSV.foreach(File.join('db', 'csv', 'station.csv'), OPTIONS) do |station|
       @stations << station
     end
     @stations
@@ -67,7 +67,7 @@ class Seed
 
   def self.read_trips
     @trips = []
-    CSV.foreach(Rails.root.join('db', 'csv', 'trip.csv'), OPTIONS) do |trip|
+    CSV.foreach(File.join('db', 'csv', 'trip.csv'), OPTIONS) do |trip|
       @trips << trip
     end
     @trips
@@ -97,7 +97,7 @@ class Seed
 
   def self.read_weather
     @weathers = []
-    CSV.foreach(Rails.root.join('db', 'csv', 'weather.csv'), OPTIONS) do |weather|
+    CSV.foreach(File.join('db', 'csv', 'weather.csv'), OPTIONS) do |weather|
       @weathers << weather
     end
     @weathers
