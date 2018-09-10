@@ -26,7 +26,7 @@ describe 'as a visitor to /bike_shop' do
 
     end
 
-    xit 'shows the cart count updated on all pages' do
+    it 'shows the cart count updated on all pages' do
       expect(page).to have_content("Cart: 0")
 
       first('.bike_shop_item_2').click_on("Add to Cart")
