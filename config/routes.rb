@@ -18,4 +18,8 @@ Rails.application.routes.draw do
 
 
   resources :accessories, only: [:show], param: :slug
+
+  post '/cart', to: 'carts#create'
+  get '/cart', to: 'carts#show'
+
 end
