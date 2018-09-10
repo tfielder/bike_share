@@ -19,7 +19,6 @@ describe 'User adds item to cart' do
 
     it 'displays a message' do
       visit bike_shop_path
-
       within('.bike_shop_item_2') do
         click_on("Add to Cart")
       end

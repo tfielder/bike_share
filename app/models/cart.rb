@@ -1,5 +1,5 @@
 class Cart
-  attr_reader :contents
+  attr_accessor :contents
 
   def initialize(initial_contents)
     @contents = initial_contents || Hash.new(0)
@@ -10,7 +10,16 @@ class Cart
   end
 
   def add_accessory(id)
-    binding.pry
+    if @contents[id]
+      @contents[id]
+    else
+      id = id.to_s
+      if @contents[id]
+        @contents[id]
+      else
+        @contents[id] = 0
+      end
+    end
     @contents[id] = @contents[id] + 1
   end
 
@@ -18,5 +27,12 @@ class Cart
     @contents.map do |id, count|
       [Accessory.find(id), count]
     end
+  end
+
+  def total_price
+    sum_array = accessories.map do |accessory, count|
+      accessory.price * count
+    end
+    sum_array.sum
   end
 end
