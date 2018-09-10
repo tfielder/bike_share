@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
-  resources :stations, only: [:index, :show], param: :slug
+  resources :stations, only: [:index], param: :slug
 
   resources :conditions, only: [:index, :show]
 
@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
+
+  get '/:slug', to: 'stations#show', as: "station"
 
 end
