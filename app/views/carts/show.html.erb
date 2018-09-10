@@ -2,6 +2,9 @@
 <% @accessories.each do |accessory, count| %>
   <ul>
     <li>
+      <img class='accessory-image' src="<%= accessory.image %>" alt="holder.jpg" height="50" width="50">
+    </li>
+    <li>
       <%= accessory.title %>
     </li>
     <li>

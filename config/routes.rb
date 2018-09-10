@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get '/bike_shop', to: 'bike_shop#index'
 
   resources :stations, only: [:index], param: :slug
-  get '/:slug', to: 'stations#show', as: "station"
 
   resources :conditions, only: [:index, :show]
 
@@ -22,5 +21,7 @@ Rails.application.routes.draw do
 
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
+
+  get '/:slug', to: 'stations#show', as: "station"
 
 end

@@ -9,7 +9,7 @@
   <li><% if @accessory.retired == true %>
         <%= "Accessory Retired" %>
       <% else %>
-        <%= link_to "Add To Cart", accessory_path(@accessory) %>
+        <li><%= button_to "Add to Cart", cart_path(item_id: @accessory.id), method: "post", class: "btn"%></li>
       <% end %>
   </li>
 </ul>
