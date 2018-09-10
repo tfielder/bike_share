@@ -45,18 +45,22 @@ class Seed
   end
 
   def self.seed_trips
-    trips = read_trips
+    trips = read_trips.sample(500)
     trips.each do |trip|
-      trip_hash = {duration: trip[:duration],
-                    start_date: DateTime.parse(trip[:start_date]),
+      trip_hash = { duration: trip[:duration],
+                    start_date: Date.strptime(trip[:start_date], '%m/%d/%y'),
                     start_station_id: trip[:start_station_id],
-                    end_date: DateTime.parse(trip[:end_date]),
+                    end_date: Date.strptime(trip[:end_date], '%m/%d/%y'),
                     end_station_id: trip[:end_station_id],
                     zip_code: trip[:zip_code],
                     bike_id: trip[:bike_id],
                     subscription_type: trip[:subscription_type]}
-      trip = Trip.create!(trip_hash)
-      puts "Created #{trip.name}"
+      if Station.find_by_id(trip[:start_station_id]) && Station.find_by_id(trip[:end_station_id]) && trip[:zip_code]
+        trip = Trip.create!(trip_hash)
+        puts "Created trip!"
+      else
+        puts "Skipped trip!"
+      end
     end
     puts "Created all trips."
   end
@@ -72,16 +76,21 @@ class Seed
   def self.seed_weather
     weathers = read_weather.sample(500)
     weathers.each do |weather|
-      weather_hash = {date: weather[:date],
-                    max_temp: weather[:max_temp],
-                    mean_temp: weather[:mean_temp],
-                    min_temp: weather[:min_temp],
-                    mean_humidity: weather[:mean_humidity],
-                    mean_visibility: weather[:mean_visibility],
-                    mean_wind_speed: weather[:mean_wind_speed],
-                    precip: weather[:precip]}
-      weather = Condition.create!(weather_hash)
-      puts "Created #{weather.name}"
+      weather_hash = {date: Date.strptime(weather[:date], '%m/%d/%y'),
+                    max_temp: weather[:max_temp].to_f,
+                    mean_temp: weather[:mean_temp].to_f,
+                    min_temp: weather[:min_temp].to_f,
+                    mean_humidity: weather[:mean_humidity].to_f,
+                    mean_visibility: weather[:mean_visibility].to_f,
+                    mean_wind_speed: weather[:mean_wind_speed].to_f,
+                    precip: weather[:precip].to_f
+                  }
+      if
+        weather = Condition.create!(weather_hash)
+        puts "Created condition"
+      else
+        puts "Skipped condition!"
+      end
     end
     puts "Created all weather."
   end
