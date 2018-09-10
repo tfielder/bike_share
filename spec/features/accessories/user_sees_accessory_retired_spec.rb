@@ -16,7 +16,7 @@ describe "User visits an accessory show page" do
                                   )
 
       visit accessory_path(accessory1)
-      expect(page).to have_link("Add To Cart")
+      expect(page).to have_button("Add to Cart")
       expect(page).to_not have_content("Accessory Retired")
 
       visit accessory_path(accessory2)
