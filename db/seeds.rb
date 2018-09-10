@@ -125,7 +125,7 @@ Accessory.create!( image: "https://www.marxfoods.com/images/Blood-Oranges-Wholes
 Accessory.create!( image: "https://www.rockitpro.com/wp-content/uploads/letyougo-thumbnail.jpg",
                    title: "Talking To A Dead Relative",
                    description: "The price here isn't money",
-                   price: 00.05
+                   price: 0.05
                 )
 Accessory.create!( image: "http://www.plantic.com.au/Sustainability/Rubbish03.jpg",
                    title: "Most Of The Earths Trash",
