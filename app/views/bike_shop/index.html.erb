@@ -5,7 +5,7 @@
     <ul>
       <img src= "<%= item.image %>" />
       <li><%= link_to item.title, accessory_path(item) %></li>
-      <li><%= item.price %></li>
+      <li><%= number_to_currency(item.price) %></li>
       <li><%= item.description %></li>
       <li><%= button_to "Add to Cart", cart_path(item_id: item.id), method: "post", class: "btn"%></li>
     </ul>
