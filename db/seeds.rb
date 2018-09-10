@@ -45,7 +45,7 @@ class Seed
   end
 
   def self.seed_trips
-    trips = read_trips.sample(500)
+    trips = read_trips
     trips.each do |trip|
       trip_hash = { duration: trip[:duration],
                     start_date: Date.strptime(trip[:start_date], '%m/%d/%y'),
@@ -74,7 +74,7 @@ class Seed
   end
 
   def self.seed_weather
-    weathers = read_weather.sample(500)
+    weathers = read_weather
     weathers.each do |weather|
       weather_hash = {date: Date.strptime(weather[:date], '%m/%d/%y'),
                     max_temp: weather[:max_temp].to_f,
