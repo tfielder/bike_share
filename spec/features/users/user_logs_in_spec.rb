@@ -33,9 +33,19 @@ feature 'Registered user can log in' do
         end
       end
 
-    scenario 'I cannot login when I fill in the wrong info' do
+    scenario 'I cannot login when I fill in the wrong email' do
       fill_in :email, with: "wrong@email.com"
       fill_in :password, with: user.password
+
+      click_on "Submit"
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Incorrect email or password, please try again")
+    end
+
+    scenario 'I cannot login when I fill in the wrong password' do
+      fill_in :email, with: user.email
+      fill_in :password, with: "wrong"
 
       click_on "Submit"
 
