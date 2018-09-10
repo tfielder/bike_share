@@ -38,7 +38,7 @@ class Seed
 
   def self.read_stations
     @stations = []
-    CSV.foreach(File.join('db', 'station.csv'), OPTIONS) do |station|
+    CSV.foreach(File.join('db', 'csv', 'station.csv'), OPTIONS) do |station|
       @stations << station
     end
     @stations

@@ -19,4 +19,6 @@
 .byebug_history
 coverage
 
-db/csv
+db/csv/.DS_Store
+db/csv/database.sqlite
+db/csv/status.csv
