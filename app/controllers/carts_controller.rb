@@ -12,4 +12,8 @@ class CartsController < ApplicationController
   def show
     @accessories = @cart.accessories
   end
+
+  def destroy
+    @cart.contents[:id]
+  end
 end
