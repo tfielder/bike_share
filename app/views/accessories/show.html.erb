@@ -4,7 +4,7 @@
   <div class='image-holder'>
     <img class='accessory-image' src="<%= @accessory.image %>" alt="holder.jpg">
   </div>
-  <li>Price: $<%= @accessory.price %></li>
+  <li>Price: <%= number_to_currency(@accessory.price) %></li>
   <li>Description: <%= @accessory.description %></li>
   <li><% if @accessory.retired == true %>
         <%= "Accessory Retired" %>

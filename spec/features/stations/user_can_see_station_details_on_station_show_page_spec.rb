@@ -11,7 +11,7 @@ describe 'User visits a station show page' do
 
       visit station_path(station)
 
-      expect(current_path).to eq("/stations/san-jose-diridon-caltrain-station")
+      expect(current_path).to eq("/san-jose-diridon-caltrain-station")
       expect(page).to have_content(station.name)
       expect(page).to have_content(station.dock_count)
       expect(page).to have_content(station.city)
