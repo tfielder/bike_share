@@ -20,16 +20,19 @@ describe 'As a registered user' do
       visit cart_path
     end
     it 'shows small image, title, and price for each accessory in the cart' do
-      
-      expect(page).to have_content("#{@item_2.title} Qty: 2")
-      expect(page).to have_content("#{@item_3.title} Qty: 1")
+      expect(page).to have_css("img[src*='image2']")
+      expect(page).to have_content("#{@item_2.title} Price: #{@item_2.price} Qty: 2")
+      expect(page).to have_css("img[src*='image3']")
+      expect(page).to have_content("#{@item_3.title} Price: #{@item_2.price} Qty: 1")
 
     end
     it 'shows a subtotal, quantity breakdown for each accessory and total for cart' do
-
+      expect(page).to have_content("Cart Subtotal: #{@cart.total_price}")
     end
+
     it 'shows a button to checkout' do
 
     end
+
   end
 end
