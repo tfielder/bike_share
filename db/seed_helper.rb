@@ -16,8 +16,8 @@ class SeedHelper
     CSV.foreach(File.join('db', 'csv', 'trip.csv')) do |trip|
       @trips << trip
     end
-    small_sample = @trips.sample(500)
-    File.open("db/csv/small_trip.csv", "w") {|f| f.write(small_sample.inject([]) { |csv, row|  csv << CSV.generate_line(row) }.join(""))}
+    small_sample2 = @trips.sample(500)
+    File.open("db/csv/small_trip.csv", "w") {|f| f.write(small_sample2.inject([]) { |csv, row|  csv << CSV.generate_line(row) }.join(""))}
   end
 
   def self.read_weather
