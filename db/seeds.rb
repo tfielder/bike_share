@@ -29,11 +29,14 @@ class Seed
       station_hash = {name: station[:name],
                       dock_count: station[:dock_count],
                       city: station[:city],
-                      installation_date: station[:installation_date]}
+                      installation_date: station[:installation_date],
+                      id: station[:id]
+                    }
       station = Station.create!(station_hash)
       puts "Created #{station.name}"
     end
     puts "Created all stations."
+    ActiveRecord::Base.connection.reset_pk_sequence!('stations')
   end
 
   def self.read_stations
@@ -54,7 +57,9 @@ class Seed
                     end_station_id: trip[:end_station_id],
                     zip_code: trip[:zip_code],
                     bike_id: trip[:bike_id],
-                    subscription_type: trip[:subscription_type]}
+                    subscription_type: trip[:subscription_type],
+                    id: trip[:id]
+                  }
       if Station.find_by_id(trip[:start_station_id]) && Station.find_by_id(trip[:end_station_id]) && trip[:zip_code]
         trip = Trip.create!(trip_hash)
         puts "Created trip!"
@@ -63,6 +68,7 @@ class Seed
       end
     end
     puts "Created all trips."
+    ActiveRecord::Base.connection.reset_pk_sequence!('trips')
   end
 
   def self.read_trips
@@ -93,6 +99,7 @@ class Seed
       end
     end
     puts "Created all weather."
+    ActiveRecord::Base.connection.reset_pk_sequence!('conditions')
   end
 
   def self.read_weather
