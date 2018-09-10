@@ -1,8 +1,9 @@
 <h1>Conditions</h1>
+</br>
 
 <% @conditions.each do |condition| %>
 <ul>
-  <li>Date: <%= condition.date %></li>
+  <li><%= link_to "Date: #{condition.date}", condition_path(condition.id) %></li>
   <li>Max Temperature: <%= condition.max_temp %> °F</li>
   <li>Mean Temperature: <%= condition.mean_temp %> °F</li>
   <li>Min Temperature: <%= condition.min_temp %> °F</li>
