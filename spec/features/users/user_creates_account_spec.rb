@@ -55,7 +55,6 @@ feature 'New user can create an account' do
                 fill_in :user_password_confirmation, with: "123"
 
                 click_on "Submit"
-                save_and_open_page
 
                 expect(page).to have_content("Name")
                 expect(page).to have_content("Email")
