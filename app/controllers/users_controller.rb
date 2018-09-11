@@ -15,11 +15,12 @@ class UsersController < ApplicationController
     else
       flash.now.alert "Please try again."
       render :new
-    end 
+    end
   end
 
   def dashboard
-
+    @user = current_user
+    @orders = @user.orders
   end
 
   private

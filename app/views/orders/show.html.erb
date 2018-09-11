@@ -1,0 +1,16 @@
+<h1> Order #<%= @order.id %></h1>
+<p>Created: <%= @order.created_at %></p>
+  <% if @order.status.downcase == "completed" || @order.status.downcase == "cancelled" %>
+    <p>Status: <%= @order.status %>, <%= @order.updated_at %></p>
+  <% else %>
+    <p>Status: <%= @order.status %><p>
+  <% end %>
+<h3>Items:</h3>
+<% @accessories.each do |accessory, count| %>
+  <ul>
+    <li><%= accessory.title %>: <%= number_to_currency(accessory.price) %></li>
+    <li>Qty: <%= count %></li>
+    <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
+  </ul>
+<% end %>
+<h2>Total: <%= @total_price %></h2>

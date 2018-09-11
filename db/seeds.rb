@@ -56,8 +56,8 @@ class Seed
                     end_date: Date.strptime(trip[:end_date], '%m/%d/%y'),
                     end_station_id: trip[:end_station_id],
                     zip_code: trip[:zip_code],
-                    bike_id: trip[:bike_id],
                     subscription_type: trip[:subscription_type],
+                    bike_id: trip[:bike_id],
                     id: trip[:id]
                   }
       if Station.find_by_id(trip[:start_station_id]) && Station.find_by_id(trip[:end_station_id]) && trip[:zip_code]
@@ -173,5 +173,29 @@ Accessory.create!( image: "https://www.adorama.com/images/product/dgpatlagcs.jpg
                    description: "Just a guitar",
                    price: 120.00
                 )
+ActiveRecord::Base.connection.reset_pk_sequence!('accessories')
+
+User.create!( name: "Autumn",
+              email: "autumn@autumn.com",
+              password_digest: "123",
+              role: 1
+            )
+User.create!( name: "Maria",
+              email: "maria@maria.com",
+              password_digest: "123",
+              role: 1
+            )
+User.create!( name: "Tim",
+              email: "tim@tim.com",
+              password_digest: "123",
+              role: 1
+            )
+User.create!( name: "Ben",
+              email: "ben1@ben1.com",
+              password_digest: "123",
+              role: 1
+            )
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
 
 Seed.start
