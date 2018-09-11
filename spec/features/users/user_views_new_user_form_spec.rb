@@ -6,7 +6,6 @@ feature 'User views new user form page' do
     before do
       visit login_path
       click_on "Create Account"
-      save_and_open_page
     end
 
     scenario 'user views new user page' do
