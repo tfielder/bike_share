@@ -20,13 +20,15 @@ describe 'a user should be able to remove an accessroy' do
     first('.bike_shop_item_2').click_on("Add to Cart")
     expect(page).to have_content("Cart : 1")
 
-    first('.bike_shop_item_5').click_on("Add to Cart")
-    expect(page).to have_content("Cart : 2")
-
     click_on "Cart"
-    expect(current_path).to eq(cart_path)
 
-    first(".accessory").click_on("Remove")
+    expect(current_path).to eq(cart_path)
+    expect(page).to have_content(@item_2.title)
+    save_and_open_page
+
+    click_on("Remove")
+    expect(page).to_not have_content(@item_2.title)
+
 
 
   end

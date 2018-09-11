@@ -14,9 +14,10 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    @accessory = Accessory.find(params[:accessory_id])
-    @accesories.remove_accessory(@accessory.id.to_s)
+    @accessories = @cart.accessories
+    @accessory = Accessory.find(params[:item_id])
+    @accessory.destroy
+    # @accesories.remove_accessory(@accessory.id)
     flash[:notice] = "Successfully removed #{@accessory.title} from your cart."
-    redirect_to '/cart'
   end
 end
