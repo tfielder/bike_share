@@ -14,10 +14,18 @@ body {
     text-align: center;
 
     .user-form {
-      margin: 2% 5%;
-      text-align: left;
+
+      background-color: #424c55;
+      color: #d7e8e7;
+      padding: 2% 2%;
+
+      .form-section {
+        margin: 2% 5%;
+        text-align: left;
+      }
     }
   }
+
   .btn {
     background-color: #d7e8e7;
     color: #30323d;
