@@ -12,6 +12,8 @@ class CartsController < ApplicationController
   def increase
     accessory = Accessory.find(params[:item_id])
     @cart.add_accessory(accessory.id)
+    session[:cart] = @cart.contents
+
     redirect_to cart_path
   end
 

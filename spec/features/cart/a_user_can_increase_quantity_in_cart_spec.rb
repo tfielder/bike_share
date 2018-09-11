@@ -18,9 +18,9 @@ describe 'a user should be able to increase quantity in the cart' do
 
     click_on "Increase"
     save_and_open_page
-#erjfdfs
+    expect(current_path).to eq(cart_path)
     expect(page).to have_content("Qty: 2")
-    expect(page).to have_content("Total: $10.01")
+    expect(page).to have_content("Total: $20.02")
     expect(page).to have_content("Subtotal: $20.02")
   end
 end
