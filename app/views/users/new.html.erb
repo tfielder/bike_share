@@ -1,11 +1,33 @@
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit 'Submit' %>
-<% end  %>
+<div class="user-form-container container">
+  <h1>Please enter your info to get started.</h1>
+  <div class="user-form">
+    <%= form_for @user do |f| %>
+      <div class="form-section">
+        <%= f.label :name, style: "margin-bottom:2%" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Enter name" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= f.label :email, style: "margin-bottom:2%" %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+        <small class="form-text text-muted">
+            We'll never share your email with anyone else.
+        </small>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= f.label :password, style: "margin-bottom:2%"%>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= f.label :password_confirmation, style: "margin-bottom:2%" %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= f.submit 'Submit', class: "btn" %>
+      </div>
+    <% end  %>
+  </div>
+</div>

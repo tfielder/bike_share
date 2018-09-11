@@ -1,0 +1,25 @@
+<h1>Cart</h1>
+<% @accessories.each do |accessory, count| %>
+  <ul>
+    <li>
+      <img class='accessory-image' src="<%= accessory.image %>" alt="holder.jpg" height="50" width="50">
+    </li>
+    <li>
+      <%= accessory.title %>
+    </li>
+    <li>
+      Price: <%= number_to_currency(accessory.price) %>
+    </li>
+    <li>
+      Qty: <%= count %>
+    </li>
+    <li>
+      Total: <%= number_to_currency(@cart.line_total(accessory, count)) %>
+    </li>
+  </ul>
+  <% end %>
+
+</br>
+  <h2>Cart Subtotal: <%= number_to_currency(@cart.sub_total) %></h2>
+</br>
+  <h3><%= button_to "Checkout", bike_shop_path %></h3>

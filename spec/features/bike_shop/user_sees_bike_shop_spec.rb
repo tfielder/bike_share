@@ -37,9 +37,15 @@ describe 'As a visitor' do
       expect(page).to have_content("#{@item_6.title}")
       expect(page).to have_content("#{@item_6.description}")
       expect(page).to have_content("#{@item_6.price}")
+      expect(page).to have_content("#{@item_7.title}")
+      expect(page).to have_content("#{@item_8.title}")
+      expect(page).to have_content("#{@item_9.title}")
+      expect(page).to have_content("#{@item_10.title}")
+      expect(page).to have_content("#{@item_11.title}")
+      expect(page).to have_content("#{@item_12.title}")
     end
     it 'shows a button near each item that says add to cart' do
-      expect(page).to have_content("Add to Cart")
+      expect(page).to have_button("Add to Cart")
     end
   end
 end

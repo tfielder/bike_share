@@ -8,18 +8,19 @@ class UsersController < ApplicationController
     @user.email.downcase!
 
     if @user.save
-      flash[:notice] = "Wecome to Bike Share #{@user.name}"
+      flash[:notice] = "Welcome to Bike Share #{@user.name}"
       session[:user_id] = @user.id
 
       redirect_to :dashboard
     else
-      flash.now.alert "Please try again."
+      flash.now.alert = "Please try again."
       render :new
-    end 
+    end
   end
 
   def dashboard
-
+    @user = current_user
+    @orders = @user.orders
   end
 
   private

@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
     else
       flash.now.alert = "Incorrect email or password, please try again."
       render :new
-    end 
+    end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to welcome_home_path, notice: "Successfully logged out."
   end
 end
