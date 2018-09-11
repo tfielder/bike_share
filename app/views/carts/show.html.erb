@@ -18,6 +18,6 @@
       Total: <%= number_to_currency(@cart.total_price) %>
     </li>
   </ul>
-  <li><%= button_to "Remove", cart_path(item_id: item.id), method: "destroy", class: "btn"%></li>
+  <li><%= button_to "Remove", cart_path(item_id: item.id), method: "delete", class: "btn"%></li>
 </div>
   <% end %>

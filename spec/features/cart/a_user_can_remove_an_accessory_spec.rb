@@ -24,10 +24,10 @@ describe 'a user should be able to remove an accessroy' do
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(@item_2.title)
-    save_and_open_page
 
     click_on("Remove")
-    expect(page).to_not have_content(@item_2.title)
+    save_and_open_page
+    expect(page).to_not have_content(@item_2.count)
 
 
 
