@@ -19,6 +19,8 @@
     </li>
     <li><%= button_to "Remove", cart_path(item_id: item.id), method: "delete", class: "btn"%></li>
     <li><%= button_to "Increase", cart_path(item_id: item.id), method: "put", class: "btn" %></li>
+    <li><%= button_to "Decrease", cart_path(item_id: item.id), method: "patch", class: "btn" %></li>
+
   </ul>
 </div>
   <% end %>
