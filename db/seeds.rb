@@ -196,7 +196,7 @@ User.create!( name: "Ben",
               role: 1
             )
 User.create!( name: "test",
-              email: "test",
+              email: "test@test",
               password_digest: "test",
               role: 0
             )
