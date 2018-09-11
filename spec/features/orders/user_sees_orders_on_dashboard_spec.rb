@@ -29,7 +29,6 @@ describe 'as a user' do
       expect(page).to have_content(order.total_price)
       expect(page).to have_content(order.updated_at)
       expect(page).to have_content(order.created_at)
-      save_and_open_page
     end
   end
 end
