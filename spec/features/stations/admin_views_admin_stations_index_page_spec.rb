@@ -33,7 +33,7 @@ feature 'Admin views admin stations index page' do
 
       scenario 'I am on the admin stations index page' do
         expect(current_path).to eq(admin_stations_path)
-        expect(page).to have_content("Admin Stations")
+        expect(page).to have_content("All Admin Stations")
       end
 
       scenario 'I view an edit button for each station' do
