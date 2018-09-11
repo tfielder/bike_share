@@ -10,7 +10,7 @@
 
   <body>
     <%= render "shared/navigation" %>
-    
+
     <% if notice %>
       <%= notice %>
     <% end %>
@@ -18,6 +18,11 @@
     <% if alert %>
       <%= alert %>
     <% end %>
+
+      <% if flash[:warning] %>
+     <div class="remove"><%= flash[:warning].html_safe %></div>
+     <% end %>
+
 
     <%= yield %>
   </body>

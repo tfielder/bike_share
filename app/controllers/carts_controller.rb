@@ -12,4 +12,11 @@ class CartsController < ApplicationController
   def show
     @accessories = @cart.accessories
   end
+
+  def destroy
+    @cart.contents.delete(params[:item_id])
+    accessory = Accessory.find(params[:item_id])
+    flash[:warning] = "Successfully removed #{view_context.link_to accessory.title, accessory_path(accessory)} from your cart.".html_safe
+    redirect_to cart_path
+  end
 end
