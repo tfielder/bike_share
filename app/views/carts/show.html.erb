@@ -14,10 +14,12 @@
       Qty: <%= count %>
     </li>
     <li>
-      Total: <%= number_to_currency(@cart.total_price) %>
+      Total: <%= number_to_currency(@cart.line_total(accessory, count)) %>
     </li>
   </ul>
   <% end %>
 
 </br>
-  <h2>Cart Subtotal: <%= number_to_currency(@cart.total_price) %></h2>
+  <h2>Cart Subtotal: <%= number_to_currency(@cart.sub_total) %></h2>
+</br>
+  <h3><%= link_to "Checkout", bike_shop_path  %></h3>
