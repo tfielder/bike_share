@@ -27,8 +27,8 @@ describe 'As a registered user' do
       expect(current_path).to eq(dashboard_path)
 
     end
-    xit 'shows flash message notifying Successfully submitted your order totaling $TOTAL' do
-      first('.checkout').click_on("Checkout")
+    it 'shows flash message notifying Successfully submitted your order totaling $TOTAL' do
+      click_on("Checkout")
 
       expect(current_path).to eq(dashboard_path)
 

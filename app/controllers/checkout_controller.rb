@@ -7,11 +7,12 @@ class CheckoutController < ApplicationController
     end
 
     if checkout.save
+      flash[:notice] = "Successfully submitted your order totaling $#{@cart.sub_total}! You ordered #{@cart.accessories.count} items."
       session[:cart] = nil
-      flash[:notice] = "Your order is checked out! You ordered #{checkout.accessories.count} items."
-      redirect_to bike_shop_path
+      redirect_to dashboard_path
     else
       flash[:notice] = "Something went wrong, try again later."
+      redirect_to bike_shop_path
     end
   end
 end
