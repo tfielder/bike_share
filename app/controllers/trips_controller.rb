@@ -9,6 +9,8 @@ class TripsController < ApplicationController
 
   def dashboard
     trips = Trip.all
+    @average = trips.average_duration
+
   end
 
 end

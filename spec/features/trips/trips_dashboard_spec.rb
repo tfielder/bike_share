@@ -10,8 +10,10 @@ describe'a registered user can visits trips dashboard' do
     trip_3 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
     trip_4 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
 
+    trips = Trip.all
+    @average = trips.average_duration
     visit trips_dashboard_path
-    expect(page).to have_content("Average Duration: #{avg_duration}")
+    expect(page).to have_content("Average Duration: #{@average}")
 
   end
 end
