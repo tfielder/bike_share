@@ -23,6 +23,18 @@ describe 'as a registered user' do
                                 installation_date: Date.strptime("8/6/2015", "%m/%d/%Y")
                               )
 
+      stations = Station.all
+      @count = stations.count
+      @average = stations.average(:dock_count)
+      ordered_dock_count = stations.order(dock_count: :DESC)
+      @most_bikes = ordered_dock_count.first.dock_count
+      @least_bikes = ordered_dock_count.last.dock_count
+      @station_most_bikes = ordered_dock_count.first.name
+      @station_least_bikes = ordered_dock_count.last.name
+      ordered_installation_date = stations.order(installation_date: :DESC)
+      @newest_station = ordered_installation_date.first.name
+      @oldest_station = ordered_installation_date.last.name
+
       visit stations_dashboard_path
     end
 
