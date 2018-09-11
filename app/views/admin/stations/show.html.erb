@@ -4,6 +4,6 @@
   <li><%= @station.dock_count %></li>
   <li><%= @station.city %></li>
   <li><%= @station.installation_date %></li>
-  <li><%= link_to "Edit", admin_station_path %></li>
-  <li><%= link_to "Delete", admin_station_path, method: "delete" %></li>
+  <li><%= link_to "Edit", edit_admin_station_path(@station) %></li>
+  <li><%= link_to "Delete", admin_station_path, method: :delete %></li>
 </ul>
