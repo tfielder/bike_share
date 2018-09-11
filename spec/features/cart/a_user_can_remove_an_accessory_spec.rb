@@ -18,7 +18,7 @@ describe 'a user should be able to remove an accessroy' do
   end
   it 'should display a message' do
     first('.bike_shop_item_2').click_on("Add to Cart")
-    expect(page).to have_content("Cart : 1")
+    expect(page).to have_content("Cart: 1")
 
     click_on "Cart"
 
