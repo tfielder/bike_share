@@ -17,6 +17,14 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
+  def decrease
+    accessory = Accessory.find(params[:item_id])
+    @cart.contents.delete(params[:item_id])
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
   def show
     @accessories = @cart.accessories
   end
