@@ -29,7 +29,7 @@ class Seed
       station_hash = {name: station[:name],
                       dock_count: station[:dock_count],
                       city: station[:city],
-                      installation_date: station[:installation_date],
+                      installation_date: Date.strptime(station[:installation_date], '%m/%d/%Y'),
                       id: station[:id]
                     }
       station = Station.create!(station_hash)
