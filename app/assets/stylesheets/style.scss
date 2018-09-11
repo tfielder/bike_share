@@ -1,0 +1,29 @@
+// color theme (lightest to darkest):
+// #d7e8e7
+// #829399
+// #466362
+// #424c55
+// #30323d
+
+body {
+
+  .user-form-container {
+    color: #30323d;
+    margin: 5% 5%;
+    padding-bottom: 10%;
+    text-align: center;
+
+    .user-form {
+      margin: 2% 5%;
+      text-align: left;
+    }
+  }
+  .btn {
+    background-color: #d7e8e7;
+    color: #30323d;
+  }
+  .btn:hover {
+    background-color: #466362;
+    color: #d7e8e7;
+  }
+}
