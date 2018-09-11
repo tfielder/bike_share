@@ -8,5 +8,9 @@ describe User do
     end
     it "can be created as a default user" do
       user = User.create!(name: "Ameila Pond", email: "amelia@pond.com", password: "Rory", password_confirmation: "Rory", role: 0)
+
+      expect(user.role).to eq("default")
+      expect(user.admin?).to be_falsey
+    end 
   end
 end
