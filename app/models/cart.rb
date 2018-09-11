@@ -29,7 +29,11 @@ class Cart
     end
   end
 
-  def total_price
+  def line_total(accessory, count)
+    accessory.price * count
+  end
+
+  def sub_total
     sum_array = accessories.map do |accessory, count|
       accessory.price * count
     end

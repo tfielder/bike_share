@@ -40,7 +40,7 @@ describe 'User adds item to cart' do
       expect(page).to have_content(@item_3.title)
       expect(page).to have_content(@item_3.price)
       expect(page).to have_content("Qty: 1")
-      expect(page).to have_content("Total: $30.07")
+      expect(page).to have_content("Cart Subtotal: $30.07")
     end
   end
 end
