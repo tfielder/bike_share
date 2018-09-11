@@ -17,8 +17,8 @@ feature 'Admin edits station' do
     context 'when I click on Edit' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
-
         expect(current_path).to eq(edit_admin_station_path(station))
+        expect(page).to have_content("Edit #{station.name}")
         expect(page).to have_content("Name:")
         expect(page).to have_content("Dock count:")
         expect(page).to have_content("City:")
