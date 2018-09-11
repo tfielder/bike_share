@@ -1,10 +1,23 @@
-<h1>Log In</h1>
-<%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
-
-<%= link_to "Create Account", new_user_path %>
+<div class="user-form-container container">
+  <h1>Log In</h1>
+</br>
+  <div class="user-form">
+    <%= form_tag login_path do %>
+      <div class="form-section">
+        <%= label_tag :email %>:
+        <%= email_field_tag :email %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= label_tag :password %>:
+        <%= password_field_tag :password %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= submit_tag "Submit", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+  </br>
+  <%= link_to "Create Account", new_user_path, class: "btn", style: "text-align: center" %>
+</div>
