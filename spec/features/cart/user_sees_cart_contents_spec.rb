@@ -32,7 +32,7 @@ describe 'As a registered user' do
     end
 
     it 'shows a button to checkout' do
-      expect(page).to have_content("Checkout")
+      expect(page).to have_selector(:link_or_button, 'Checkout')
     end
 
   end
