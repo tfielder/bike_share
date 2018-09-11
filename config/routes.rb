@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :accessories, only: [:show], param: :slug
 
-  resources :packages, only: [:create]
+  resources :checkout, only: [:create]
 
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
