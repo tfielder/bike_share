@@ -23,9 +23,15 @@ feature 'Admin edits station' do
         expect(page).to have_content("Dock count:")
         expect(page).to have_content("City:")
         expect(page).to have_content("Installation date:")
+        expect(page).to have_button("Submit Changes")
       end
       context 'when I update the form and click submit' do
-        xscenario 'it updates a station' do
+        scenario 'it updates a station' do
+          click_on "Edit"
+          fill_in :station_dock_count, with: "42"
+          click_on "Submit Changes"
+          expect(current_path).to eq(admin_station_path(station))
+          expect(station.dock_count).to eq("42")
         end
       end
     end
