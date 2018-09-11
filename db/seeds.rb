@@ -83,7 +83,7 @@ class Seed
     weathers = read_weather
     weathers.each do |weather|
       weather_hash = {
-                    date: Date.strptime(weather[:date], '%m/%d/%y'),
+                    date: Date.strptime(weather[:date], '%m/%d/%Y'),
                     max_temp: weather[:max_temperature_f].to_f,
                     mean_temp: weather[:mean_temperature_f].to_f,
                     min_temp: weather[:min_temperature_f].to_f,
