@@ -54,7 +54,6 @@ describe 'as a registered user' do
       expect(page).to have_content("Newest Installed Station: #{@newest_station}")
     end
     it "shows the Oldest station" do
-      save_and_open_page
       expect(page).to have_content("Oldest Installed Station: #{@oldest_station}")
     end
   end

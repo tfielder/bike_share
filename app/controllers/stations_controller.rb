@@ -20,13 +20,6 @@ class StationsController < ApplicationController
     ordered_installation_date = stations.order(installation_date: :DESC)
     @newest_station = ordered_installation_date.first.name
     @oldest_station = ordered_installation_date.last.name
-
-    #@most_bikes = stations.maximum(:dock_count)
-    # @station_most_bikes = stations.order(dock_count: :DESC).first.name
-    # @least_bikes = stations.minimum(:dock_count)
-    # @station_least_bikes = stations.order(dock_count: :ASC).first.name
-    # @newest_station = stations.order(installation_date: :DESC).first.name
-    # @oldest_station = stations.order(installation_date: :DESC).last.name
   end
 
 end
