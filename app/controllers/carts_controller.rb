@@ -15,8 +15,11 @@ class CartsController < ApplicationController
 
   def destroy
      @cart.contents.delete(params[:item_id])
-     @accessory = Accessory.find(params[:item_id])
-     flash[:info] = "Successfully removed <a href=/bike-shop/#{@accessory.id}>'#{@accessory.title}'</a> from your cart."
+     accessory = Accessory.find(params[:item_id])
+     #link = "<a href='/accessories/#{@accessory.title}'>#{@accessory.title}</a>".html_safe
+     #Successfully removed #{view_context.link_to name, accessory_path(accessory)
+    flash[:notice] = "Successfully removed #{view_context.link_to accessory.title, accessory_path(accessory)}".html_safe
+    #flash[:notice] = "Successfully removed #{@accessory.title} from your cart."
     redirect_to cart_path
   end
 end
