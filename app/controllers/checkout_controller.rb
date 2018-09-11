@@ -1,13 +1,9 @@
 class CheckoutController < ApplicationController
   include ActionView::Helpers::TextHelper
   def create
-    binding.pry
-    checkout = Checkout.new(@current_user)
-    cart.accessories.each do |accessory, number|
-      checkout.accessories.new(accessory: accessory_id, quantity: number)
-    end
+    current_user.orders.create(status: "pending")
 
-    if checkout.save
+    if current_user.orders
       total = @cart.sub_total
       num_items = @cart.accessories.count
       session[:cart] = nil
