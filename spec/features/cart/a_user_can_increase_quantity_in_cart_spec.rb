@@ -17,6 +17,7 @@ describe 'a user should be able to increase quantity in the cart' do
 
 
     click_on "Increase"
+    save_and_open_page
 
     expect(page).to have_content("Qty: 2")
     expect(page).to have_content("Total: $10.01")
