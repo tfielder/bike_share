@@ -17,7 +17,7 @@ describe Cart do
     end
     it 'removes accessories from contents' do
       subject.remove_accessory(1)
-      expect(subject.contents).to eq({ 1 => 2, 2 => 3})
+      expect(subject.contents).to eq({ 1 => 1, 2 => 3})
     end
   end
 end

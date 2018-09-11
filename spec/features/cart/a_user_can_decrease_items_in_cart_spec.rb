@@ -20,6 +20,7 @@ describe 'a user should be able to increase quantity in the cart' do
      click_on "Decrease"
 
     expect(current_path).to eq(cart_path)
+    save_and_open_page
     expect(page).to have_content("Qty: 1")
     expect(page).to have_content("Total: $10.01")
     expect(page).to have_content("Subtotal: $10.01")

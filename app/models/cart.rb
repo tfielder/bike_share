@@ -24,7 +24,17 @@ class Cart
   end
 
   def remove_accessory(id)
-    @contents[id]-1
+    if @contents[id]
+      @contents[id]
+    else
+      id = id.to_s
+      if @contents[id]
+        @contents[id]
+      else
+        @contents[id] = 0
+      end
+    end
+    @contents[id] = @contents[id] - 1
   end
 
   def accessories
