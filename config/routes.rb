@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#dashboard'
+  post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
   resources :stations, only: [:index], param: :slug

@@ -195,6 +195,11 @@ User.create!( name: "Ben",
               password_digest: "123",
               role: 1
             )
+User.create!( name: "test",
+              email: "test@test",
+              password_digest: "test",
+              role: 0
+            )
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 
