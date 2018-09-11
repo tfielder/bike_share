@@ -6,17 +6,17 @@ describe 'User visits the stations index page' do
       station1 = Station.create(name:              "San Jose Diridon Caltrain Station",
                                 dock_count:        27,
                                 city:              "San Jose",
-                                installation_date: "8/6/2013",
+                                installation_date: Date.strptime("8/6/2015", "%m/%d/%Y")
                               )
       station2 = Station.create(name:              "San Jose Civic Center",
                                 dock_count:        15,
                                 city:              "San Jose",
-                                installation_date: "8/5/2013",
+                                installation_date: Date.strptime("8/6/2015", "%m/%d/%Y")
                               )
       station3 = Station.create(name:              "Santa Clara",
                                 dock_count:        11,
                                 city:              "San Jose",
-                                installation_date: "8/6/2013",
+                                installation_date: Date.strptime("8/6/2015", "%m/%d/%Y")
                               )
 
       visit stations_path
