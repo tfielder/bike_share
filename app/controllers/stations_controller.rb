@@ -14,7 +14,6 @@ class StationsController < ApplicationController
     @count = stations.count
     @average = stations.average(:dock_count)
     @most_bikes = stations.maximum(:dock_count)
-    binding.pry
     @station_most_bikes = stations.order(dock_count: :DESC).first.name
     @least_bikes = stations.minimum(:dock_count)
     @station_least_bikes = stations.order(dock_count: :ASC).first.name
