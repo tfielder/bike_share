@@ -7,7 +7,7 @@ describe 'as a registered user' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit '/stations-dashboard'   #rename to route
+      visit stations_dashboard_path
 
     end
 
