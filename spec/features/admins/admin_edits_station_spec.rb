@@ -28,10 +28,12 @@ feature 'Admin edits station' do
       context 'when I update the form and click submit' do
         scenario 'it updates a station' do
           click_on "Edit"
-          fill_in :station_dock_count, with: "42"
+          fill_in :station_dock_count, with: 42
           click_on "Submit Changes"
+          station.reload
+          
           expect(current_path).to eq(admin_station_path(station))
-          expect(station.dock_count).to eq("42")
+          expect(station.dock_count).to eq(42)
         end
       end
     end
