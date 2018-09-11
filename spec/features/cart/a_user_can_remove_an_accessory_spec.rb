@@ -26,17 +26,11 @@ describe 'a user should be able to remove an accessroy' do
     expect(page).to have_content(@item_2.title)
 
     click_on("Remove")
-    save_and_open_page
-    expect(page).to have_content("Successfully removed #{@item_2.title} from your cart.")
 
+    expect(page).to have_content("Successfully removed #{@item_2.title} from your cart.")
     expect(page).to_not have_content(@item_2.image)
 
     click_on @item_2.title
     expect(current_path).to eq(accessory_path(@item_2))
-
-
-
-
-
   end
 end
