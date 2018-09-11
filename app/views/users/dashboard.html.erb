@@ -1,1 +1,10 @@
-Woohoo I'm User Dashboard!
+<h1>Woohoo I'm User Dashboard!</h1>
+
+<% if @orders.count > 0 %>
+  <%= "Orders" %>
+  <ul>
+    <% @orders.each do |order| %>
+      <li><%= link_to "#{order.id}", order_path(order) %></li>
+    <% end %>
+  </ul>
+<% end %>
