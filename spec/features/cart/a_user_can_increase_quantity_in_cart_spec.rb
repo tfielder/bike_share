@@ -11,6 +11,15 @@ describe 'a user should be able to increase quantity in the cart' do
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(item_1.title)
+    expect(page).to have_content("Qty: 1")
     expect(page).to have_content("Subtotal: $10.01")
+    expect(page).to have_content("Total: $10.01")
+
+
+    click_on "Increase"
+
+    expect(page).to have_content("Qty: 2")
+    expect(page).to have_content("Total: $10.01")
+    expect(page).to have_content("Subtotal: $20.02")
   end
 end
