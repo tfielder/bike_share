@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#dashboard'
+  post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
   resources :stations, only: [:index], param: :slug
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
 
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
+  delete '/cart', to: 'carts#destroy'
 
   get '/:slug', to: 'stations#show', as: "station"
 

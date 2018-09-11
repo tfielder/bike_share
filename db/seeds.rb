@@ -29,7 +29,7 @@ class Seed
       station_hash = {name: station[:name],
                       dock_count: station[:dock_count],
                       city: station[:city],
-                      installation_date: station[:installation_date],
+                      installation_date: Date.strptime(station[:installation_date], '%m/%d/%Y'),
                       id: station[:id]
                     }
       station = Station.create!(station_hash)
@@ -83,7 +83,7 @@ class Seed
     weathers = read_weather
     weathers.each do |weather|
       weather_hash = {
-                    date: Date.strptime(weather[:date], '%m/%d/%y'),
+                    date: Date.strptime(weather[:date], '%m/%d/%Y'),
                     max_temp: weather[:max_temperature_f].to_f,
                     mean_temp: weather[:mean_temperature_f].to_f,
                     min_temp: weather[:min_temperature_f].to_f,
@@ -194,6 +194,11 @@ User.create!( name: "Ben",
               email: "ben1@ben1.com",
               password_digest: "123",
               role: 1
+            )
+User.create!( name: "test",
+              email: "test@test",
+              password_digest: "test",
+              role: 0
             )
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
