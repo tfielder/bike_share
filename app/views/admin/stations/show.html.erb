@@ -1,0 +1,9 @@
+<h1><%= @station.name %></h1>
+
+<ul>
+  <li><%= @station.dock_count %></li>
+  <li><%= @station.city %></li>
+  <li><%= @station.installation_date %></li>
+  <li><%= link_to "Edit", admin_station_path %></li>
+  <li><%= link_to "Delete", admin_station_path, method: "delete" %></li>
+</ul>

@@ -4,6 +4,6 @@ class Admin::StationsController < Admin::BaseController
   end
 
   def show
-    @station = Station.find(slug: params[:slug])
+    @station = Station.find_by(slug: params[:slug])
   end
 end

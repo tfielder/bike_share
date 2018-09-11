@@ -7,7 +7,7 @@ feature 'Admin views admin station show page' do
                                   city:              "San Jose",
                                   installation_date: "8/6/2013",
                                   )}
-                                  
+
   context 'Admin views edit and delete buttons for each station' do
     context 'as an admin on the station show page' do
 
@@ -33,7 +33,7 @@ feature 'Admin views admin station show page' do
       end
 
       scenario 'I view everything else a user sees' do
-        expect(page).to have_link(station.name)
+        expect(page).to have_content(station.name)
         expect(page).to have_content(station.dock_count)
         expect(page).to have_content(station.city)
         expect(page).to have_content(station.installation_date)
@@ -48,7 +48,7 @@ feature 'Admin views admin station show page' do
 
       visit admin_station_path(station)
 
-      expect(page).to_not have_link(station.name)
+      expect(page).to_not have_content(station.name)
       expect(page).to_not have_content(station.dock_count)
       expect(page).to_not have_content(station.city)
       expect(page).to_not have_content(station.installation_date)
