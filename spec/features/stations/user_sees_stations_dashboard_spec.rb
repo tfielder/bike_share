@@ -25,7 +25,7 @@ describe 'as a registered user' do
 
       stations = Station.all
       @count = stations.count
-      @average = stations.average(:dock_count)
+      @average = '%.2f' % stations.average(:dock_count)
       ordered_dock_count = stations.order(dock_count: :DESC)
       @most_bikes = ordered_dock_count.first.dock_count
       @least_bikes = ordered_dock_count.last.dock_count
@@ -47,10 +47,10 @@ describe 'as a registered user' do
       expect(page).to have_content("Average Bikes Available Per Station: #{@average}")
     end
     it "shows Most bikes available at a station (based on docks) and where most bikes available" do
-      expect(page).to have_content("#{@most_bikes} at Station: #{@station_most_bikes_names.first}")
+      expect(page).to have_content("#{@most_bikes} at #{@station_most_bikes_names.first}")
     end
     it "shows the Station(s) where the fewest bikes are available (based on docks)" do
-      expect(page).to have_content("#{@least_bikes} at Station: #{@station_least_bikes_names.first}")
+      expect(page).to have_content("#{@least_bikes} at #{@station_least_bikes_names.first}")
     end
     it "shows Most recently installed station" do
       expect(page).to have_content("Newest Installed Station: #{@newest_station}")
