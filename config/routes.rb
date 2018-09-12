@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
+  get '/stations-dashboard', to: 'stations#dash'
 
   resources :stations, only: [:index], param: :slug
 
@@ -36,4 +37,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :stations, only: [:index, :update, :delete]
   end
+
+
 end
