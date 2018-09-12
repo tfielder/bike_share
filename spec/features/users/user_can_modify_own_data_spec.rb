@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'As a registered user' do
   before(:each) do
-    user1 = User.create(name: "Beemo", email: "bmo@email.com", password: "pass", password_confirmation: "pass")
-    user2 = User.create(name: "Zebra", email: "zebra@email.com", password: "test", password_confirmation: "test")
+    @user1 = User.create(name: "Beemo", email: "bmo@email.com", password: "pass", password_confirmation: "pass")
+    @user2 = User.create(name: "Zebra", email: "zebra@email.com", password: "test", password_confirmation: "test")
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
   end
   describe 'from user dashboard, can access edit_account_path' do
     it 'allows user to access edit_account_path' do
@@ -15,8 +15,8 @@ describe 'As a registered user' do
       expect(page).to have_button("Edit Account")
 
       click_on "Edit Account"
-
-      expect(current_path).to eq(user_edit_path)
+      
+      expect(current_path).to eq(edit_user_path(@user2))
     end
   end
   describe 'from the edit_account' do
