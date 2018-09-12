@@ -32,6 +32,14 @@ class Trip < ApplicationRecord
       end
     end
 
+    # Raw SQL for this query, can't figure out active record
+    # SELECT start_date, COUNT(start_date)
+    # FROM trips
+    # INNER JOIN conditions ON conditions.date = trips.start_date
+    # WHERE max_temp BETWEEN 60.0 AND 69.9
+    # GROUP BY start_date
+    # ORDER BY count desc
+    # LIMIT 1
     def self.max_temp_low(first_dig)
       date_counts = self.select(:start_date).joins("INNER JOIN conditions
                                   ON trips.start_date = conditions.date
@@ -63,6 +71,14 @@ class Trip < ApplicationRecord
       end
     end
 
+    # Raw SQL for this query, can't figure out active record
+    # SELECT start_date, COUNT(start_date)
+    # FROM trips
+    # INNER JOIN conditions ON conditions.date = trips.start_date
+    # WHERE precip BETWEEN 0.0 AND 0.4
+    # GROUP BY start_date
+    # ORDER BY count desc
+    # LIMIT 1;
     def self.precip_high(first_f, second_f)
       date_counts = self.select(:start_date).joins("INNER JOIN conditions
                                                     ON trips.start_date = conditions.date
