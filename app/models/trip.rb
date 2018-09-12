@@ -29,7 +29,9 @@ class Trip < ApplicationRecord
 
   def self.most_rides_end
     Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
+  end
 
+  def breakdown
   end
 #   SELECT name, count(start_station_id)
 # FROM stations
@@ -37,4 +39,7 @@ class Trip < ApplicationRecord
 # GROUP BY stations.name
 # ORDER BY count desc
 # LIMIT 1;
+  def self.most_bike_rides
+    select("bike_id, count(bike_id) as count").group(:bike_id).order("count(bike_id) desc").limit(1).first
+  end
 end
