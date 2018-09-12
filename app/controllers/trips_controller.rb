@@ -12,7 +12,9 @@ class TripsController < ApplicationController
     @average = trips.average_duration
     @longest = trips.longest_ride
     @shortest = trips.shortest_ride
-    @most_rides = trips.most_rides
+    @most_rides_start = trips.most_rides_start
+    @most_rides_end = trips.most_rides_end
+
   end
 
 end

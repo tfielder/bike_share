@@ -23,8 +23,13 @@ class Trip < ApplicationRecord
     minimum(:duration)
   end
 
-  def self.most_rides
+  def self.most_rides_start
     Station.select("name, count(trips.start_station_id) as count").joins("JOIN trips ON stations.id = trips.start_station_id").group(:name).order("count(trips.start_station_id) desc").limit(1).first#returns 32
+  end
+
+  def self.most_rides_end
+    Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
+
   end
 #   SELECT name, count(start_station_id)
 # FROM stations
