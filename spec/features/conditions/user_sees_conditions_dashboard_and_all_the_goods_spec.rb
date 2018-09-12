@@ -44,7 +44,7 @@ describe 'as a visitor' do
         expect(page).to have_content("2.0")
         expect(page).to have_content("1.0")
       end
-      within(".percip-table") do
+      within(".precip-table") do
         expect(page).to have_content("Avg. # of Rides")
         expect(page).to have_content("Highest # of Rides")
         expect(page).to have_content("Lowest # of Rides")
@@ -57,7 +57,7 @@ describe 'as a visitor' do
         expect(page).to have_content("1.5 - 2.0")
         expect(page).to have_content("2.0 - 2.5")
         expect(page).to have_content("3.0")
-        expect(page).to have_content("2.6 - 3.0")
+        expect(page).to have_content("2.5 - 3.0")
         expect(page).to have_content("3.0 - 3.5")
         expect(page).to have_content("2.0")
       end
