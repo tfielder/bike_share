@@ -1,5 +1,9 @@
 <h1>All Admin Stations</h1>
 <br>
+<div class ="btn">
+  <%= link_to "Create Station", new_admin_station_path %>
+</div>
+<br>
 <div class='card-holder'>
   <% @stations.each do |station| %>
     <ul class="station-card">
