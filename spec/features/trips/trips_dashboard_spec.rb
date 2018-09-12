@@ -14,18 +14,22 @@ describe'a registered user can visits trips dashboard' do
     @average = trips.average_duration
     @longest = trips.longest_ride
     @shortest = trips.shortest_ride
-    @most_rides_start = trips.most_rides_start
-    @most_rides_end = trips.most_rides_end
-    @most_bike_rides = trips.most_bike_rides
-    @least_bike_rides = trips.least_bike_rides
+    @most_rides_start_count = trips.most_rides_start.count
+    @most_rides_start_name= trips.most_rides_start.name
+    @most_rides_end_count = trips.most_rides_end.count
+    @most_rides_end_name = trips.most_rides_end.name
+    @most_bike_rides_id= trips.most_bike_rides.bike_id
+    @most_bike_rides_count = trips.most_bike_rides.count
+    @least_bike_rides_id = trips.least_bike_rides.bike_id
+    @least_bike_rides_count = trips.least_bike_rides.count
     visit trips_dashboard_path
-    save_and_open_page
+    #save_and_open_page
     expect(page).to have_content("Average Duration: #{@average} minutes")
     expect(page).to have_content("Longest Ride: #{@longest} minutes")
     expect(page).to have_content("Shortest Ride: #{@shortest} minutes")
-    expect(page).to have_content("Start Station with most trips: #{@most_rides_start.count} trips at #{@most_rides_start.name}")
-    expect(page).to have_content("End Station with most trips: #{@most_rides_end.count} trips at #{@most_rides_end.name}")
-    expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides.bike_id} had #{@most_bike_rides.count} rides")
-    expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides.bike_id} had #{@least_bike_rides.count} rides")
+    expect(page).to have_content("Start Station with most trips: #{@most_rides_start_count} trips at #{@most_rides_start_name}")
+    expect(page).to have_content("End Station with most trips: #{@most_rides_end_count} trips at #{@most_rides_end_name}")
+    expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides_id} had #{@most_bike_rides_count} rides")
+    expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides_id} had #{@least_bike_rides_count} rides")
   end
 end
