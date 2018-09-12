@@ -26,9 +26,9 @@ class Trip < ApplicationRecord
                                   BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
                                 ).group(:start_date).count
       if date_counts.count > 0
-        date_counts.max_by{ |k,v| v }[1].to_f
+        date_counts.max_by{ |k,v| v }[1].to_f.round(2)
       else
-        date_counts.count.to_f
+        date_counts.count.to_f.round(2)
       end
     end
 
@@ -39,9 +39,9 @@ class Trip < ApplicationRecord
                                   BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
                                 ).group(:start_date).count
       if date_counts.count > 0
-        date_counts.min_by{ |k,v| v }[1].to_f
+        date_counts.min_by{ |k,v| v }[1].to_f.round(2)
       else
-        date_counts.count.to_f
+        date_counts.count.to_f.round(2)
       end
     end
 
@@ -57,9 +57,9 @@ class Trip < ApplicationRecord
         trip_total += all_count[date]
       end
       if all_count.size > 0
-        trip_total.to_f / all_count.size.to_f
+        (trip_total.to_f / all_count.size.to_f).round(2)
       else
-        trip_total.to_f
+        trip_total.to_f.round(2)
       end
     end
 
@@ -70,9 +70,9 @@ class Trip < ApplicationRecord
                                                     BETWEEN #{first_f} AND #{second_f}"
                                                   ).group(:start_date).count
       if date_counts.count > 0
-        date_counts.max_by{ |k,v| v }[1].to_f
+        (date_counts.max_by{ |k,v| v }[1].to_f).round(2)
       else
-        date_counts.count.to_f
+        date_counts.count.to_f.round(2)
       end
     end
 
@@ -83,9 +83,9 @@ class Trip < ApplicationRecord
                                                     BETWEEN #{first_f} AND #{second_f}"
                                                   ).group(:start_date).count
       if date_counts.count > 0
-        date_counts.max_by{ |k,v| v }[1].to_f
+        date_counts.min_by{ |k,v| v }[1].to_f.round(2)
       else
-        date_counts.count.to_f
+        date_counts.count.to_f.round(2)
       end
     end
 
@@ -101,9 +101,9 @@ class Trip < ApplicationRecord
         trip_total += all_count[date]
       end
       if all_count.size > 0
-        trip_total.to_f / all_count.size.to_f
+        (trip_total.to_f / all_count.size.to_f).round(2)
       else
-        trip_total.to_f
+        trip_total.to_f.round(2)
       end
     end
 end
