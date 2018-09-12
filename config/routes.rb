@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
+  get '/stations-dashboard', to: 'stations#dash'
 
   get '/condition-dashboard', to: 'conditions#dashboard'
 
@@ -30,10 +31,19 @@ Rails.application.routes.draw do
   post '/cart', to: 'carts#create'
   get '/cart', to: 'carts#show'
   delete '/cart', to: 'carts#destroy'
+  put '/cart', to:'carts#increase'
+  patch '/cart', to:'carts#decrease'
+
 
   get '/:slug', to: 'stations#show', as: "station"
 
   namespace :admin do
-    resources :stations, only: [:index, :update, :delete]
+    resources :stations, only: [:index, :show, :edit, :update, :destroy, :new, :create], param: :slug
   end
+
+  namespace :admin do
+    resources :trips, only: [:index, :show]
+  end
+
+
 end

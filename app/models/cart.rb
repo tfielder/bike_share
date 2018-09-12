@@ -23,6 +23,20 @@ class Cart
     @contents[id] = @contents[id] + 1
   end
 
+  def remove_accessory(id)
+    if @contents[id]
+      @contents[id]
+    else
+      id = id.to_s
+      if @contents[id]
+        @contents[id]
+      else
+        @contents[id] = 0
+      end
+    end
+    @contents[id] = @contents[id] - 1
+  end
+
   def accessories
     @contents.map do |id, count|
       [Accessory.find(id), count]
@@ -33,7 +47,7 @@ class Cart
     accessory.price * count
   end
 
-  def sub_total
+  def cart_total
     sum_array = accessories.map do |accessory, count|
       accessory.price * count
     end

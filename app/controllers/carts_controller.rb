@@ -9,6 +9,22 @@ class CartsController < ApplicationController
     redirect_to bike_shop_path
   end
 
+  def increase
+    accessory = Accessory.find(params[:item_id])
+    @cart.add_accessory(accessory.id)
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
+  def decrease
+    accessory = Accessory.find(params[:item_id])
+    @cart.remove_accessory(accessory.id)
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
   def show
     @accessories = @cart.accessories
   end

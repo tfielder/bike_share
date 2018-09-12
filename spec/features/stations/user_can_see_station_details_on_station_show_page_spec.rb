@@ -6,7 +6,7 @@ describe 'User visits a station show page' do
       station = Station.create( name:              "San Jose Diridon Caltrain Station",
                                 dock_count:        27,
                                 city:              "San Jose",
-                                installation_date: "8/6/2013",
+                                installation_date: Date.strptime("8/6/2013", "%m/%d/%Y")
                               )
 
       visit station_path(station)

@@ -50,7 +50,7 @@ class Seed
   def self.seed_trips
     trips = read_trips
     trips.each do |trip|
-        trip_hash = { duration: trip[:duration],
+      trip_hash = { duration: trip[:duration],
                     start_date: Date.strptime(trip[:start_date], '%m/%d/%Y'),
                     start_station_id: trip[:start_station_id],
                     end_date: Date.strptime(trip[:end_date], '%m/%d/%Y'),
