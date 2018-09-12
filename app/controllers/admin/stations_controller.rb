@@ -16,6 +16,7 @@ class Admin::StationsController < Admin::BaseController
   def update
     station = Station.find_by(slug:params[:slug])
     station.update(station_params)
+    flash[:notice] = "Successfully updated!"
     redirect_to admin_station_path(station)
   end
 

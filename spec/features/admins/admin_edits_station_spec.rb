@@ -34,6 +34,7 @@ feature 'Admin edits station' do
 
           expect(current_path).to eq(admin_station_path(station))
           expect(station.dock_count).to eq(42)
+          expect(page).to have_content("Successfully updated!")
         end
       end
     end
