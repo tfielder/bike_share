@@ -48,7 +48,7 @@ feature 'Admin creates station' do
     before do
       user = User.create!(name: "Dalek", email: "dalek@email.com", password: "hack", password_confirmation: "hack", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit edit_admin_station_path(station)
+      visit new_admin_station_path
     end
     scenario 'I cannot see the new station page' do
       expect(page).to_not have_content("Create Station")
@@ -57,7 +57,7 @@ feature 'Admin creates station' do
   end
   context 'as visitor' do
     before do
-      visit edit_admin_station_path(station)
+      visit new_admin_station_path
     end
     scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Create Station")
