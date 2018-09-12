@@ -51,9 +51,9 @@ class Seed
     trips = read_trips
     trips.each do |trip|
       trip_hash = { duration: trip[:duration],
-                    start_date: Date.strptime(trip[:start_date], '%m/%d/%y'),
+                    start_date: Date.strptime(trip[:start_date], '%m/%d/%Y'),
                     start_station_id: trip[:start_station_id],
-                    end_date: Date.strptime(trip[:end_date], '%m/%d/%y'),
+                    end_date: Date.strptime(trip[:end_date], '%m/%d/%Y'),
                     end_station_id: trip[:end_station_id],
                     zip_code: trip[:zip_code],
                     subscription_type: trip[:subscription_type],
@@ -177,7 +177,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('accessories')
 
 User.create!( name: "Autumn",
               email: "autumn@autumn.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "Maria",
@@ -187,17 +188,20 @@ User.create!( name: "Maria",
             )
 User.create!( name: "Tim",
               email: "tim@tim.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "Ben",
               email: "ben1@ben1.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "test",
               email: "test@test",
-              password_digest: "test",
+              password: "123",
+              password_confirmation: "123",
               role: 0
             )
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
