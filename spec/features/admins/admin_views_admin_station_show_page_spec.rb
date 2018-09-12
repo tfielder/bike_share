@@ -55,4 +55,16 @@ feature 'Admin views admin station show page' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
+  context 'as visitor' do
+    scenario 'I can not see admin station show' do
+
+      visit admin_station_path(station)
+
+      expect(page).to_not have_content(station.name)
+      expect(page).to_not have_content(station.dock_count)
+      expect(page).to_not have_content(station.city)
+      expect(page).to_not have_content(station.installation_date)
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
 end
