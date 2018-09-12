@@ -25,12 +25,12 @@ class Trip < ApplicationRecord
 
   def self.most_rides
     Station.select("name, count(trips.start_station_id) as count").joins("JOIN trips ON stations.id = trips.start_station_id").group(:n
-ame).order("count(trips.start_station_id) desc").limit(1).first.count
+ame).order("count(trips.start_station_id) desc").limit(1).first.count #returns 32
   end
-  SELECT name, count(start_station_id)
-FROM stations
-INNER JOIN trips ON stations.id = trips.start_station_id
-GROUP BY stations.name
-ORDER BY count desc
-LIMIT 1;
+#   SELECT name, count(start_station_id)
+# FROM stations
+# INNER JOIN trips ON stations.id = trips.start_station_id
+# GROUP BY stations.name
+# ORDER BY count desc
+# LIMIT 1;
 end
