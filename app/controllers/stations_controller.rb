@@ -11,7 +11,7 @@ class StationsController < ApplicationController
   def dash
     stations = Station.all
     @count = stations.count
-    @average = stations.average(:dock_count)
+    @average = '%.2f' % stations.average(:dock_count)
     ordered_dock_count = stations.order(dock_count: :DESC)
     @most_bikes = ordered_dock_count.first.dock_count
     @least_bikes = ordered_dock_count.last.dock_count
