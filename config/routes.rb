@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show]
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :update]
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
