@@ -31,11 +31,32 @@ feature 'Admin edits station' do
           fill_in :station_dock_count, with: 42
           click_on "Submit Changes"
           station.reload
-          
+
           expect(current_path).to eq(admin_station_path(station))
           expect(station.dock_count).to eq(42)
         end
       end
     end
   end
+  context 'as default user' do
+    before do
+      user = User.create!(name: "Evil Hacker", email: "hacker@email.com", password: "hack", password_confirmation: "hack", role: 0)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit edit_admin_station_path(station)
+    end
+    scenario 'I cannot see the edit station page' do
+      expect(page).to_not have_content("Edit #{station.name}")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
+  context 'as visitor' do
+    before do
+      visit edit_admin_station_path(station)
+    end
+    scenario 'I cannot see the edit station page' do
+      expect(page).to_not have_content("Edit #{station.name}")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
+
 end
