@@ -1,18 +1,19 @@
 require 'rails_helper'
 
 feature 'Admin views admin trip show page' do
+
+    let!(:station_1){Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))}
+    let!(:trip) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subscriber", zip_code: 94127 )}
+    let!(:station_2){Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))}
+
   context 'Admin views edit and delete buttons for a trip' do
     context 'as an admin on the trip show page' do
-
-        let!(:station){Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))}
-        let!(:trip) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subscriber", zip_code: 94127 )}
-        let!(:station_2){Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))}
 
       before do
         admin = User.create!(name: "Dr.Who", email: "thedoctor@tardis.com", password: "blue", password_confirmation: "blue", role: 1)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-        visit admin_trip_path
+        visit admin_trip_path(trip)
       end
 
         scenario 'I am on the admin trip show page' do
@@ -45,7 +46,7 @@ feature 'Admin views admin trip show page' do
       user = User.create!(name: "Ameila Pond", email: "amelia@pond.com", password: "Rory", password_confirmation: "Rory", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit admin_trip_path
+      visit admin_trip_path(trip)
 
       expect(page).to_not have_content("Admin Trip")
       expect(page).to have_content("The page you were looking for doesn't exist.")
@@ -54,7 +55,7 @@ feature 'Admin views admin trip show page' do
   context 'as visitor' do
     scenario 'I can not see admin trip show' do
 
-      visit admin_trip_path
+      visit admin_trip_path(trip)
 
       expect(page).to_not have_content("Admin Trip")
       expect(page).to have_content("The page you were looking for doesn't exist.")
