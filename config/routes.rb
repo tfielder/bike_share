@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get '/:slug', to: 'stations#show', as: "station"
 
   namespace :admin do
-    resources :stations, only: [:index, :update, :delete]
+    resources :stations, only: [:index, :show, :edit, :update, :delete], param: :slug
   end
 
 
