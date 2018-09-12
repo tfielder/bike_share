@@ -48,33 +48,27 @@ class Seed
   end
 
   def self.seed_trips
-    conditions = Condition.all
     trips = read_trips
-    conditions.each do |condition|
-      trips.each do |trip|
-        if condition.date == Date.strptime(trip[:start_date], '%m/%d/%Y')
-          trip_hash = { duration: trip[:duration],
-                      start_date: Date.strptime(trip[:start_date], '%m/%d/%Y'),
-                      start_station_id: trip[:start_station_id],
-                      end_date: Date.strptime(trip[:end_date], '%m/%d/%Y'),
-                      end_station_id: trip[:end_station_id],
-                      zip_code: trip[:zip_code],
-                      subscription_type: trip[:subscription_type],
-                      bike_id: trip[:bike_id],
-                      id: trip[:id],
-                      condition_id: condition.id
-                      }
-          if Station.find_by_id(trip[:start_station_id]) && Station.find_by_id(trip[:end_station_id]) && trip[:zip_code] && Trip.find_by_id(trip[:id]) == nil
-            condition.trips.create!(trip_hash)
-            puts "Created trip!"
-          else
-            puts "Skipped trip!"
-          end
-          ActiveRecord::Base.connection.reset_pk_sequence!('trips')
+    trips.each do |trip|
+        trip_hash = { duration: trip[:duration],
+                    start_date: Date.strptime(trip[:start_date], '%m/%d/%Y'),
+                    start_station_id: trip[:start_station_id],
+                    end_date: Date.strptime(trip[:end_date], '%m/%d/%Y'),
+                    end_station_id: trip[:end_station_id],
+                    zip_code: trip[:zip_code],
+                    subscription_type: trip[:subscription_type],
+                    bike_id: trip[:bike_id],
+                    id: trip[:id]
+                    }
+        if Station.find_by_id(trip[:start_station_id]) && Station.find_by_id(trip[:end_station_id]) && trip[:zip_code]
+          Trip.create!(trip_hash)
+          puts "Created trip!"
+        else
+          puts "Skipped trip!"
         end
+        ActiveRecord::Base.connection.reset_pk_sequence!('trips')
       end
-      puts "Created all trips."
-    end
+    puts "Created all trips."
   end
 
   def self.read_trips

@@ -1,6 +1,6 @@
 <h1>Condition Dashboard</h1>
 <h2>RIDES BASED ON MX TTTTTMP</h2>
-<table>
+<table class='max-temp-table'>
   <tr>
     <th>Temp. Increments</th>
     <th>Avg. # of Rides</th>
@@ -42,5 +42,57 @@
     <td><%= @max_90_avg %></td>
     <td><%= @max_90_high %></td>
     <td><%= @max_90_low %></td>
+  </tr>
+</table>
+
+<h2>RIDES BASED ON PRECIPPPPPP</h2>
+<table class='precip-table'>
+  <tr>
+    <th>Precip. Increments</th>
+    <th>Avg. # of Rides</th>
+    <th>Highest # of Rides</th>
+    <th>Lowest # of Rides</th>
+  </tr>
+  <tr>
+    <td>0.0 - 0.5</td>
+    <td><%= @precip0_5_avg %></td>
+    <td><%= @precip0_5_high %></td>
+    <td><%= @precip0_5_low %></td>
+  </tr>
+  <tr>
+    <td>0.5 - 0.1</td>
+    <td><%= @precip5_1_avg %></td>
+    <td><%= @precip5_1_high %></td>
+    <td><%= @precip5_1_low %></td>
+  </tr>
+  <tr>
+    <td>1.0 - 1.5</td>
+    <td><%= @precip_1_5_avg %></td>
+    <td><%= @precip_1_5_high %></td>
+    <td><%= @precip_1_5_low %></td>
+  </tr>
+  <tr>
+    <td>1.5 - 2.0</td>
+    <td><%= @precip_5_2_avg %></td>
+    <td><%= @precip_5_2_high %></td>
+    <td><%= @precip_5_2_low %></td>
+  </tr>
+  <tr>
+    <td>2.0 - 2.5</td>
+    <td><%= @precip_2_5_avg %></td>
+    <td><%= @precip_2_5_high %></td>
+    <td><%= @precip_2_5_low %></td>
+  </tr>
+  <tr>
+    <td>2.5 - 3.0</td>
+    <td><%= @precip_5_3_avg %></td>
+    <td><%= @precip_5_3_high %></td>
+    <td><%= @precip_5_3_low %></td>
+  </tr>
+  <tr>
+    <td>3.0 - 3.5</td>
+    <td><%= @precip_3_5_avg %></td>
+    <td><%= @precip_3_5_high %></td>
+    <td><%= @precip_3_5_low %></td>
   </tr>
 </table>

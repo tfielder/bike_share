@@ -11,43 +11,115 @@ class Trip < ApplicationRecord
     belongs_to :start_station, class_name: "Station"
     belongs_to :end_station, class_name: "Station"
 
-    belongs_to :condition
+    def self.max_temp_data(first_dig)
+      {high: max_temp_high(first_dig), low: max_temp_low(first_dig), avg: max_temp_avg(first_dig)}
+    end
+
+    def self.percip_data(first_dig, second_dig)
+      {high: percip_high(first_dig), low: percip_low(first_dig), first_avg: percip_avg_fh(first_dig), second_avg: percip_avg_sh(first_dig, second_dig)}
+    end
 
     def self.max_temp_high(first_dig)
-      z = self.joins("INNER JOIN conditions ON trips.start_date = conditions.date WHERE max_temp BETWEEN #{first_dig}0.0 AND #{first_dig}9.9")
-      l = z.group_by do |c|
-        c.start_date
+      date_counts = self.select(:start_date).joins("INNER JOIN conditions
+                                  ON trips.start_date = conditions.date
+                                  WHERE max_temp
+                                  BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
+                                ).group(:start_date).count
+      if date_counts.count > 0
+        date_counts.max_by{ |k,v| v }[1].to_f
+      else
+        date_counts.count.to_f
       end
-      r = l.map do |key, value|
-        value.count
-      end.uniq
-      r.max.to_f
     end
 
     def self.max_temp_low(first_dig)
-      z = self.joins("INNER JOIN conditions ON trips.start_date = conditions.date WHERE max_temp BETWEEN #{first_dig}0.0 AND #{first_dig}9.9")
-      l = z.group_by do |c|
-        c.start_date
+      date_counts = self.select(:start_date).joins("INNER JOIN conditions
+                                  ON trips.start_date = conditions.date
+                                  WHERE max_temp
+                                  BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
+                                ).group(:start_date).count
+      if date_counts.count > 0
+        date_counts.min_by{ |k,v| v }[1].to_f
+      else
+        date_counts.count.to_f
       end
-      r = l.map do |key, value|
-        value.count
-      end.uniq
-      r.min.to_f
     end
 
     def self.max_temp_avg(first_dig)
-      all_trips_in_range = self.joins("INNER JOIN conditions ON trips.start_date = conditions.date WHERE max_temp BETWEEN #{first_dig}0.0 AND #{first_dig}9.9")
-      trips_by_start_date = all_trips_in_range.group_by do |trip|
-        trip.start_date
+      all_count = self.select(:start_date).joins("INNER JOIN conditions
+                                                  ON trips.start_date = conditions.date
+                                                  WHERE max_temp
+                                                  BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
+                                                ).group(:start_date).count
+
+      trip_total = 0
+      all_count.each do |date, _count|
+        trip_total += all_count[date]
       end
-      count_of_trips = trips_by_start_date.map do |key, value|
-        value.count
-      end.uniq
-      if count_of_trips.count > 0
-        count_of_trips.sum.to_f / count_of_trips.count.to_f
+      if all_count.size > 0
+        trip_total.to_f / all_count.size.to_f
       else
-        count_of_trips.count
+        trip_total.to_f
       end
     end
 
+    def precip_high(first_dig)
+      date_counts = self.select(:start_date).joins("INNER JOIN conditions
+                                                    ON trips.start_date = conditions.date
+                                                    WHERE precip
+                                                    BETWEEN 0.0 AND 0.5").group(:start_date)
+      if date_counts.count > 0
+        date_counts.max_by{ |k,v| v }[1].to_f
+      else
+        date_counts.count.to_f
+      end
+    end
+
+    def precip_low(first_dig)
+      date_counts = self.select(:start_date).joins("INNER JOIN conditions
+                                                    ON trips.start_date = conditions.date
+                                                    WHERE precip
+                                                    BETWEEN 0.0 AND 0.5").group(:start_date)
+      if date_counts.count > 0
+        date_counts.max_by{ |k,v| v }[1].to_f
+      else
+        date_counts.count.to_f
+      end
+    end
+
+    def precip_avg_fh(first_dig)
+      all_count = self.select(:start_date).joins("INNER JOIN conditions
+                                                  ON trips.start_date = conditions.date
+                                                  WHERE percip
+                                                  BETWEEN #{first_dig}.0 AND #{first_dig}.5"
+                                                ).group(:start_date).count
+
+      trip_total = 0
+      all_count.each do |date, _count|
+        trip_total += all_count[date]
+      end
+      if all_count.size > 0
+        trip_total.to_f / all_count.size.to_f
+      else
+        trip_total.to_f
+      end
+    end
+
+    def precip_avg_sh(first_dig, second_dig)
+      all_count = self.select(:start_date).joins("INNER JOIN conditions
+                                                  ON trips.start_date = conditions.date
+                                                  WHERE percip
+                                                  BETWEEN #{first_dig}.5 AND #{second_dig}.0"
+                                                ).group(:start_date).count
+
+      trip_total = 0
+      all_count.each do |date, _count|
+        trip_total += all_count[date]
+      end
+      if all_count.size > 0
+        trip_total.to_f / all_count.size.to_f
+      else
+        trip_total.to_f
+      end
+    end
 end

@@ -73,10 +73,8 @@ ActiveRecord::Schema.define(version: 20180910235830) do
     t.integer "bike_id"
     t.string "subscription_type"
     t.integer "zip_code"
-    t.bigint "condition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["condition_id"], name: "index_trips_on_condition_id"
     t.index ["end_station_id"], name: "index_trips_on_end_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
   end
@@ -93,7 +91,6 @@ ActiveRecord::Schema.define(version: 20180910235830) do
   add_foreign_key "order_accessories", "accessories"
   add_foreign_key "order_accessories", "orders"
   add_foreign_key "orders", "users"
-  add_foreign_key "trips", "conditions"
   add_foreign_key "trips", "stations", column: "end_station_id"
   add_foreign_key "trips", "stations", column: "start_station_id"
 end
