@@ -15,7 +15,7 @@ class TripsController < ApplicationController
     @most_rides_start = trips.most_rides_start
     @most_rides_end = trips.most_rides_end
     @most_bike_rides = trips.most_bike_rides
-
+    @least_bike_rides = trips.least_bike_rides
   end
 
 end

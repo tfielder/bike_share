@@ -33,13 +33,18 @@ class Trip < ApplicationRecord
 
   def breakdown
   end
-#   SELECT name, count(start_station_id)
-# FROM stations
-# INNER JOIN trips ON stations.id = trips.start_station_id
-# GROUP BY stations.name
-# ORDER BY count desc
-# LIMIT 1;
+
   def self.most_bike_rides
     select("bike_id, count(bike_id) as count").group(:bike_id).order("count(bike_id) desc").limit(1).first
   end
+
+  def self.least_bike_rides
+    select("bike_id, count(bike_id) as count").group(:bike_id).order("count(bike_id) asc").limit(1).first
+  end
+  #   SELECT name, count(start_station_id)
+  # FROM stations
+  # INNER JOIN trips ON stations.id = trips.start_station_id
+  # GROUP BY stations.name
+  # ORDER BY count desc
+  # LIMIT 1;
 end
