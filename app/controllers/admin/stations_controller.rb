@@ -20,6 +20,12 @@ class Admin::StationsController < Admin::BaseController
     redirect_to admin_station_path(station)
   end
 
+  def destroy
+    station = Station.find_by(slug:params[:slug])
+    station.destroy
+    redirect_to admin_stations_path, notice: "Successfully deleted."
+  end
+
   private
   def station_params
     params.require(:station).permit(:name, :dock_count, :city, :installation_date)
