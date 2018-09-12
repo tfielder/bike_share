@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
 
+  get '/condition-dashboard', to: 'conditions#dashboard'
+
   resources :stations, only: [:index], param: :slug
 
   resources :conditions, only: [:index, :show]

@@ -9,6 +9,7 @@ class CreateTrips < ActiveRecord::Migration[5.1]
       t.integer :bike_id
       t.string :subscription_type
       t.integer :zip_code
+      t.references :condition, foreign_key: true
 
       t.timestamps
     end
