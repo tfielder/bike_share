@@ -28,7 +28,8 @@ feature 'Admin creates station' do
           fill_in :station_name, with: "Madrid Spain Station"
           fill_in :station_dock_count, with: 42
           fill_in :station_city, with: "Madrid"
-          page.find('#installation_date').set('10-10-2010')
+          fill_in("Installation date", :with => "1/1/2013")
+          # page.find('#installation_date').set('10-10-2010')
 
           click_on "Submit"
 
