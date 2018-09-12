@@ -177,7 +177,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('accessories')
 
 User.create!( name: "Autumn",
               email: "autumn@autumn.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "Maria",
@@ -187,17 +188,20 @@ User.create!( name: "Maria",
             )
 User.create!( name: "Tim",
               email: "tim@tim.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "Ben",
               email: "ben1@ben1.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 User.create!( name: "test",
               email: "test@test",
-              password_digest: "test",
+              password: "123",
+              password_confirmation: "123",
               role: 0
             )
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
