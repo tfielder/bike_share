@@ -1,6 +1,11 @@
 <h1>Conditions</h1>
 </br>
 
+<% if current_user %>
+  <%= link_to "Condition Dashboard", condition_dashboard_path %>
+<% end %>
+<br>
+<br>
 <% @conditions.each do |condition| %>
 <ul>
   <li><%= link_to "Date: #{condition.date}", condition_path(condition.id) %></li>
