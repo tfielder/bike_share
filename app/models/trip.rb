@@ -40,18 +40,26 @@ class Trip < ApplicationRecord
     # GROUP BY start_date
     # ORDER BY count desc
     # LIMIT 1
-    # Trip.select("start_date, count(trips.id) as count").joins("JOIN conditions ON conditions.date = trips.start_date").where("max_temp BETWEEN ? AND ?", 60, 69.9).group(:start_date).order("count(trips.id) desc").limit(1).count("trips.id")
+    Trip.select(
+      "start_date, count(trips.id) as count").joins(
+        "JOIN conditions ON conditions.date = trips.start_date").where(
+          "max_temp BETWEEN ? AND ?", 60, 69.9).group(
+            :start_date).order(
+              "count(trips.id) desc").limit(1).count(
+                "trips.id").to_a.flatten[1]
     def self.max_temp_low(first_dig)
-      date_counts = self.select(:start_date).joins("INNER JOIN conditions
-                                  ON trips.start_date = conditions.date
-                                  WHERE max_temp
-                                  BETWEEN #{first_dig}0.0 AND #{first_dig}9.9"
-                                ).group(:start_date).count
-      if date_counts.count > 0
-        date_counts.min_by{ |k,v| v }[1].to_f.round(2)
-      else
-        date_counts.count.to_f.round(2)
-      end
+      date_counts = Trip.select(
+        "start_date, count(trips.id) as count").joins(
+          "JOIN conditions ON conditions.date = trips.start_date").where(
+            "max_temp BETWEEN #{first_dig}0.0 AND #{first_dig}9.9").group(
+              :start_date).order(
+                "count(trips.id) desc").limit(1).count(
+                  "trips.id").to_a.flatten[1]
+      # if date_counts.count > 0
+      #   date_counts.min_by{ |k,v| v }[1].to_f.round(2)
+      # else
+      #   date_counts.count.to_f.round(2)
+      # end
     end
 
     def self.max_temp_avg(first_dig)
