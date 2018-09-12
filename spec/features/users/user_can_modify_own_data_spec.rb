@@ -8,14 +8,16 @@ describe 'As a registered user' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
   end
   describe 'from user dashboard, can access edit_account_path' do
-    visit dashboard_path
+    it 'allows user to access edit_account_path' do
+      visit dashboard_path
 
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_button("Edit Account")
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_button("Edit Account")
 
-    click_on "Edit Account"
+      click_on "Edit Account"
 
-    expect(current_path).to eq(user_edit_path)
+      expect(current_path).to eq(user_edit_path)
+    end
   end
   describe 'from the edit_account' do
     it 'allows user to modify account data' do
