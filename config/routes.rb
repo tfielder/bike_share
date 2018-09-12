@@ -38,5 +38,9 @@ Rails.application.routes.draw do
     resources :stations, only: [:index, :show, :edit, :update, :destroy, :new, :create], param: :slug
   end
 
+  namespace :admin do
+    resources :trips, only: [:index]
+  end 
+
 
 end

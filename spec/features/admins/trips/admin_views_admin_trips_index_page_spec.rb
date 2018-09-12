@@ -36,9 +36,9 @@ feature 'Admin views admin trips index page' do
         let!(:trip_27) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
         let!(:trip_28) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
         let!(:trip_29) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
-        let!(:trip_30) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
-        let!(:trip_31) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
-        let!(:trip_32) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )}
+        let!(:trip_30) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Last on page 1", zip_code: 94127 )}
+        let!(:trip_31) {Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Not on page 1", zip_code: 94127 )}
+        let!(:trip_32) {Trip.create!(duration: 7, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Also not on page 1", zip_code: 94127 )}
 
       before do
         admin = User.create!(name: "Dr.Who", email: "thedoctor@tardis.com", password: "blue", password_confirmation: "blue", role: 1)
@@ -49,7 +49,7 @@ feature 'Admin views admin trips index page' do
 
         scenario 'I am on the admin trips index page' do
           expect(current_path).to eq(admin_trips_path)
-          expect(page).to have_content("All Admin Trips")
+          expect(page).to have_content("Admin Trips")
         end
 
         scenario 'I view an edit button for each trip' do
@@ -68,8 +68,9 @@ feature 'Admin views admin trips index page' do
           expect(page).to have_content(trip_10.end_date)
           expect(page).to have_content(trip_15.bike_id)
           expect(page).to have_content(trip_20.subscription_type)
-          expect(page).to have_content(trip_30.zip_code)
-          expect(page).to_not have_content(trip_32.duration)
+          expect(page).to have_content(trip_30.subscription_type)
+          expect(page).to_not have_content(trip_31.subscription_type)
+          expect(page).to_not have_content(trip_32.subscription_type)
           expect(page).to have_selector(:link_or_button, 'Next')
 
           click_on "Next"
@@ -87,7 +88,7 @@ feature 'Admin views admin trips index page' do
 
       visit admin_trips_path
 
-      expect(page).to_not have_content("All Admin Trips")
+      expect(page).to_not have_content("Admin Trips")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
@@ -96,7 +97,7 @@ feature 'Admin views admin trips index page' do
 
       visit admin_trips_path
 
-      expect(page).to_not have_content("All Admin Trips")
+      expect(page).to_not have_content("Admin Trips")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
