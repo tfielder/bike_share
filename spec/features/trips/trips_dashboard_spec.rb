@@ -12,8 +12,13 @@ describe'a registered user can visits trips dashboard' do
 
     trips = Trip.all
     @average = trips.average_duration
+    @longest = trips.longest_ride
+    @shortest = trips.shortest_ride
     visit trips_dashboard_path
     expect(page).to have_content("Average Duration: #{@average}")
+    expect(page).to have_content("Longest Ride: #{@longest}")
+    expect(page).to have_content("Shortest Ride: #{@shortest}")
+
 
   end
 end
