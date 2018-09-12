@@ -8,6 +8,10 @@ class Admin::StationsController < Admin::BaseController
     @station = Station.find_by(slug: params[:slug])
   end
 
+  def new
+
+  end
+
   def edit
     @station = Station.find_by(slug: params[:slug])
     @admin = current_user.role
