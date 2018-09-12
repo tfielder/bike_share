@@ -9,7 +9,8 @@ class Admin::StationsController < Admin::BaseController
   end
 
   def new
-
+    @station = Station.new
+    @admin = current_user.role
   end
 
   def edit

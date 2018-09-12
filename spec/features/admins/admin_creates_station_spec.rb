@@ -18,7 +18,7 @@ feature 'Admin creates station' do
       scenario 'it takes me to a new station form' do
         click_on "Create Station"
         expect(current_path).to eq(new_admin_station_path(station))
-        expect(page).to have_content("Create Station")
+        expect(page).to have_content("Create a new station:")
         expect(page).to have_content("Name:")
         expect(page).to have_content("Dock count:")
         expect(page).to have_content("City:")
@@ -28,10 +28,12 @@ feature 'Admin creates station' do
       context 'when I update the form and click submit' do
         scenario 'it creates a station' do
           click_on "Create Station"
+          save_and_open_page
           fill_in :station_name, with: "Madrid Spain Station"
           fill_in :station_dock_count, with: 42
           fill_in :station_city, with: "Madrid"
-          fill_in :installation_date, with: 10/10/2010
+          page.find('#installation_date').set('10-10-2010')
+
           click_on "Submit"
 
           station = Station.last
