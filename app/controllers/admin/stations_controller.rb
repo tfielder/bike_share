@@ -13,6 +13,11 @@ class Admin::StationsController < Admin::BaseController
     @admin = current_user.role
   end
 
+  def create
+    station = Station.create(station_params)
+    redirect_to admin_station_path(station)
+  end
+
   def edit
     @station = Station.find_by(slug: params[:slug])
     @admin = current_user.role
