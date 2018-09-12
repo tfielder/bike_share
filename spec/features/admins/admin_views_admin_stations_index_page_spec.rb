@@ -70,4 +70,13 @@ feature 'Admin views admin stations index page' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
+  context 'as visitor' do
+    scenario 'I can not see admin stations index' do
+
+      visit admin_stations_path
+
+      expect(page).to_not have_content("All Admin Stations")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
 end
