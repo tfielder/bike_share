@@ -191,31 +191,36 @@ ActiveRecord::Base.connection.reset_pk_sequence!('accessories')
 
 User.create!( name: "Autumn",
               email: "autumn@autumn.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 puts "User Created!"
 User.create!( name: "Maria",
               email: "maria@maria.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
-puts "User Created!"
+puts "Admin Created!"
 User.create!( name: "Tim",
               email: "tim@tim.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 puts "User Created!"
 User.create!( name: "Ben",
               email: "ben1@ben1.com",
-              password_digest: "123",
+              password: "123",
+              password_confirmation: "123",
               role: 1
             )
 puts "User Created!"
 User.create!( name: "test",
               email: "test@test",
-              password_digest: "test",
+              password: "test",
+              password_confirmation: "test",
               role: 0
             )
 puts "User Created!"
