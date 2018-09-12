@@ -1,11 +1,6 @@
 require 'rails_helper'
 
 feature 'Admin creates station' do
-  let!(:station) { Station.create(name:              "San Jose Diridon Caltrain Station",
-                                  dock_count:        27,
-                                  city:              "San Jose",
-                                  installation_date: "8/6/2013",
-                                  )}
   context 'as an admin' do
 
     before do
@@ -27,7 +22,7 @@ feature 'Admin creates station' do
         expect(page).to have_button("Submit")
       end
       context 'when I update the form and click submit' do
-        xscenario 'it creates a station' do
+        scenario 'it creates a station' do
           click_on "Create Station"
 
           fill_in :station_name, with: "Madrid Spain Station"

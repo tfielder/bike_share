@@ -41,5 +41,5 @@ before_action :set_station, only: [:destroy, :edit, :show, :update]
   def set_station
     @station = Station.find_by(slug: params[:slug])
   end
-  
+
 end
