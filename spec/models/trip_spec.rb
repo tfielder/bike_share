@@ -15,4 +15,7 @@ RSpec.describe Trip, type: :model do
     it {should belong_to(:start_station)}
     it {should belong_to(:end_station)}
   end
+  describe 'class methods' do
+    # Need some 
+  end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/condition-dashboard', to: 'conditions#dashboard'
 
   resources :orders, only: [:show]
 
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   post '/dashboard', to: 'users#dashboard'
   get '/bike_shop', to: 'bike_shop#index'
   get '/stations-dashboard', to: 'stations#dash'
+
+  get '/condition-dashboard', to: 'conditions#dashboard'
 
   resources :stations, only: [:index], param: :slug
 
