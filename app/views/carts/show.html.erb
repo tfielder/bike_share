@@ -15,7 +15,7 @@
       Qty: <%= count %>
     </li>
     <li>
-      Total: <%= number_to_currency(@cart.line_total(item, count)) %>
+      Subtotal: <%= number_to_currency(@cart.line_total(item, count)) %>
     </li>
     <li><%= button_to "Remove", cart_path(item_id: item.id), method: "delete", class: "btn"%></li>
     <li><%= button_to "Increase", cart_path(item_id: item.id), method: "put", class: "btn" %></li>
@@ -26,6 +26,6 @@
   <% end %>
 
 </br>
-  <h2>Cart Subtotal: <%= number_to_currency(@cart.sub_total) %></h2>
+  <h2>Cart Total: <%= number_to_currency(@cart.sub_total) %></h2>
 </br>
   <h3><%= button_to "Checkout", checkout_index_path %></h3>

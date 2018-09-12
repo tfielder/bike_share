@@ -7,7 +7,7 @@ class CheckoutController < ApplicationController
       total = @cart.sub_total
       num_items = @cart.accessories.count
       session[:cart] = nil
-      flash[:notice] = "Successfully submitted your order totaling $#{@cart.sub_total}! You ordered #{@cart.accessories.count} items."
+      flash[:notice] = "Successfully submitted your order totaling $ #{number_to_currency(@cart.sub_total)}! You ordered #{@cart.accessories.count} items."
       redirect_to dashboard_path
 
     else
