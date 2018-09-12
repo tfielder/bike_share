@@ -25,7 +25,7 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Shortest Ride: #{@shortest} minutes")
     expect(page).to have_content("Start Station with most trips: #{@most_rides_start.count} trips at #{@most_rides_start.name}")
     expect(page).to have_content("End Station with most trips: #{@most_rides_end.count} trips at #{@most_rides_end.name}")
-    expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides.bike_id}")
-    expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides.bike_id}")
+    expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides.bike_id} had #{@most_bike_rides.count} rides")
+    expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides.bike_id} had #{@least_bike_rides.count} rides")
   end
 end
