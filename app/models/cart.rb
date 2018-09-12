@@ -47,7 +47,7 @@ class Cart
     accessory.price * count
   end
 
-  def sub_total
+  def cart_total
     sum_array = accessories.map do |accessory, count|
       accessory.price * count
     end
