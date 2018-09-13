@@ -36,7 +36,7 @@ class StationsController < ApplicationController
   #   flash[:notice] = "Successfully created #{station.name}!"
   #   redirect_to station_path(station)
   # end
-  # 
+  #
   # def edit
   #   @admin = current_user.role
   # end
@@ -58,6 +58,7 @@ class StationsController < ApplicationController
   end
 
   def set_station
+
     @station = Station.find_by(slug: params[:slug])
   end
 

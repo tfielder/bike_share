@@ -17,7 +17,7 @@ feature 'Admin edits station' do
     context 'when I click on Edit' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
-        expect(current_path).to eq(edit_station_path(station))
+        expect(current_path).to eq(edit_admin_station_path(station))
         expect(page).to have_content("Edit #{station.name}")
         expect(page).to have_content("Name:")
         expect(page).to have_content("Dock count:")
@@ -50,7 +50,7 @@ feature 'Admin edits station' do
     context 'when I click on Edit' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
-        expect(current_path).to eq(edit_station_path(station))
+        expect(current_path).to eq(edit_admin_station_path(station))
         expect(page).to have_content("Edit #{station.name}")
         expect(page).to have_content("Name:")
         expect(page).to have_content("Dock count:")
@@ -76,7 +76,7 @@ feature 'Admin edits station' do
     before do
       user = User.create!(name: "Evil Hacker", email: "hacker@email.com", password: "hack", password_confirmation: "hack", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit edit_station_path(station)
+      visit edit_admin_station_path(station)
     end
     scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Edit #{station.name}")
@@ -85,7 +85,7 @@ feature 'Admin edits station' do
   end
   context 'as visitor' do
     before do
-      visit edit_station_path(station)
+      visit edit_admin_station_path(station)
     end
     scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Edit #{station.name}")

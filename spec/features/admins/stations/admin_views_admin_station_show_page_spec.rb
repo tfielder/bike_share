@@ -20,7 +20,7 @@ feature 'Admin views station show page' do
       end
 
       scenario 'I am on the admin station show page' do
-        expect(page).to have_content("Admin Station #{station.name}")
+        expect(page).to have_content("Admin Station: #{station.name}")
         expect(current_path).to eq(station_path(station))
       end
 
@@ -49,7 +49,7 @@ feature 'Admin views station show page' do
 
       visit station_path(station)
 
-      expect(page).to_not have_content("Admin Station #{station.name}")
+      expect(page).to_not have_content("Admin Station: #{station.name}")
       expect(page).to_not have_link("Edit")
       expect(page).to_not have_link("Delete")
     end
@@ -59,7 +59,7 @@ feature 'Admin views station show page' do
 
       visit station_path(station)
 
-      expect(page).to_not have_content("Admin Station #{station.name}")
+      expect(page).to_not have_content("Admin Station: #{station.name}")
       expect(page).to_not have_link("Edit")
       expect(page).to_not have_link("Delete")
     end

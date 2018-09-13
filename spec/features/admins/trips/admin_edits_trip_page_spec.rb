@@ -50,7 +50,7 @@ feature 'Admin edits trip' do
     context 'when I click on Edit' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
-      save_and_open_page
+    
         expect(current_path).to eq(edit_admin_trip_path(trip))
         expect(page).to have_content("Edit trip: ##{trip.id}")
         # expect(page).to have_content("#{trip.duration}")

@@ -10,22 +10,23 @@ before_action :set_station, only: [:destroy, :edit, :update]
     station = Station.new(station_params)
     station.save
     flash[:notice] = "Successfully created #{station.name}!"
-    redirect_to admin_station_path(station)
+    redirect_to station_path(station)
   end
 
   def edit
+    # binding.pry
     @admin = current_user.role
   end
 
   def update
     @station.update(station_params)
     flash[:notice] = "Successfully updated!"
-    redirect_to admin_station_path(@station)
+    redirect_to station_path(@station)
   end
 
   def destroy
     @station.destroy
-    redirect_to admin_stations_path, notice: "Successfully deleted."
+    redirect_to stations_path, notice: "Successfully deleted."
   end
 
   private
@@ -35,6 +36,7 @@ before_action :set_station, only: [:destroy, :edit, :update]
 
   def set_station
     @station = Station.find_by(slug: params[:slug])
+    # @station = Station.find_by(params[:id])
   end
 
 end
