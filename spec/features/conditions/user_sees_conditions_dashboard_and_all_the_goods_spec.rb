@@ -3,6 +3,8 @@ require 'rails_helper'
 describe 'as a visitor' do
   describe 'when visiting /condition/2 show page' do
     it 'shows unique conditions for show page' do
+      
+
       station_1 = Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
       station_2 = Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
 

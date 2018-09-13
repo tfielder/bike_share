@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    if current_user && current_user.orders.include?(@order)
+    #
+    if current_admin? || (current_user && @order.user == current_user)
       @accessories = @order.accessory_count
       @total_price = @order.total_price
     else
