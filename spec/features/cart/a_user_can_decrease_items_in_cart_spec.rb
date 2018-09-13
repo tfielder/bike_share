@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'a user should be able to increase quantity in the cart' do
+describe 'a user should be able to decrease quantity in the cart' do
   it 'should decrease quantity of an item' do
     item_1 = Accessory.create(title: "happy1", image: "image1", description: "sogood1", price: 10.01)
     visit bike_shop_path
@@ -25,7 +25,9 @@ describe 'a user should be able to increase quantity in the cart' do
     expect(page).to have_content("Subtotal: $10.01")
 
     click_on "Decrease"
-    expect(page).to_not have_content(item_1.title)
+    save_and_open_page
+    expect(page).to have_content("Successfully removed #{@item_2.title} from your cart.")
+
 
   end
 end
