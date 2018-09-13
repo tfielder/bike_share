@@ -21,7 +21,7 @@ feature 'Admin can delete a trip spec' do
 
           expect(current_path).to eq(admin_trips_path)
           expect(page).to have_content("Successfully deleted.")
-          expect(page).to have_content(trip.name)
+          expect(page).to_not have_content("#{trip.id}")
         end
       end
 
@@ -34,7 +34,7 @@ feature 'Admin can delete a trip spec' do
           click_on "Delete"
           expect(current_path).to eq(admin_trips_path)
           expect(page).to have_content("Successfully deleted.")
-          expect(page).to_not have_content(trip.name)
+          expect(page).to_not have_content("#{trip.id}")
         end
     end
   end
