@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#home'
-  resources :trips, only: [:index, :show]
+  resources :trips, only: [:index, :show, :destroy, :edit, :update]
   get '/trips-dashboard', to: 'trips#dashboard'
 
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/condition-dashboard', to: 'conditions#dashboard'
 
   resources :orders, only: [:show]
-  # resources :order_accessories, only: [:create, :update, :destroy]
+
   resources :users, only: [:new, :create, :edit, :update]
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/condition-dashboard', to: 'conditions#dashboard'
 
-  resources :stations, only: [:index], param: :slug
+  # resources :stations, only: [:index], param: :slug
 
   resources :conditions, only: [:index, :show]
 
@@ -37,19 +37,9 @@ Rails.application.routes.draw do
   patch '/cart', to:'carts#decrease'
 
 
-  get '/:slug', to: 'stations#show', as: "station"
 
+  resources :stations, only: [:index, :update, :destroy, :create], param: :slug
 
-
-  namespace :admin do
-    resources :stations, only: [:index, :edit, :update, :destroy, :new, :create], param: :slug
-  end
-
-  get '/admin/:slug', to: 'admin/stations#show', as: "admin_station_show"
-
-  namespace :admin do
-    resources :trips, only: [:index, :show, :edit, :destroy]
-  end
-
-
+  get '/:slug', to: 'stations#show', as: "show_station"
+  get '/:slug/edit', to: 'stations#create', as: "edit_station"
 end
