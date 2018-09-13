@@ -6,8 +6,7 @@ class OrdersController < ApplicationController
       @accessories = @order.accessory_count
       @total_price = @order.total_price
     else
-      redirect_to dashboard_path
-      flash[:notice] = "You are not authorized to view this page."
+      render file: '/public/404'
     end
   end
 
