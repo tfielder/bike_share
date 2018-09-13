@@ -1,5 +1,13 @@
 <h1>Stations Dashboard</h1>
 
+</br>
+  <% if current_user && current_user.admin? %>
+    <%= link_to "See all Stations", admin_stations_path %>
+  <% else %>
+    <%= link_to "See all Stations", stations_path %>
+  <% end %>
+</br>
+
 <h2>Total Stations Count: <%= @count %></h2>
 <h2>Average Bikes Available Per Station: <%= @average %></h2>
 <h2>Most Bikes Available:</h2>

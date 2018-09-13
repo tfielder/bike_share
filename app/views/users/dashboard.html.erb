@@ -1,12 +1,23 @@
-<h1>Woohoo I'm User Dashboard!</h1>
+<h1>Your Dashboard</h1>
 </br>
 <%= link_to "Edit Account", edit_user_path(@user)%>
 </br>
+</br>
 <% if @orders.count > 0 %>
-  <%= "Orders" %>
-  <ul>
+  <%= "Your Orders" %>
     <% @orders.each do |order| %>
-      <li><%= link_to "#{order.id}", order_path(order) %></li>
+      <div>
+          <ul>
+            <li>Order ID: <%= link_to "#{order.id}", order_path(order) %></li>
+            <li>Contents: </li>
+            <% order.accessory_count.each do |accessory| %>
+              <p>Item: <%= accessory[0].title %></p>
+              <p>Qty: <%= accessory[1] %></p>
+              <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
+            <% end %>
+            <li>Order Total: $<%= '%.2f' % order.total_price %></li>
+          </ul>
+      </div>
+      </br>
     <% end %>
-  </ul>
 <% end %>

@@ -14,7 +14,6 @@ before_action :set_station, only: [:destroy, :edit, :update]
   end
 
   def edit
-    # binding.pry
     @admin = current_user.role
   end
 
@@ -36,7 +35,6 @@ before_action :set_station, only: [:destroy, :edit, :update]
 
   def set_station
     @station = Station.find_by(slug: params[:slug])
-    # @station = Station.find_by(params[:id])
   end
 
 end

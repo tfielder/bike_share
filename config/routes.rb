@@ -40,6 +40,5 @@ Rails.application.routes.draw do
   resources :stations, only: [:index]
 
   get '/:slug', to: 'stations#show', as: "station"
-  # get '/:slug/edit', to: 'stations#edit', as: "edit_station"
 
 end
