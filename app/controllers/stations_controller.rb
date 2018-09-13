@@ -6,6 +6,14 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find_by(slug: params[:slug])
+    binding.pry
+    @rides_started_here = 1
+    @rides_ended_here = 1
+    @destination_station_from_here = 1
+    @origination_station_ending_here = 1
+    @most_trips_on_date = 1
+    @most_frequent_zipcode = 1
+    @most_famous_bike = 1
   end
 
   def dash
