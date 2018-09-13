@@ -16,7 +16,7 @@ feature 'Admin edits trip' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
 
-        expect(current_path).to eq(edit_trip_path(trip))
+        expect(current_path).to eq(edit_admin_trip_path(trip))
         expect(page).to have_content("Edit trip: ##{trip.id}")
         expect(page).to have_content("#{trip.duration}")
         expect(page).to have_content(trip.start_date)
@@ -51,7 +51,7 @@ feature 'Admin edits trip' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
       save_and_open_page
-        expect(current_path).to eq(edit_trip_path(trip))
+        expect(current_path).to eq(edit_admin_trip_path(trip))
         expect(page).to have_content("Edit trip: ##{trip.id}")
         # expect(page).to have_content("#{trip.duration}")
         expect(page).to have_content(trip.start_date)
@@ -79,7 +79,7 @@ feature 'Admin edits trip' do
     before do
       user = User.create!(name: "Bender", email: "bender@futurama.com", password: "money", password_confirmation: "money", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit edit_trip_path(trip)
+      visit edit_admin_trip_path(trip)
     end
 
     xscenario 'I cannot see the edit station page' do
@@ -89,7 +89,7 @@ feature 'Admin edits trip' do
   end
   xcontext 'as a visitor' do
     before do
-      visit edit_trip_path(trip)
+      visit edit_admin_trip_path(trip)
     end
 
     scenario 'I cannot see the edit station page' do

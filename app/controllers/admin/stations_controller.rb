@@ -1,12 +1,5 @@
 class Admin::StationsController < Admin::BaseController
-before_action :set_station, only: [:destroy, :edit, :show, :update]
-  def index
-    @stations = Station.all
-  end
-
-  def show
-
-  end
+before_action :set_station, only: [:destroy, :edit, :update]
 
   def new
     @station = Station.new
