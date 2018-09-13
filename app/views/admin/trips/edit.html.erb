@@ -1,1 +1,46 @@
-<%= "Edit trip: ##{@trip.id}" %>
+<div class="user-form-container container">
+  <h1><%= "Edit trip: ##{@trip.id}" %></h1>
+  <div class="user-form">
+    <%= form_for @trip do |f| %>
+      <div class="form-section">
+          <%= f.label :duration, style: "margin-bottom:2%" %>
+          <%= f.text_field :duration %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :station_name, style: "margin-bottom:2%" %>
+          <%= f.text_field :station_name %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :end_date, style: "margin-bottom:2%" %>
+          <%= f.text_field :end_date %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :end_station_name, style: "margin-bottom:2%" %>
+          <%= f.text_field :end_station_name %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :end_date, style: "margin-bottom:2%" %>
+          <%= f.text_field :end_date %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :bike_id, style: "margin-bottom:2%" %>
+          <%= f.text_field :bike_id %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :subscription_type, style: "margin-bottom:2%" %>
+          <%= f.text_field :subscription_type %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :zip_code, style: "margin-bottom:2%" %>
+          <%= f.text_field :zip_code %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -16,5 +16,6 @@ class Admin::TripsController < Admin::BaseController
 
   def edit
     @trip = Trip.find(params[:id])
+    @station = Station.find_by(params[@trip[:start_station_id]])
   end
 end
