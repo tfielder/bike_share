@@ -1,6 +1,6 @@
 <h1>Woohoo I'm User Dashboard!</h1>
 </br>
-<%= button_to "Edit Account", edit_user_path(@user)%>
+<%= link_to "Edit Account", edit_user_path(@user)%>
 </br>
 <% if @orders.count > 0 %>
   <%= "Orders" %>
