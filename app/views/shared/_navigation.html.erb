@@ -26,9 +26,6 @@
           <li class="nav-item">
             <%= link_to "Stations", stations_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Stations Dashboard", stations_dashboard_path, class: "nav-link" %>
-          </li>
         <% end %>
         <% if current_user && current_user.admin? %>
           <li class="nav-item">
@@ -37,9 +34,6 @@
         <% else %>
           <li class="nav-item">
             <%= link_to "Trips", trips_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Trip Dashboard", trips_dashboard_path, class: "nav-link" %>
           </li>
         <% end %>
         <li class="nav-item">
