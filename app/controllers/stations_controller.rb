@@ -7,7 +7,7 @@ class StationsController < ApplicationController
   def show
     @station = Station.find_by(slug: params[:slug])
     binding.pry
-    @rides_started_here = 1
+    @rides_started_here = 1 #count of trips with starting id == @station.id
     @rides_ended_here = 1
     @destination_station_from_here = 1
     @origination_station_ending_here = 1
