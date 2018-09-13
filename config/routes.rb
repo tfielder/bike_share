@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#home'
+
   resources :trips, only: [:index, :show]
 
   get '/login', to: 'sessions#new'
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   put '/cart', to:'carts#increase'
   patch '/cart', to:'carts#decrease'
 
+
   namespace :admin do
     resources :stations, only: [:update, :destroy, :new, :create, :edit]
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
@@ -42,4 +44,6 @@ Rails.application.routes.draw do
   get '/:slug', to: 'stations#show', as: "show_station"
   # get '/:slug/edit', to: 'stations#edit', as: "edit_station"
 
+  get '/:slug', to: 'stations#show', as: "show_station"
+  get '/:slug/edit', to: 'stations#create', as: "edit_station"
 end
