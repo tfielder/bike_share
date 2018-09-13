@@ -6,9 +6,9 @@
   <ul>
     <li><%= link_to trip.id, trip_path(trip) %></li>
     <li>Duration: <%= trip.duration%> seconds </li>
-    <li>Start Date: <%= trip.start_date %></li>
+    <li>Start Date: <%= trip.start_date.strftime("%m/%d/%Y") %></li>
     <li>Start Station: <%= trip.start_station.name %></li>
-    <li>End Date: <%= trip.end_date%></li>
+    <li>End Date: <%= trip.end_date.strftime("%m/%d/%Y")%></li>
     <li>End Station: <%= trip.end_station.name %></li>
     <li>Bike Id: <%= trip.bike_id %></li>
     <li>Subscription Type: <%= trip.subscription_type %></li>

@@ -1,7 +1,7 @@
 <h1>Condition</h1>
 </br>
 <ul>
-  <li>Date: <%= @condition.date %></li>
+  <li>Date: <%= @condition.date.strftime("%m/%d/%Y") %></li>
   <li>Max Temperature: <%= @condition.max_temp %> °F</li>
   <li>Mean Temperature: <%= @condition.mean_temp %> °F</li>
   <li>Min Temperature: <%= @condition.min_temp %> °F</li>
