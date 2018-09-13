@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#home'
-  resources :trips, only: [:index, :show]
+  resources :trips, only: [:index, :show, :destroy, :edit, :update]
   get '/trips-dashboard', to: 'trips#dashboard'
 
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/condition-dashboard', to: 'conditions#dashboard'
 
-  resources :stations, only: [:index], param: :slug
+  # resources :stations, only: [:index], param: :slug
 
   resources :conditions, only: [:index, :show]
 
@@ -37,15 +37,7 @@ Rails.application.routes.draw do
   patch '/cart', to:'carts#decrease'
 
 
-  get '/:slug', to: 'stations#show', as: "station"
-
-  namespace :admin do
-    resources :stations, only: [:index, :show, :edit, :update, :destroy, :new, :create], param: :slug
-  end
-
-  namespace :admin do
-    resources :trips, only: [:index, :show, :edit, :destroy]
-  end
-
+  # get '/:slug', to: 'stations#show', as: "station"
+  resources :stations, only: [:index, :show, :edit, :update, :destroy, :new, :create], param: :slug
 
 end
