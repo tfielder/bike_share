@@ -34,10 +34,10 @@ class Cart
         @contents[id] = 0
       end
     end
-    if @contents[id] > 0
+    if @contents[id] > 1
      @contents[id] = @contents[id] - 1
    else
-     @contents[id].delete
+     @contents.delete(id)
    end
   end
 
