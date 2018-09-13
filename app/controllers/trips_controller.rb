@@ -9,7 +9,6 @@ class TripsController < ApplicationController
 
   def dashboard
     trips = Trip.all
-    binding.pry
     @average = trips.average_duration
     @longest = trips.longest_ride
     @shortest = trips.shortest_ride
