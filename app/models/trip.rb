@@ -53,10 +53,4 @@ class Trip < ApplicationRecord
   def self.date_with_least_trips
     select("start_date, count(start_date) as count").group(:start_date).order("count(start_date) asc").limit(1).first
   end
-  #   SELECT name, count(start_station_id)
-  # FROM stations
-  # INNER JOIN trips ON stations.id = trips.start_station_id
-  # GROUP BY stations.name
-  # ORDER BY count desc
-  # LIMIT 1;
 end

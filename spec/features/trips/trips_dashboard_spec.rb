@@ -32,7 +32,7 @@ describe'a registered user can visits trips dashboard' do
     @customer_percentage = trips.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100
 
     visit trips_dashboard_path
-    save_and_open_page
+
     expect(page).to have_content("Average Duration: #{@average} minutes")
     expect(page).to have_content("Longest Ride: #{@longest} minutes")
     expect(page).to have_content("Shortest Ride: #{@shortest} minutes")
