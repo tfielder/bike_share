@@ -19,7 +19,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if User.find_by_id(params[:id]) != nil
+      @user = User.find(params[:id])
+      if @user == current_user
+        render :edit
+      else
+        render file: "/public/404"
+      end
+    else
+      render file: "/public/404"
+    end
   end
 
   def update

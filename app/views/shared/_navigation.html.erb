@@ -2,7 +2,7 @@
   <h1 class="navbar-brand"><%= link_to "Bike Share", root_path, class: "nav-link" %></h1>
   <% if current_user.present? %>
     <p class="navbar-brand">
-      Logged in as <%= link_to "#{current_user.name}", dashboard_path, class: "navbar-brand" %>
+      <%= "Logged in as #{current_user.name} " %>
     </p>
   <% end %>
 
@@ -18,32 +18,20 @@
           <%= link_to "Log In", login_path, class: "nav-link" %>
         </li>
       <% end %>
-        <% if current_user && current_user.admin? %>
-          <li class="nav-item">
-            <%= link_to "Stations", admin_stations_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Stations", stations_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        <% if current_user && current_user.admin? %>
-          <li class="nav-item">
-            <%= link_to "Trips", admin_trips_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Trips", trips_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <%= link_to "Conditions", conditions_path, class: "nav-link" %>
-        </li>
       <li class="nav-item">
-        <%= link_to "Bike Shop", bike_shop_path, class: "nav-link" %>
+        <%= link_to "Cart", cart_path, class: "nav-link" %>: <%= @cart.total_count %>
       </li>
       <li class="nav-item">
-        <%= link_to "Cart: #{@cart.total_count}", cart_path, class: "nav-link" %>
+        <%= link_to "Stations", stations_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Trips", trips_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Conditions", conditions_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Bike Shop", bike_shop_path, class: "nav-link" %>
       </li>
       <% if current_user %>
         <li class="nav-item">
