@@ -159,7 +159,8 @@ puts "Accessory Created!"
 Accessory.create!( image: "https://media.luggagepros.com/media/catalog/product/cache/1/image/200x200/9df78eab33525d08d6e5fb8d27136e95/3/7/37813-106518_180726145812.jpg",
                    title: "SpaceJam Back Pack",
                    description: "Just... A SpaceJam BackPack",
-                   price: 38.00
+                   price: 38.00,
+                   retired: true
                 )
 puts "Accessory Created!"
 Accessory.create!( image: "http://www.metal-temple.com/uploads/catalogues/ecnephias-the-sad-wonder-of-the-sun.jpg",
@@ -177,7 +178,8 @@ puts "Accessory Created!"
 Accessory.create!( image: "https://i-cdn.phonearena.com//images/article/78286-image/Kanye-West-announced-a-gorgeous-video-game-about-his-mother-ascending-to-Heaven.jpg",
                    title: "Salvation",
                    description: "Eternal Happiness",
-                   price: 6000.00
+                   price: 6000.00,
+                   retired: true
                 )
 puts "Accessory Created!"
 Accessory.create!( image: "https://www.adorama.com/images/product/dgpatlagcs.jpg",
@@ -195,7 +197,7 @@ User.create!( name: "Autumn",
               password_confirmation: "123",
               role: 1
             )
-puts "User Created!"
+puts "Admin Created!"
 User.create!( name: "Maria",
               email: "maria@maria.com",
               password: "123",
@@ -209,18 +211,25 @@ User.create!( name: "Tim",
               password_confirmation: "123",
               role: 1
             )
-puts "User Created!"
+puts "Admin Created!"
 User.create!( name: "Ben",
               email: "ben1@ben1.com",
               password: "123",
               password_confirmation: "123",
               role: 1
             )
-puts "User Created!"
+puts "Admin Created!"
 User.create!( name: "test",
               email: "test@test",
               password: "test",
               password_confirmation: "test",
+              role: 0
+            )
+puts "User Created!"
+User.create!( name: "test2",
+              email: "test2@test2",
+              password: "test2",
+              password_confirmation: "test2",
               role: 0
             )
 puts "User Created!"
