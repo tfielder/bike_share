@@ -12,15 +12,15 @@ class Trip < ApplicationRecord
     belongs_to :end_station, class_name: "Station"
 
   def self.average_duration
-    average(:duration)
+    average(:duration).round(2)
   end
 
   def self.longest_ride
-    maximum(:duration)
+    maximum(:duration).round(2)
   end
 
   def self.shortest_ride
-    minimum(:duration)
+    minimum(:duration).round(2)
   end
 
   def self.most_rides_start
