@@ -7,7 +7,11 @@
       <li><%= link_to item.title, accessory_path(item) %></li>
       <li><%= number_to_currency(item.price) %></li>
       <li><%= item.description %></li>
-      <li><%= button_to "Add to Cart", cart_path(item_id: item.id), method: "post", class: "btn"%></li>
+      <% if item.retired == true %>
+        <li>!Accessory Retired!</li>
+      <% else %>
+        <li><%= button_to "Add to Cart", cart_path(item_id: item.id), method: "post", class: "btn"%></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
