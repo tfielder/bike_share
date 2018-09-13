@@ -3,7 +3,9 @@ class CheckoutController < ApplicationController
   def create
       order = current_user.orders.create(status: "ordered")
       @cart.contents.each do |key, value|
-        order.order_accessories.create(order_id: order.id, accessory_id: key)
+        value.times do
+          order.order_accessories.create(order_id: order.id, accessory_id: key)
+        end
       end
     if current_user.orders
       total = '%.2f' % @cart.cart_total
