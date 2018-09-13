@@ -13,6 +13,16 @@
       </div>
     </br>
       <div class="form-section">
+          <%= f.label :start_date, style: "margin-bottom:2%" %>:
+          <%= f.date_field :start_date %>
+      </div>
+    </br>
+      <div class="form-section">
+          <%= f.label :end_station, style: "margin-bottom:2%" %>:
+          <%= f.collection_select :end_station_id, Station.all, :id, :name %>
+      </div>
+    </br>
+      <div class="form-section">
           <%= f.label :end_date, style: "margin-bottom:2%" %>:
           <%= f.date_field :end_date %>
       </div>

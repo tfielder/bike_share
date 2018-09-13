@@ -18,11 +18,14 @@ feature 'Admin edits trip' do
 
         expect(current_path).to eq(edit_admin_trip_path(trip))
         expect(page).to have_content("Edit trip: ##{trip.id}")
-        expect(page).to have_content("#{trip.duration}")
-        expect(page).to have_content(trip.start_date)
-        expect(page).to have_content(trip.end_date)
-        expect(page).to have_content("#{trip.bike_id}")
-        expect(page).to have_content(trip.subscription_type)
+        expect(page).to have_content("Duration:")
+        expect(page).to have_content("Start station: #{station_1.name}")
+        expect(page).to have_content("Start date:")
+        expect(page).to have_content("End station: #{station_1.name}")
+        expect(page).to have_content("End date:")
+        expect(page).to have_content("Bike:")
+        expect(page).to have_content("Subscription type:")
+        expect(page).to have_content("Zip code:")
         expect(page).to have_content(station_1.name)
         expect(page).to have_content(station_2.name)
       end
@@ -50,14 +53,17 @@ feature 'Admin edits trip' do
     context 'when I click on Edit' do
       scenario 'it takes me to an edit form' do
         click_on "Edit"
-    
+
         expect(current_path).to eq(edit_admin_trip_path(trip))
         expect(page).to have_content("Edit trip: ##{trip.id}")
-        # expect(page).to have_content("#{trip.duration}")
-        expect(page).to have_content(trip.start_date)
-        expect(page).to have_content(trip.end_date)
-        expect(page).to have_content("#{trip.bike_id}")
-        expect(page).to have_content(trip.subscription_type)
+        expect(page).to have_content("Duration:")
+        expect(page).to have_content("Start station: #{station_1.name}")
+        expect(page).to have_content("Start date:")
+        expect(page).to have_content("End station: #{station_1.name}")
+        expect(page).to have_content("End date:")
+        expect(page).to have_content("Bike:")
+        expect(page).to have_content("Subscription type:")
+        expect(page).to have_content("Zip code:")
         expect(page).to have_content(station_1.name)
         expect(page).to have_content(station_2.name)
       end

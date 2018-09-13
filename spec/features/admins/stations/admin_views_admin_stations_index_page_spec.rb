@@ -30,7 +30,7 @@ feature 'Admin views stations index page' do
 
       scenario 'I am on the admin stations index page' do
         expect(current_path).to eq(stations_path)
-        expect(page).to have_content("All Admin Stations")
+        expect(page).to have_content("Admin Stations")
       end
 
       scenario 'I view an edit button for each station' do
@@ -66,7 +66,7 @@ feature 'Admin views stations index page' do
 
       visit stations_path
 
-      expect(page).to_not have_content("All Admin Stations")
+      expect(page).to_not have_content("Admin Stations")
       expect(page).to_not have_link("Edit")
       expect(page).to_not have_link("Delete")
     end
@@ -76,7 +76,7 @@ feature 'Admin views stations index page' do
 
       visit stations_path
 
-      expect(page).to_not have_content("All Admin Stations")
+      expect(page).to_not have_content("Admin Stations")
       expect(page).to_not have_link("Edit")
       expect(page).to_not have_link("Delete")
     end
