@@ -17,7 +17,7 @@ describe 'As a registered user' do
       first('.bike_shop_item_2').click_on("Add to Cart")
       first('.bike_shop_item_3').click_on("Add to Cart")
 
-      click_on("Cart")
+      click_on("Cart:")
 
     end
 
@@ -49,7 +49,7 @@ describe 'as an unregistered visitor' do
       first('.bike_shop_item_2').click_on("Add to Cart")
       first('.bike_shop_item_3').click_on("Add to Cart")
 
-      click_on("Cart")
+      click_on("Cart:")
 
     end
     it 'redirects user to login when unregistered' do
