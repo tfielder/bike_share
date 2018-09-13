@@ -31,7 +31,11 @@ class Trip < ApplicationRecord
     Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
   end
 
-  def breakdown
+  def monthly_breakdown
+  end
+
+  def self.user_subscription_breakdown
+     Trip.select("subscription_type, count(subscription_type)").group("subscription_type").count("subscription_type")
   end
 
   def self.most_bike_rides
@@ -40,6 +44,14 @@ class Trip < ApplicationRecord
 
   def self.least_bike_rides
     select("bike_id, count(bike_id) as count").group(:bike_id).order("count(bike_id) asc").limit(1).first
+  end
+
+  def self.date_with_most_trips
+    select("start_date, count(start_date) as count").group(:start_date).order("count(start_date) desc").limit(1).first
+  end
+
+  def self.date_with_least_trips
+    select("start_date, count(start_date) as count").group(:start_date).order("count(start_date) asc").limit(1).first
   end
   #   SELECT name, count(start_station_id)
   # FROM stations
