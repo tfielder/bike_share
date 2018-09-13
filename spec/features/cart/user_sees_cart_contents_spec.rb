@@ -22,13 +22,13 @@ describe 'As a registered user' do
     it 'shows small image, title, price, quantity breakdown and total for each accessory in the cart' do
 
       expect(page).to have_css("img[src*='image2']")
-      expect(page).to have_content("#{@item_2.title} Price: $#{@item_2.price} Qty: 2 Total: $20.04")
+      expect(page).to have_content("#{@item_2.title} Price: $#{@item_2.price} Qty: 2 Subtotal: $20.04")
       expect(page).to have_css("img[src*='image3']")
-      expect(page).to have_content("#{@item_3.title} Price: $#{@item_3.price} Qty: 1 Total: $10.03")
+      expect(page).to have_content("#{@item_3.title} Price: $#{@item_3.price} Qty: 1 Subtotal: $10.03")
 
     end
     it 'shows subtotal for cart' do
-      expect(page).to have_content("Cart Subtotal: $30.07")
+      expect(page).to have_content("Cart Total: $30.07")
     end
 
     it 'shows a button to checkout' do
