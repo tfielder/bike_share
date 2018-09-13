@@ -14,7 +14,7 @@
       <% end %>
       <li>Dock Count: <%= station.dock_count %></li>
       <li>City: <%= station.city %></li>
-      <li>Install Date: <%= station.installation_date %></li>
+      <li>Install Date: <%= station.installation_date.strftime("%m/%d/%Y")%></li>
     </ul>
     <br>
   <% end %>

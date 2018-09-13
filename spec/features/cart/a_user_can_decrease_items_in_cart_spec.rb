@@ -24,6 +24,6 @@ describe 'a user should be able to decrease quantity in the cart' do
     expect(page).to have_content("Subtotal: $10.01")
 
     click_on "Decrease"
-    expect(page).to have_content("Successfully removed #{@item_2.title} from your cart.")
+    expect(page).to have_content("Successfully removed #{item_1.title} from your cart.")
   end
 end
