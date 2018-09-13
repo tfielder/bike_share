@@ -18,4 +18,15 @@ describe 'User visits a station show page' do
       expect(page).to have_content(station.installation_date)
     end
   end
+  context 'user is a registered user' do
+    it 'shows number of rides started at the station, rides ended at the station, most frequent destination station (for rides beginning at station)' do
+      
+    end
+    it 'shows Most frequent origination station (for rides that ended at this station, Date with the highest number of trips started at this station)' do
+
+    end
+    it 'shows Most frequent zip code for users starting trips at this station, Bike ID most frequently starting a trip at this station' do
+
+    end
+  end
 end
