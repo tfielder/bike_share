@@ -1,0 +1,11 @@
+<h1>Trips Dashboard</h1>
+<h2>Average Duration: <%= @average %> seconds</h2>
+<h2>Longest Ride: <%=@longest %> seconds</h2>
+<h2>Shortest Ride: <%=@shortest %> seconds</h2>
+<h2>Start Station with most trips: <%= @most_rides_start_count %> trips at <%=@most_rides_start_name%> </h2>
+<h2>End Station with most trips: <%= @most_rides_end_count %> trips at <%=@most_rides_end_name%> </h2>
+<h2>Bike with the most rides: Bike <%=@most_bike_rides_id%> had  <%=@most_bike_rides_count %> rides</h2>
+<h2>Bike with the least rides: Bike <%=@least_bike_rides_id%> had <%=@least_bike_rides_count%> rides</h2>
+<h2>Date with the most amount of trips: <%=@date_with_most_trips_count  %> on <%= @date_with_most_trips_day %> </h2>
+<h2>Date with the least amount of trips: <%= @date_with_least_trips_count%> on <%= @date_with_least_trips_day %> </h2>
+<h2>Subscriber breakdown: <%=@user_subscription_breakdown_count_subsriber%> subscribers and <%= @user_subscription_breakdown_count_customer %> customers. <%= @subscriber_percentage%>% subscribers and <%= @customer_percentage %>% customers.</h2>

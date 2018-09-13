@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
   resources :trips, only: [:index, :show]
+  get '/trips-dashboard', to: 'trips#dashboard'
+
 
   get 'welcome/home',  to: 'welcome#home'
   get '/login', to: 'sessions#new'

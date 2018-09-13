@@ -33,7 +33,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Trips", admin_trips_path, class: "nav-link" %>
+            <%= link_to "Trips", trips_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Trip Dashboard", trips_dashboard_path, class: "nav-link" %>
           </li>
         <% end %>
         <li class="nav-item">
