@@ -5,7 +5,7 @@ before_action :set_station, only: [:destroy, :edit, :show, :update]
   end
 
   def show
-
+    
   end
 
   def new
