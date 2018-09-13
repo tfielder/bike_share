@@ -1,5 +1,7 @@
 <h1>Trips</h1>
-
+<% if current_user %>
+  <%= link_to "Trip Dashboard", trips_dashboard_path, class: "nav-link" %>
+<% end %>
 <% @trips.each do |trip| %>
   <ul>
     <li><%= link_to trip.id, trip_path(trip) %></li>
