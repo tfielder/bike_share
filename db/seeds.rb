@@ -120,7 +120,7 @@ Accessory.create!( image: "https://s3files.core77.com/blog/images/lead_n_spotlig
                    price: 13.35
                 )
 puts "Accessory Created!"
-Accessory.create!( image: "https://www.marxfoods.com/images/Blood-Oranges-Wholesale_BloodOranges-1.jpg?resizeid=13&resizeh=200&resizew=200",
+accessory2 = Accessory.create!( image: "https://www.marxfoods.com/images/Blood-Oranges-Wholesale_BloodOranges-1.jpg?resizeid=13&resizeh=200&resizew=200",
                    title: "Being Asleep",
                    description: "Eternal Slumber",
                    price: 3.50
@@ -182,7 +182,7 @@ Accessory.create!( image: "https://i-cdn.phonearena.com//images/article/78286-im
                    retired: true
                 )
 puts "Accessory Created!"
-Accessory.create!( image: "https://www.adorama.com/images/product/dgpatlagcs.jpg",
+accessory1 = Accessory.create!( image: "https://www.adorama.com/images/product/dgpatlagcs.jpg",
                    title: "Guitar",
                    description: "Just a guitar",
                    price: 120.00
@@ -219,14 +219,14 @@ User.create!( name: "Ben",
               role: 1
             )
 puts "Admin Created!"
-User.create!( name: "test",
+user1 = User.create!( name: "test",
               email: "test@test",
               password: "test",
               password_confirmation: "test",
               role: 0
             )
 puts "User Created!"
-User.create!( name: "test2",
+user2 = User.create!( name: "test2",
               email: "test2@test2",
               password: "test2",
               password_confirmation: "test2",
@@ -235,3 +235,24 @@ User.create!( name: "test2",
 puts "User Created!"
 puts "Users Created!"
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+puts "Order Created"
+order1 = user1.orders.create!(status: "pending")
+order2 = user1.orders.create!(status: "pending")
+order1.accessories << accessory1
+order1.accessories << accessory2
+order1.accessories << accessory2
+order2.accessories << accessory1
+order2.accessories << accessory1
+
+order3 = user2.orders.create!(status: "ordered")
+order4 = user2.orders.create!(status: "pending")
+order3.accessories << accessory1
+order3.accessories << accessory2
+order3.accessories << accessory2
+order4.accessories << accessory1
+order4.accessories << accessory1
+
+puts "Orders Created"
+ActiveRecord::Base.connection.reset_pk_sequence!('orders')
+
