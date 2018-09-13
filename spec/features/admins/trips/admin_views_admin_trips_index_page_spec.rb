@@ -61,6 +61,7 @@ feature 'Admin views admin trips index page' do
         end
 
         scenario 'I view everything else a user sees' do
+          expect(page).to have_content("#{trip_1.id}")
           expect(page).to have_content(trip_1.duration)
           expect(page).to have_content(station_1.name)
           expect(page).to have_content(station_2.name)

@@ -31,6 +31,7 @@ feature 'Admin views admin trip show page' do
 
         scenario 'I view everything else a user sees' do
           expect(page).to have_content(trip.duration)
+          expect(page).to have_content(trip.duration)
           expect(page).to have_content(station_1.name)
           expect(page).to have_content(station_2.name)
           expect(page).to have_content(trip.start_date)

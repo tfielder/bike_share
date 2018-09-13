@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :trips, only: [:index, :show]
+    resources :trips, only: [:index, :show, :edit, :destroy]
   end
 
 
