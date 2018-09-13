@@ -1,5 +1,14 @@
-<h1>Trips</h1>
+<% if current_user && current_user.admin? %>
+  <h1>Admin Trips</h1>
+<% else %>
+  <h1>Trips</h1>
+<% end %>
+</br>
 
+<div class ="btn">
+  <%= link_to "Create Trip" #new_trip_path %>
+</div>
+</br>
 <% @trips.each do |trip| %>
   <ul>
     <li><%= link_to trip.id, trip_path(trip) %></li>
@@ -11,6 +20,10 @@
     <li>Bike Id: <%= trip.bike_id %></li>
     <li>Subscription Type: <%= trip.subscription_type %></li>
     <li>Zip code: <%= trip.zip_code %></li>
+    <% if current_user && current_user.admin? %>
+      <li><%= link_to "Edit", edit_trip_path(@trip) %></li>
+      <li><%= link_to "Delete", trip_path(@trip), method: :delete %></li>
+    <% end %>
   </ul>
   <br>
     <% end %>
