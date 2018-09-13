@@ -7,7 +7,7 @@
 <div class='card-holder'>
   <% @stations.each do |station| %>
     <ul class="station-card">
-      <li>Station: <%= link_to station.name , station_path(station) %></li>
+      <li>Station: <%= link_to station.name , admin_station_path(station) %></li>
       <li>Dock Count: <%= station.dock_count %></li>
       <li>City: <%= station.city %></li>
       <li>Install Date: <%= station.installation_date %></li>
