@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/condition-dashboard', to: 'conditions#dashboard'
 
   resources :orders, only: [:show]
-
+  # resources :order_accessories, only: [:create, :update, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'

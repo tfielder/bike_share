@@ -12,5 +12,6 @@
     <li>Qty: <%= count %></li>
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
+</br>
 <% end %>
-<h2>Total: <%= @total_price %></h2>
+<h2>Total: $<%= '%0.2f' % @total_price %></h2>

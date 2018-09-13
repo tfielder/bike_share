@@ -8,7 +8,7 @@ describe 'a user should be able to increase quantity in the cart' do
     first('.bike_shop_item_1').click_on("Add to Cart")
     expect(page).to have_content("Cart: 2")
 
-    click_on "Cart"
+    click_on "Cart:"
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(item_1.title)

@@ -31,7 +31,7 @@ describe 'User adds item to cart' do
         click_on("Add to Cart")
       end
 
-      click_on "Cart"
+      click_on "Cart:"
 
       expect(current_path).to eq(cart_path)
       expect(page).to have_content(@item_2.title)
