@@ -94,7 +94,7 @@ feature 'Admin edits trip' do
 
     scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Edit trip: ##{trip.id}")
-      expext(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 
