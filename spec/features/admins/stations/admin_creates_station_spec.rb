@@ -35,7 +35,7 @@ feature 'Admin creates station' do
 
           station = Station.last
 
-          expect(current_path).to eq(admin_station_path(station))
+          expect(current_path).to eq(station_path(station))
           expect(page).to have_content("Successfully created #{station.name}!")
           expect(page).to have_content(station.name)
           expect(page).to have_content(station.dock_count)
@@ -49,7 +49,7 @@ feature 'Admin creates station' do
     before do
       user = User.create!(name: "Dalek", email: "dalek@email.com", password: "hack", password_confirmation: "hack", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit new_admin_station_path
+      visit new_station_path
     end
     scenario 'I cannot see the new station page' do
       expect(page).to_not have_content("Create Station")
@@ -58,7 +58,7 @@ feature 'Admin creates station' do
   end
   context 'as visitor' do
     before do
-      visit new_admin_station_path
+      visit new_station_path
     end
     scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Create Station")

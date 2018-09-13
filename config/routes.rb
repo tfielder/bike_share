@@ -36,8 +36,9 @@ Rails.application.routes.draw do
   put '/cart', to:'carts#increase'
   patch '/cart', to:'carts#decrease'
 
-
-  # get '/:slug', to: 'stations#show', as: "station"
-  resources :stations, only: [:index, :show, :edit, :update, :destroy, :new, :create], param: :slug
+  get '/:slug', to: 'stations#show', as: "station"
+  get '/:slug', to: 'stations#new'
+  get '/:slug', to: 'stations#edit'
+  resources :stations, only: [:index, :update, :destroy, :create], param: :slug
 
 end
