@@ -31,8 +31,7 @@ class StationsController < ApplicationController
       @newest_station = ordered_installation_date.first.name
       @oldest_station = ordered_installation_date.last.name
     else
-      redirect_to login_path
-      flash[:notice] = "You are not authorized to view this page."
+      render file: 'public/404'
     end
   end
 
