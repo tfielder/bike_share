@@ -39,11 +39,9 @@ Rails.application.routes.draw do
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
   end
-  resources :stations, only: [:index, :show]
+  resources :stations, only: [:index]
 
-  get '/:slug', to: 'stations#show', as: "show_station"
+  get '/:slug', to: 'stations#show', as: "station"
   # get '/:slug/edit', to: 'stations#edit', as: "edit_station"
 
-  get '/:slug', to: 'stations#show', as: "show_station"
-  get '/:slug/edit', to: 'stations#create', as: "edit_station"
 end
