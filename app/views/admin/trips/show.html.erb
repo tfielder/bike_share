@@ -9,6 +9,6 @@
   <li>Bike Id: <%= @trip.bike_id %></li>
   <li>Subscription Type: <%= @trip.subscription_type %></li>
   <li>Zip code: <%= @trip.zip_code %></li>
-  <li><%= link_to "Edit" %></li>
-  <li><%= link_to "Delete" %></li>
+  <li><%= link_to "Edit", edit_admin_trip_path(@trip) %></li>
+  <li><%= link_to "Delete", admin_trip_path(@trip), method: :delete %></li>
 </ul>
