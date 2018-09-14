@@ -30,11 +30,14 @@ feature 'Admin creates trip' do
       context 'when I fill in the form and click submit' do
         scenario 'it creates a trip' do
           click_on "Create Trip"
+          save_and_open_page
 
           fill_in :trip_duration, with: 123
-          fill_in :trip_start_station, with: "Bam"
+          # select 'Lana Station', :from => 'trip_start_station'
+          # page.select("Lana Station", from: :trip_start_station)
+          page.find_field(:trip_start_station).find('Lana Station')
           fill_in "Start date", :with => "12/23/2015"
-          fill_in :trip_end_station, with: "Wham"
+          # select 'Archer Station', from: 'start-station-dropdown'
           fill_in "End date", :with => '1/29/2016'
           fill_in :trip_bike_id, with: 79
           fill_in :trip_subscription_type, with: "Shabam"

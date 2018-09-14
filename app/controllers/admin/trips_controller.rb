@@ -19,7 +19,8 @@ before_action :set_trip, only: [:destroy, :edit, :update]
   end
 
   def new
-  end 
+    @trip = Trip.new()
+  end
 
   private
   def trip_params
