@@ -8,7 +8,7 @@ describe 'as a visitor' do
 
       visit conditions_path
 
-      expect(page).to have_content("Date: #{condition_1.date}")
+      expect(page).to have_content("Date: #{condition_1.date.strftime("%m/%d/%Y")}")
       expect(page).to have_content("Max Temperature: #{condition_1.max_temp}")
       expect(page).to have_content("Mean Temperature: #{condition_1.mean_temp}")
       expect(page).to have_content("Min Temperature: #{condition_1.min_temp}")
@@ -17,7 +17,7 @@ describe 'as a visitor' do
       expect(page).to have_content("Mean Wind Speed: #{condition_1.mean_wind_speed}")
       expect(page).to have_content("Precipitation: #{condition_1.precip}")
 
-      expect(page).to have_content("Date: #{condition_2.date}")
+      expect(page).to have_content("Date: #{condition_2.date.strftime("%m/%d/%Y")}")
       expect(page).to have_content("Max Temperature: #{condition_2.max_temp}")
       expect(page).to have_content("Mean Temperature: #{condition_2.mean_temp}")
       expect(page).to have_content("Min Temperature: #{condition_2.min_temp}")

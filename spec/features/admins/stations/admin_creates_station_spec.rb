@@ -40,7 +40,7 @@ feature 'Admin creates station' do
           expect(page).to have_content(station.name)
           expect(page).to have_content(station.dock_count)
           expect(page).to have_content(station.city)
-          expect(page).to have_content(station.installation_date)
+          expect(page).to have_content(station.installation_date.strftime("%m/%d/%Y"))
         end
       end
     end

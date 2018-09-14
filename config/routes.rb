@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get '/trips-dashboard', to: 'trips#dashboard'
   get '/condition-dashboard', to: 'conditions#dashboard'
 
-  # resources :stations, only: [:index], param: :slug
-
   resources :conditions, only: [:index, :show]
 
   resources :accessories, only: [:show], param: :slug

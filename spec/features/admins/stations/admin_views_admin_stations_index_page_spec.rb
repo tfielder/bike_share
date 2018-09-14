@@ -46,15 +46,15 @@ feature 'Admin views stations index page' do
         expect(page).to have_link(station1.name)
         expect(page).to have_content(station1.dock_count)
         expect(page).to have_content(station1.city)
-        expect(page).to have_content(station1.installation_date)
+        expect(page).to have_content(station1.installation_date.strftime("%m/%d/%Y"))
         expect(page).to have_link(station2.name)
         expect(page).to have_content(station2.dock_count)
         expect(page).to have_content(station2.city)
-        expect(page).to have_content(station2.installation_date)
+        expect(page).to have_content(station2.installation_date.strftime("%m/%d/%Y"))
         expect(page).to have_link(station3.name)
         expect(page).to have_content(station3.dock_count)
         expect(page).to have_content(station3.city)
-        expect(page).to have_content(station3.installation_date)
+        expect(page).to have_content(station3.installation_date.strftime("%m/%d/%Y"))
       end
     end
   end
