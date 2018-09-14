@@ -53,9 +53,9 @@ describe 'as an unregistered visitor' do
 
     end
     it 'redirects user to login when unregistered' do
-      expect(page).to have_button("Login to Checkout")
+      expect(page).to_not have_button("Login to Checkout")
 
-      click_on("Login to Checkout")
+      click_on("Login/Create Account to Checkout")
 
       expect(current_path).to eq(login_path)
     end
