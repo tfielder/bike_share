@@ -31,5 +31,6 @@
   <% if current_user %>
     <h3><%= button_to "Checkout", checkout_index_path %></h3>
   <% else %>
-    <h3><%= button_to "Login to Checkout", login_path, method: :get%></h3>
+    <h3><%= button_to "Checkout", checkout_index_path, disabled: true %></h3>
+    <h3><%= link_to "Login/Create Account to Checkout", login_path, method: :get%></h3>
   <% end %>
