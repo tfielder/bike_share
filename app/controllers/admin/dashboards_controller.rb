@@ -8,6 +8,10 @@ class Admin::DashboardsController < ApplicationController
     else
       @all_orders = Order.all
     end
+    @paid = Order.where(status: "paid")
+    @ordered = Order.where(status: "ordered")
+    @cancelled = Order.where(status: "cancelled")
+    @completed = Order.where(status: "completed")
   end
 
 end
