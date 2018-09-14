@@ -31,14 +31,14 @@ feature 'Admin edits trip' do
       end
 
       context 'when I update the form and click submit' do
-        xscenario 'it updates a station' do
+        scenario 'it updates a station' do
           click_on "Edit"
           fill_in :trip_subscription_type, with: "The best subscriber"
           click_on "Submit Changes"
           trip.reload
 
-          expect(current_path).to eq(trip_station_path(trip))
-          expect(trip).to have_content("Successfully updated!")
+          expect(current_path).to eq(trip_path(trip))
+          expect(page).to have_content("Successfully updated!")
         end
       end
     end
@@ -69,14 +69,14 @@ feature 'Admin edits trip' do
       end
 
       context 'when I update the form and click submit' do
-        xscenario 'it updates a station' do
+        scenario 'it updates a station' do
           click_on "Edit"
           fill_in :trip_subscription_type, with: "The best subscriber"
           click_on "Submit Changes"
           trip.reload
 
-          expect(current_path).to eq(trip_station_path(trip))
-          expect(trip).to have_content("Successfully updated!")
+          expect(current_path).to eq(trip_path(trip))
+          expect(page).to have_content("Successfully updated!")
         end
       end
     end
