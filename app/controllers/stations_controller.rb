@@ -28,8 +28,8 @@ class StationsController < ApplicationController
       station_least_bikes_names = ordered_dock_count.where("dock_count = ?", "#{@least_bikes}")
       @station_least_bikes_names = station_least_bikes_names.map {|station| station.name}
       ordered_installation_date = stations.order(installation_date: :DESC)
-      @newest_station = ordered_installation_date.first.name
-      @oldest_station = ordered_installation_date.last.name
+      @newest_station = ordered_installation_date.first
+      @oldest_station = ordered_installation_date.last
     else
       render file: 'public/404'
     end
