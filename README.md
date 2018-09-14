@@ -22,7 +22,28 @@ Ruby version -
 Rails version -
 
 Gems -
+For development -
+  'rails', '~> 5.1.6'
+  'pg', '>= 0.18', '< 2.0'
+  'puma', '~> 3.7'
+  'sass-rails', '~> 5.0'
+  'uglifier', '>= 1.3.0'
+  'coffee-rails', '~> 4.2'
+  'jbuilder', '~> 2.5'
+  'bootstrap', '~> 4.1.3'
+  'jquery-rails'
+  'will_paginate', '~> 3.1.0'
+  'will_paginate-bootstrap'
 
+For testing and development
+  'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  'rspec-rails'
+  'capybara'
+  'shoulda-matchers'
+  'pry'
+  'factory_bot_rails'
+  'simplecov'
+  'launchy'
 
 Configuration
 
