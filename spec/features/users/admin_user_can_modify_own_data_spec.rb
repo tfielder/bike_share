@@ -18,7 +18,7 @@ describe 'as an admin' do
 
       click_on "Submit"
 
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(admin_dashboard_path)
       @admin2.reload
       expect(@admin2.name).to eq("Herb")
       expect(@admin2.email).to eq("broski@broski.com")
