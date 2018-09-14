@@ -4,6 +4,8 @@
 
 This project was composed by BAMT inc., LLC.
 
+![swim](https://media.giphy.com/media/1sSWWMNnaZLlm/giphy.gif)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
