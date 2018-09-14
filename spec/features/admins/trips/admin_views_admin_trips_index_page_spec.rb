@@ -52,6 +52,10 @@ feature 'Admin views admin trips index page functions' do
           expect(page).to have_content("Admin Trips")
         end
 
+        scenario 'I view a create button for trip' do
+          expect(page).to have_link("Create Trip")
+        end
+
         scenario 'I view an edit button for each trip' do
           expect(page).to have_link("Edit")
         end
@@ -82,7 +86,7 @@ feature 'Admin views admin trips index page functions' do
     end
   end
 
-  xcontext 'as default user' do
+  context 'as default user' do
     scenario 'I can not see admin trips index' do
       user = User.create!(name: "Ameila Pond", email: "amelia@pond.com", password: "Rory", password_confirmation: "Rory", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -90,16 +94,20 @@ feature 'Admin views admin trips index page functions' do
       visit trips_path
 
       expect(page).to_not have_content("Admin Trips")
-      expect(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to_not have_link("Create Trip")
+      expect(page).to_not have_link("Edit")
+      expect(page).to_not have_link("Delete")
     end
   end
-  xcontext 'as visitor' do
+  context 'as visitor' do
     scenario 'I can not see admin trips index' do
 
       visit trips_path
 
       expect(page).to_not have_content("Admin Trips")
-      expect(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to_not have_link("Create Trip")
+      expect(page).to_not have_link("Edit")
+      expect(page).to_not have_link("Delete")
     end
   end
 end

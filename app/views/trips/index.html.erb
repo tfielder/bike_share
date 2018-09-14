@@ -1,13 +1,15 @@
-<% if current_user && current_user.admin? %>
+<% if current_admin? %>
   <h1>Admin Trips</h1>
 <% else %>
   <h1>Trips</h1>
 <% end %>
 </br>
 
+<% if current_admin? %>
 <div class ="btn">
-  <%= link_to "Create Trip" %>
+  <%= link_to "Create Trip", new_admin_trip_path %>
 </div>
+<% end %>
 </br>
 
 <% if current_user %>

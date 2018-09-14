@@ -43,23 +43,25 @@ feature 'Admin views admin trip show page' do
   end
 
   context 'as default user' do
-    xscenario 'I can not see admin trip show' do
+    scenario 'I can not see admin trip show' do
       user = User.create!(name: "Ameila Pond", email: "amelia@pond.com", password: "Rory", password_confirmation: "Rory", role: 0)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit trip_path(trip)
 
       expect(page).to_not have_content("Admin Trip")
-      expect(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to_not have_link("Edit")
+      expect(page).to_not have_link("Delete")
     end
   end
   context 'as visitor' do
-    xscenario 'I can not see admin trip show' do
+    scenario 'I can not see admin trip show' do
 
       visit trip_path(trip)
 
       expect(page).to_not have_content("Admin Trip")
-      expect(page).to have_content("The page you were looking for doesn't exist.")
+      expect(page).to_not have_link("Edit")
+      expect(page).to_not have_link("Delete")
     end
   end
 end
