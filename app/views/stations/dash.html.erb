@@ -22,5 +22,5 @@
         <li><%= @least_bikes %> at <%= station %></li>
       <% end %>
     </ul>
-<h2>Newest Installed Station: <%= @newest_station %></h2>
-<h2>Oldest Installed Station: <%= @oldest_station %></h2>
+<h2>Newest Installed Station: <%= @newest_station.name %>, <%= @newest_station.installation_date %></h2>
+<h2>Oldest Installed Station: <%= @oldest_station.name %>, <%= @oldest_station.installation_date %></h2>
