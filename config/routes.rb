@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :stations, only: [:update, :destroy, :new, :create, :edit], param: :slug
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
+    resource :dashboard, only: [:show]
   end
   resources :stations, only: [:index]
 

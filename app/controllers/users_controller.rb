@@ -33,8 +33,12 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
-    @orders = @user.orders
+    if current_admin?
+      redirect_to admin_dashboard_path
+    else
+      @user = current_user
+      @orders = @user.orders
+    end
   end
 
   private
