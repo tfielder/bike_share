@@ -3,6 +3,10 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/bghalami/bike_share/maintainability)
 
 This project was composed by BAMT inc., LLC.
+Version: 1.1.1
+Date: 09.14.18
+
+Description: Bikeshare is a program to rule all programs.
 
 ![swim](https://media.giphy.com/media/1sSWWMNnaZLlm/giphy.gif)
 
