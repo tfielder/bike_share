@@ -1,7 +1,7 @@
 
 
 <ul>
-  <li><a href="/admin/dashboard?status=Paid">Paid Status</a></li>
+  <li><a href="/admin/dashboard?status=Paid">Paid Status</a>: </li>
   <li><a href="/admin/dashboard?status=Ordered">Ordered Status</a></li>
   <li><a href="/admin/dashboard?status=Cancelled">Cancelled Status</a></li>
   <li><a href="/admin/dashboard?status=Completed">Completed Status</a></li>
@@ -20,6 +20,9 @@
               <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
             <% end %>
             <li>Order Total: $<%= '%.2f' % order.total_price %></li>
+            <% if order.status.downcase == 'paid' || order.status.downcase == 'ordered' %>
+              <%= button_to "Cancel", delete_order_path(order) %>
+            <% end %>
           </ul>
       </div>
       </br>
@@ -39,6 +42,19 @@
               <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
             <% end %>
             <li>Order Total: $<%= '%.2f' % order.total_price %></li>
+            <% if order.status.downcase == 'ordered'%>
+              <%= form_for order do |f| %>
+                <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
+              <% end %>
+            <% end %>
+            <% if order.status.downcase == 'paid'%>
+              <%= form_for order do |f| %>
+                <%= f.button 'Mark as Completed', type: 'submit', name: 'status', value: 'completed' %>
+              <% end %>
+            <% end %>
+            <% if order.status.downcase == 'paid' || order.status.downcase == 'ordered' %>
+              <%= button_to "Cancel", order_path(order), method: 'delete'%>
+            <% end %>
           </ul>
       </div>
       </br>
