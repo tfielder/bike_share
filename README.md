@@ -1,6 +1,6 @@
 # BIKESHARE README
 
-[![Maintainability](https://codeclimate.com/github/bghalami/bike_share.png)](https://codeclimate.com/github/bghalami/bike_share)
+[![Code Climate:](https://codeclimate.com/github/bghalami/bike_share.png)](https://codeclimate.com/github/bghalami/bike_share)
 
 This project was composed by BAMT inc., LLC.
 Version: 1.1.1
