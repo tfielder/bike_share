@@ -46,8 +46,8 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("End Station with most trips: #{@most_rides_end_count} trips at #{@most_rides_end_name}")
     expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides_id} had #{@most_bike_rides_count} rides")
     expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides_id} had #{@least_bike_rides_count} rides")
-    expect(page).to have_content("Date with the most amount of trips: #{@date_with_most_trips_count} on #{@date_with_most_trips_day}")
-    expect(page).to have_content("Date with the least amount of trips: #{@date_with_least_trips_count} on #{@date_with_least_trips_day}")
+    expect(page).to have_content("Date with the most amount of trips: #{@date_with_most_trips_count} on #{@date_with_most_trips_day.strftime("%m/%d/%Y")}")
+    expect(page).to have_content("Date with the least amount of trips: #{@date_with_least_trips_count} on #{@date_with_least_trips_day.strftime("%m/%d/%Y")}")
     expect(page).to have_content("Subscriber breakdown: #{@user_subscription_breakdown_count_subscriber} subscribers and #{@user_subscription_breakdown_count_customer} customers. #{@subscriber_percentage}% subscribers and #{@customer_percentage}% customers.")
   end
 end

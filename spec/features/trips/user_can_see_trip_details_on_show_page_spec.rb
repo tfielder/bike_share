@@ -13,9 +13,9 @@ describe 'trip show page' do
 
 
     expect(page).to have_content(trip_1.duration)
-    expect(page).to have_content(trip_1.start_date)
+    expect(page).to have_content(trip_1.start_date.strftime("%m/%d/%Y"))
     expect(page).to have_content(trip_1.start_station.name)
-    expect(page).to have_content(trip_1.end_date)
+    expect(page).to have_content(trip_1.end_date.strftime("%m/%d/%Y"))
     expect(page).to have_content(trip_1.end_station.name)
     expect(page).to have_content(trip_1.bike_id)
     expect(page).to have_content(trip_1.subscription_type)
