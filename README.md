@@ -7,6 +7,8 @@ application up and running.
 
 To get started:
 
+visit: 
+
 Specs and such:
 Ruby version -
 Rails version -
