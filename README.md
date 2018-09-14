@@ -1,5 +1,7 @@
 # BIKESHARE README
 
+[![Maintainability](https://codeclimate.com/github/bghalami/bike_share)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
 This project was composed by BAMT inc., LLC.
 
 This README would normally document whatever steps are necessary to get the
