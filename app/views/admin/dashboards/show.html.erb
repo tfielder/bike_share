@@ -1,4 +1,12 @@
 
+
+<ul>
+  <li><a href="/admin/dashboard?status=Paid">Paid Status</a></li>
+  <li><a href="/admin/dashboard?status=Ordered">Ordered Status</a></li>
+  <li><a href="/admin/dashboard?status=Cancelled">Cancelled Status</a></li>
+  <li><a href="/admin/dashboard?status=Completed">Completed Status</a></li>
+</ul>
+
 <% if @orders.count > 0 %>
   <%= "Your Orders" %>
     <% @orders.each do |order| %>
