@@ -33,6 +33,10 @@ feature 'Admin views stations index page' do
         expect(page).to have_content("Admin Stations")
       end
 
+      scenario 'I view a create button for station' do
+        expect(page).to have_link("Create Station")
+      end
+
       scenario 'I view an edit button for each station' do
         expect(page).to have_link("Edit")
         expect(page).to have_link("Delete")
@@ -77,6 +81,7 @@ feature 'Admin views stations index page' do
       visit stations_path
 
       expect(page).to_not have_content("Admin Stations")
+      expect(page).to_not have_link("Create Station")
       expect(page).to_not have_link("Edit")
       expect(page).to_not have_link("Delete")
     end

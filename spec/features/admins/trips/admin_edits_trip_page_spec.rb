@@ -88,12 +88,12 @@ feature 'Admin edits trip' do
       visit edit_admin_trip_path(trip)
     end
 
-    xscenario 'I cannot see the edit station page' do
+    scenario 'I cannot see the edit station page' do
       expect(page).to_not have_content("Edit trip: ##{trip.id}")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
-  xcontext 'as a visitor' do
+  context 'as a visitor' do
     before do
       visit edit_admin_trip_path(trip)
     end
