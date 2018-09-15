@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :destroy, :update]
 
   resources :users, only: [:new, :create, :edit, :update]
   get '/bike_shop', to: 'bike_shop#index'
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :stations, only: [:update, :destroy, :new, :create, :edit], param: :slug
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
+    resource :dashboard, only: [:show]
   end
   resources :stations, only: [:index]
 

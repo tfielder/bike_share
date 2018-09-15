@@ -105,7 +105,7 @@ class Seed
 
   def self.read_weather
     @weathers = []
-    CSV.foreach(File.join('db', 'csv', 'small_weather.csv'), OPTIONS) do |weather|
+    CSV.foreach(File.join('db', 'csv', 'weather.csv'), OPTIONS) do |weather|
       @weathers << weather
     end
     @weathers
@@ -237,16 +237,16 @@ puts "Users Created!"
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 puts "Order Created"
-order1 = user1.orders.create!(status: "pending")
-order2 = user1.orders.create!(status: "pending")
+order1 = user1.orders.create!(status: "ordered")
+order2 = user1.orders.create!(status: "paid")
 order1.accessories << accessory1
 order1.accessories << accessory2
 order1.accessories << accessory2
 order2.accessories << accessory1
 order2.accessories << accessory1
 
-order3 = user2.orders.create!(status: "ordered")
-order4 = user2.orders.create!(status: "pending")
+order3 = user2.orders.create!(status: "cancelled")
+order4 = user2.orders.create!(status: "completed")
 order3.accessories << accessory1
 order3.accessories << accessory2
 order3.accessories << accessory2
@@ -255,4 +255,3 @@ order4.accessories << accessory1
 
 puts "Orders Created"
 ActiveRecord::Base.connection.reset_pk_sequence!('orders')
-

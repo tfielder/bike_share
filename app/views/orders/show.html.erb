@@ -14,4 +14,19 @@
   </ul>
 </br>
 <% end %>
+<% if current_admin? %>
+<% if @order.status.downcase == 'ordered'%>
+  <%= form_for @order do |f| %>
+    <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
+  <% end %>
+<% end %>
+<% if @order.status.downcase == 'paid'%>
+  <%= form_for @order do |f| %>
+    <%= f.button 'Mark as Completed', type: 'submit', name: 'status', value: 'completed' %>
+  <% end %>
+<% end %>
+<% if @order.status.downcase == 'paid' || @order.status.downcase == 'ordered' %>
+  <%= button_to "Cancel", order_path(@order), method: 'delete'%>
+<% end %>
+<% end %>
 <h2>Total: $<%= '%0.2f' % @total_price %></h2>
