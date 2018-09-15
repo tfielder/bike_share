@@ -105,7 +105,7 @@ class Seed
 
   def self.read_weather
     @weathers = []
-    CSV.foreach(File.join('db', 'csv', 'small_weather.csv'), OPTIONS) do |weather|
+    CSV.foreach(File.join('db', 'csv', 'weather.csv'), OPTIONS) do |weather|
       @weathers << weather
     end
     @weathers

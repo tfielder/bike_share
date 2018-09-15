@@ -24,4 +24,3 @@ db/csv/database.sqlite
 db/csv/status.csv
 db/csv/station.csv
 db/csv/trip.csv
-db/csv/weather.csv

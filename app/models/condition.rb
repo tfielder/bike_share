@@ -8,4 +8,8 @@ class Condition < ApplicationRecord
   validates_presence_of :mean_wind_speed
   validates_presence_of :precip
 
+  def self.condition_on_date(date)
+    where(date: date)
+  end
+
 end
