@@ -12,6 +12,7 @@ describe 'Admin views an individual order they see order detail w/ date and addr
                     )
     @order = @user1.orders.create!(status: "pending")
     @order.accessories << @accessory
+    @address = @user1.useraddresses.create!(adress: "1300 SodaCreek Dr.")
 
   end
   scenario 'I visit the order show page as an admin'do
@@ -21,6 +22,7 @@ describe 'Admin views an individual order they see order detail w/ date and addr
     visit order_path(@order)
 
     expect(page).to have_content(Order.last.created_at)
+    expect(page).to have_content(@user1.address)
     expect(page).to have_content(@user1.name)
 
     click_on 'Voldemort'
