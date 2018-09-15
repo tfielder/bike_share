@@ -16,6 +16,9 @@ describe'a registered user can visits trips dashboard' do
     trip_3 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 4, subscription_type:"Customer", zip_code: 94127 )
     trip_4 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Customer", zip_code: 94127 )
 
+    condition = Condition.create(date:"09/01/2018", max_temp:81.0, mean_temp:76.0, min_temp:41.0, mean_humidity:13.0, mean_visibility:12.0, mean_wind_speed:5.0, precip:0.0)
+    condition_no = Condition.create(date:"09/02/2018", max_temp:81.0, mean_temp:76.0, min_temp:41.0, mean_humidity:13.0, mean_visibility:12.0, mean_wind_speed:5.0, precip:0.0)
+
     trips = Trip.all
     @average = trips.average_duration
     @longest = trips.longest_ride
@@ -36,6 +39,8 @@ describe'a registered user can visits trips dashboard' do
     @user_subscription_breakdown_count_customer = trips.user_subscription_breakdown["Customer"]
     @subscriber_percentage = trips.user_subscription_breakdown["Subscriber"].to_f/Trip.all.count * 100
     @customer_percentage = trips.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100
+    @weather_on_most_trips = Condition.condition_on_date(@date_with_most_trips_day).first
+    @weather_on_least_trips = Condition.condition_on_date(@date_with_least_trips_day).first
 
     visit trips_dashboard_path
 
@@ -47,7 +52,21 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides_id} had #{@most_bike_rides_count} rides")
     expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides_id} had #{@least_bike_rides_count} rides")
     expect(page).to have_content("Date with the most amount of trips: #{@date_with_most_trips_count} on #{@date_with_most_trips_day.strftime("%m/%d/%Y")}")
-    expect(page).to have_content("Date with the least amount of trips: #{@date_with_least_trips_count} on #{@date_with_least_trips_day.strftime("%m/%d/%Y")}")
+    expect(page).to have_content("Weather:")
+    expect(page).to have_content("Max Temp: #{@weather_on_most_trips.max_temp}")
+    expect(page).to have_content("Mean Temp: #{@weather_on_most_trips.mean_temp}")
+    expect(page).to have_content("Min Temp: #{@weather_on_most_trips.min_temp}")
+    expect(page).to have_content("Mean Humidity: #{@weather_on_most_trips.mean_humidity}")
+    expect(page).to have_content("Mean Visibility: #{@weather_on_most_trips.mean_visibility}")
+    expect(page).to have_content("Mean Wind Speed: #{@weather_on_most_trips.mean_wind_speed}")
+    expect(page).to have_content("Mean Precipitation: #{@weather_on_most_trips.precip}")
+    expect(page).to have_content("Max Temp: #{@weather_on_least_trips.max_temp}")
+    expect(page).to have_content("Mean Temp: #{@weather_on_least_trips.mean_temp}")
+    expect(page).to have_content("Min Temp: #{@weather_on_least_trips.min_temp}")
+    expect(page).to have_content("Mean Humidity: #{@weather_on_least_trips.mean_humidity}")
+    expect(page).to have_content("Mean Visibility: #{@weather_on_least_trips.mean_visibility}")
+    expect(page).to have_content("Mean Wind Speed: #{@weather_on_least_trips.mean_wind_speed}")
+    expect(page).to have_content("Mean Precipitation: #{@weather_on_least_trips.precip}")
     expect(page).to have_content("Subscriber breakdown: #{@user_subscription_breakdown_count_subscriber} subscribers and #{@user_subscription_breakdown_count_customer} customers. #{@subscriber_percentage}% subscribers and #{@customer_percentage}% customers.")
   end
 end

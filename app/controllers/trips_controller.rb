@@ -29,6 +29,9 @@ class TripsController < ApplicationController
       @user_subscription_breakdown_count_customer = trips.user_subscription_breakdown["Customer"]
       @subscriber_percentage = trips.user_subscription_breakdown["Subscriber"].to_f/Trip.all.count * 100
       @customer_percentage = trips.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100
+      @weather_on_most_trips = Condition.condition_on_date(@date_with_most_trips_day).first
+      @weather_on_least_trips = Condition.condition_on_date(@date_with_least_trips_day).first
+      binding.pry
     else
       render file: '/public/404'
     end

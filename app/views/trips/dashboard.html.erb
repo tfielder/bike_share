@@ -7,5 +7,25 @@
 <h2>Bike with the most rides: Bike <%=@most_bike_rides_id%> had  <%=@most_bike_rides_count %> rides</h2>
 <h2>Bike with the least rides: Bike <%=@least_bike_rides_id%> had <%=@least_bike_rides_count%> rides</h2>
 <h2>Date with the most amount of trips: <%=@date_with_most_trips_count  %> on <%= @date_with_most_trips_day.strftime("%m/%d/%Y")%> </h2>
+<ul>
+  <li><h3>Weather:<h3></li>
+  <li>Max Temp: <%= @weather_on_most_trips.max_temp %></li>
+  <li>Mean Temp: <%= @weather_on_most_trips.mean_temp %></li>
+  <li>Min Temp: <%= @weather_on_most_trips.min_temp %></li>
+  <li>Mean Humidity: <%= @weather_on_most_trips.mean_humidity %></li>
+  <li>Mean Visibility: <%= @weather_on_most_trips.mean_visibility %></li>
+  <li>Mean Wind Speed: <%= @weather_on_most_trips.mean_wind_speed %></li>
+  <li>Mean Precipitation: <%= @weather_on_most_trips.precip %></li>
+</ul>
 <h2>Date with the least amount of trips: <%= @date_with_least_trips_count%> on <%= @date_with_least_trips_day.strftime("%m/%d/%Y")%> </h2>
+<ul>
+  <h3>Weather:<h3>
+  <li>Max Temp: <%= @weather_on_least_trips.max_temp %></li>
+  <li>Mean Temp: <%= @weather_on_least_trips.mean_temp %></li>
+  <li>Min Temp: <%= @weather_on_least_trips.min_temp %></li>
+  <li>Mean Humidity: <%= @weather_on_least_trips.mean_humidity %></li>
+  <li>Mean Visibility: <%= @weather_on_least_trips.mean_visibility %></li>
+  <li>Mean Wind Speed: <%= @weather_on_least_trips.mean_wind_speed %></li>
+  <li>Mean Precipitation: <%= @weather_on_least_trips.precip %></li>
+</ul>
 <h2>Subscriber breakdown: <%=@user_subscription_breakdown_count_subsriber%> subscribers and <%= @user_subscription_breakdown_count_customer %> customers. <%= @subscriber_percentage%>% subscribers and <%= @customer_percentage %>% customers.</h2>
