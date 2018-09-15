@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
   get '/bike_shop', to: 'bike_shop#index'
+  get 'admin/bike_shop', to: 'accessories#index'
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   resources :conditions, only: [:index, :show]
 
   resources :accessories, only: [:show], param: :slug
-  resources :accessories, only: [:index]
+  #resources :accessories, only: [:index]
 
   resources :checkout, only: [:create]
 

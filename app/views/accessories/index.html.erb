@@ -1,0 +1,26 @@
+<h1>All Accessories</h1>
+
+<br />
+
+<table class='item-table'>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  <% @accessories.each do |item| %>
+  <tr>
+    <td><img src="<% item.image %>" alt="thumbnail"></td>
+    <td><%= item.title %></td>
+    <td><%= item.price %></td>
+    <td><%= item.description %></td>
+    <% if item.retired == true %>
+    <td>Retired</td>
+    <% else %>
+    <td>Active</td>
+    <% end %>
+    <%= link_to "Edit"  %>
+    <%= link_to "Retire/Reactivate" %>
+  </tr>
