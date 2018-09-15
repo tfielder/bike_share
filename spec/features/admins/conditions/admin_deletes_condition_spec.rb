@@ -36,9 +36,9 @@ feature 'Admin deletes condition' do
 
           scenario 'admin can delete a condition' do
             click_on "Delete"
+
             expect(current_path).to eq(conditions_path)
             expect(page).to have_content("Successfully deleted.")
-
             expect(page).to_not have_content("Date: #{deleted_condition.date.strftime("%m/%d/%Y")}")
             expect(page).to_not have_content("Max Temperature: #{deleted_condition.max_temp}")
             expect(page).to_not have_content("Mean Temperature: #{deleted_condition.mean_temp}")
