@@ -8,9 +8,21 @@ class Admin::ConditionsController < Admin::BaseController
 
   def new
     @condition = Condition.new()
+    @admin = current_user.role
   end
 
-  def set_condition
-    @condition = Condition.find(params[:id])
+  def create
+    condition = Condition.create(condition_params)
+    flash[:notice] = "Successfully created a new condition!"
+    redirect_to condition_path(condition)
   end
+
+  private
+    def set_condition
+      @condition = Condition.find(params[:id])
+    end
+
+    def condition_params
+      params.require(:condition).permit(:max_temp, :mean_temp, :min_temp, :mean_humidity, :mean_visibility, :mean_wind_speed, :precip)
+    end
 end
