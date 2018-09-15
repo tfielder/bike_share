@@ -7,7 +7,7 @@
           <%= f.number_field :duration, autofocus: true, class: "form-control", placeholder: "Enter trip duration in seconds" %>
       </div>
     </br>
-      <div class="form-section" id='#start_staion'>
+      <div class="form-section" id='start_station_dropdown'>
           <%= f.label :start_station, style: "margin-bottom:2%" %>:
           <%= f.collection_select :start_station_id, Station.all, :id, :name %>
       </div>

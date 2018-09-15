@@ -28,20 +28,18 @@ feature 'Admin creates trip' do
         expect(page).to have_button("Submit")
       end
       context 'when I fill in the form and click submit' do
-        xscenario 'it creates a trip' do
+        scenario 'it creates a trip' do
           click_on "Create Trip"
 
           fill_in :trip_duration, with: 123
-          # select 'Lana Station', :from => 'trip_start_station'
-          # page.select("Lana Station", from: :trip_start_station)
-          # page.find_field(:trip_start_station).find('Lana Station')
-          fill_in "Start station:", :with => "Lana Station"
+          page.select("Lana station", from: :trip_start_station_id)
           fill_in "Start date", :with => "12/23/2015"
-          # select 'Archer Station', from: 'start-station-dropdown'
+          page.select("Archer station", from: :trip_end_station_id)
           fill_in "End date", :with => '1/29/2016'
           fill_in :trip_bike_id, with: 79
           fill_in :trip_subscription_type, with: "Shabam"
           fill_in :trip_zip_code, with: ""
+          
           click_on "Submit"
 
           trip = Trip.last
