@@ -7,7 +7,7 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def new
-    @condition = Condition.new
+    @condition = Condition.new()
   end
 
   def set_condition
