@@ -1,4 +1,4 @@
-<% if current_user && current_user.admin? %>
+<% if current_admin? %>
   <h1>Admin Station: <%= @station.name %></h1>
 <% else %>
   <h1>Station: <%= @station.name %></h1>
