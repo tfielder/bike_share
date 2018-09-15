@@ -1,5 +1,10 @@
-<h1>Condition</h1>
+<% if current_admin? %>
+  <h1>Admin Condition</h1>
+<% else %>
+  <h1>Condition</h1>
+<% end %>
 </br>
+
 <ul>
   <li>Date: <%= @condition.date.strftime("%m/%d/%Y") %></li>
   <li>Max Temperature: <%= @condition.max_temp %> °F</li>
@@ -9,4 +14,8 @@
   <li>Mean Visibility: <%= @condition.mean_visibility %> miles</li>
   <li>Mean Wind Speed: <%= @condition.mean_wind_speed %> mph</li>
   <li>Precipitation: <%= @condition.precip %></li>
+  <% if current_admin? %>
+    <li><%= link_to "Edit", edit_admin_station_path(@condition) %></li>
+    <li><%= link_to "Delete", admin_station_path(@condition), method: :delete %></li>
+  <% end %>
 </ul>
