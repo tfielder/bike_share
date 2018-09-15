@@ -26,6 +26,12 @@ describe 'as an admin' do
       expect(page).to have_link("View All Accessories")
     end
     it 'brings the admin to the correct page' do
+      visit admin_dashboard_path
+
+      click_on "View All Accessories"
+
+      expect(current_path).to eq('/admin/bike-shop')
+
       #When I click that link, My current path should be “/admin/bike-shop”,
     end
     it 'shows a table with all accessories' do
