@@ -14,7 +14,7 @@
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
   <% if current_admin? %>
-<h3> User details: <%= @order_name%></h3>
+    <%= @user_details %>
   <% if @order.status.downcase == 'ordered'%>
     <%= form_for @order do |f| %>
       <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
