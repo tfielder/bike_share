@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :conditions, only: [:index, :show]
 
   resources :accessories, only: [:show], param: :slug
+  resources :accessories, only: [:index]
 
   resources :checkout, only: [:create]
 
