@@ -52,7 +52,7 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Bike with the most rides: Bike #{@most_bike_rides_id} had #{@most_bike_rides_count} rides")
     expect(page).to have_content("Bike with the least rides: Bike #{@least_bike_rides_id} had #{@least_bike_rides_count} rides")
     expect(page).to have_content("Date with the most amount of trips: #{@date_with_most_trips_count} on #{@date_with_most_trips_day.strftime("%m/%d/%Y")}")
-    expect(page).to have_content("Weather:")
+    expect(page).to have_content("Weather for #{@date_with_most_trips_day.strftime("%m/%d/%Y")}:")
     expect(page).to have_content("Max Temp: #{@weather_on_most_trips.max_temp}")
     expect(page).to have_content("Mean Temp: #{@weather_on_most_trips.mean_temp}")
     expect(page).to have_content("Min Temp: #{@weather_on_most_trips.min_temp}")
