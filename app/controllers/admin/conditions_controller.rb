@@ -17,6 +17,9 @@ class Admin::ConditionsController < Admin::BaseController
     redirect_to condition_path(condition)
   end
 
+  def edit
+  end
+
   private
     def set_condition
       @condition = Condition.find(params[:id])

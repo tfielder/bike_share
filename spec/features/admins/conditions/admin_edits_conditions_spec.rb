@@ -12,7 +12,7 @@ feature 'Admin edits condition' do
     end
 
     context 'when I click on Edit' do
-      scenario 'it takes me to an edit form' do
+      xscenario 'it takes me to an edit form' do
         click_on "Edit"
 
         expect(current_path).to eq(new_admin_condition_path)
@@ -27,8 +27,16 @@ feature 'Admin edits condition' do
         expect(page).to have_content("Precip:")
       end
       context 'when I update the form and click submit' do
-        scenario 'it updates a condition' do
+        xscenario 'it updates a condition' do
           click_on "Edit"
+          fill_in :condition_min_temp, with: 47.8
+          click_on "Submit Changes"
+          condition.reload
+
+          expect(current_path).to eq(condition_path(condition))
+          expect(:condition_min_temp).to eq(47.8)
+          expect(page).to have_content("#{47.8}")
+          expect(page).to_not have_content("#{40.0}")
 
 
           click_on "Submit Changes"
@@ -50,7 +58,7 @@ feature 'Admin edits condition' do
     end
 
     context 'when I click on Edit' do
-      scenario 'it takes me to an edit form' do
+      xscenario 'it takes me to an edit form' do
         click_on "Edit"
 
         expect(current_path).to eq(new_admin_condition_path)
@@ -65,7 +73,7 @@ feature 'Admin edits condition' do
         expect(page).to have_content("Precip:")
       end
       context 'when I update the form and click submit' do
-        scenario 'it updates a condition' do
+        xscenario 'it updates a condition' do
           click_on "Edit"
           fill_in :condition_min_temp, with: 47.8
           click_on "Submit Changes"
