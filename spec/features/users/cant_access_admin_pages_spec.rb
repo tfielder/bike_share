@@ -41,6 +41,19 @@ describe 'as a user' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
+  describe 'cannot edit a trip' do ##
+    scenario 'as a visitor' do
+      visit trip_path(@trip_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
+    end
+    scenario 'as a user' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+      visit trip_path(@trip_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
+    end
+  end
   describe 'cannot view admin conditions pages' do
     xscenario 'as a visitor' do
       visit edit_admin_condition_path(@condition_1)
@@ -52,6 +65,19 @@ describe 'as a user' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
+  describe 'cannot edit a condition' do
+    scenario 'as a visitor' do
+      visit condition_path(@condition_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
+    end
+    scenario 'as a user' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+      visit condition_path(@condition_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
+    end
+  end
   describe 'cannot view admin stations pages' do
     scenario 'as a visitor' do
       visit edit_admin_station_path(@station_1)
@@ -61,6 +87,19 @@ describe 'as a user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
       visit edit_admin_station_path(@station_1)
       expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
+  describe 'cannot edit a station' do
+    scenario 'as a visitor' do
+      visit station_path(@station_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
+    end
+    scenario 'as a user' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+      visit station_path(@station_1)
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
     end
   end
 end
