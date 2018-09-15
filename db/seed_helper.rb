@@ -7,7 +7,6 @@ class SeedHelper
   def self.start
     # seed_statuses
     read_trips
-    read_weather
   end
 
 
