@@ -34,8 +34,8 @@ describe'a registered user can visits trips dashboard' do
     @date_with_least_trips_count = trips.date_with_least_trips.count
     @user_subscription_breakdown_count_subscriber = trips.user_subscription_breakdown["Subscriber"]
     @user_subscription_breakdown_count_customer = trips.user_subscription_breakdown["Customer"]
-    @subscriber_percentage = trips.user_subscription_breakdown["Subscriber"].to_f/Trip.all.count * 100
-    @customer_percentage = trips.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100
+    @subscriber_percentage = (trips.user_subscription_breakdown["Subscriber"].to_f/Trip.count* 100).round(2)
+    @customer_percentage = (trips.user_subscription_breakdown["Customer"].to_f/Trip.count * 100).round(2)
 
     visit trips_dashboard_path
 
