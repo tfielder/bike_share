@@ -89,5 +89,23 @@ RSpec.describe Trip, type: :model do
       expect(Trip.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100).to eq(50)
 
     end
+    it "::trips_high, ::trips_low, ::trips_avg" do
+      station_1 = Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
+      station_2 = Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
+      trip_1 = Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+      trip_2 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+      trip_3 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+      trip_4 = Trip.create(duration: 2, start_date: ("09/02/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
+      condition_1 = Condition.create(date:"09/01/2018", max_temp:80.0, mean_temp:75.0, min_temp:40.0, mean_humidity:12.5, mean_visibility:10.0, mean_wind_speed:10.0, precip:1.0)
+      condition_2 = Condition.create(date:"09/02/2018", max_temp:81.0, mean_temp:76.0, min_temp:41.0, mean_humidity:13.0, mean_visibility:12.0, mean_wind_speed:5.0, precip:0.0)
+
+      expected_1 = Trip.trips_low("max_temp", 80, 89.9)
+      expected_2 = Trip.trips_high("max_temp", 80, 89.9)
+      expected_3 = Trip.trips_avg("max_temp", 80, 89.9)
+
+      expect(expected_1).to eq(1.0)
+      expect(expected_2).to eq(3.0)
+      expect(expected_3).to eq(2.0)
+    end
   end
 end
