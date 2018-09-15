@@ -23,5 +23,9 @@ describe 'Admin views an individual order they see order detail w/ date and addr
 
     expect(page).to have_content(Order.last.created_at)
     expect(page).to have_content(@user1.name)
+
+    click_on 'Voldemort'
+
+    expect(current_path).to eq(accessory_path(@accessory))
   end
 end
