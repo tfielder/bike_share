@@ -12,7 +12,7 @@
 <h3>Items:</h3>
 <% @accessories.each do |accessory, count| %>
   <ul>
-    <li><%= accessory.title %>: <%= number_to_currency(accessory.price) %></li>
+    <li><%= link_to accessory.title, accessory_path(accessory) %>: <%= number_to_currency(accessory.price) %></li>
     <li>Qty: <%= count %></li>
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
