@@ -12,17 +12,17 @@ describe 'Admin views an individual order they see order detail w/ date and addr
                     )
     @order = @user1.orders.create!(status: "pending")
     @order.accessories << @accessory
-    @address = @user1.useraddresses.create!(adress: "1300 SodaCreek Dr.")
+    @address = address.create(adress: "1300 SodaCreek Dr.")
+    @user1_address = (user: @user1, address: @address)
 
   end
   scenario 'I visit the order show page as an admin'do
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
     visit order_path(@order)
 
     expect(page).to have_content(Order.last.created_at)
-    expect(page).to have_content(@user1.address)
+    expect(page).to have_content(@user1_address.address)
     expect(page).to have_content(@user1.name)
 
     click_on 'Voldemort'
