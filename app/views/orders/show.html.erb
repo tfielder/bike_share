@@ -1,4 +1,7 @@
 <h1> Order #<%= @order.id %></h1>
+ <% if current_admin? %>
+  <%= @user_details %>
+  <%end %>
 
 <p>Created: <%= @order.created_at %></p>
   <% if @order.status.downcase == "completed" || @order.status.downcase == "cancelled" %>
@@ -14,7 +17,6 @@
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
   <% if current_admin? %>
-    <%= @user_details %>
   <% if @order.status.downcase == 'ordered'%>
     <%= form_for @order do |f| %>
       <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
