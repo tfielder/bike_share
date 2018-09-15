@@ -17,10 +17,11 @@
     <td><%= item.price %></td>
     <td><%= item.description %></td>
     <% if item.retired == true %>
-    <td>Retired</td>
+      <td>Retired</td>
     <% else %>
-    <td>Active</td>
+      <td>Active</td>
     <% end %>
-    <%= link_to "Edit"  %>
-    <%= link_to "Retire/Reactivate" %>
+    <%= link_to "Edit", admin_dashboard_path%>
+    <%= link_to "Retire/Reactivate", admin_dashboard_path%>
   </tr>
+  <% end %>

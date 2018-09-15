@@ -30,14 +30,34 @@ describe 'as an admin' do
 
       click_on "View All Accessories"
 
-      expect(current_path).to eq('/admin/bike-shop')
+      expect(current_path).to eq('/admin/bike_shop')
+      expect(current_path).to eq(admin_bike_shop_path)
 
-      #When I click that link, My current path should be “/admin/bike-shop”,
     end
     it 'shows a table with all accessories' do
-      #I see a table with all accessories (active and inactive)
-      #Each accessory should have:
-      #A thumbnail of the image Description Status Ability to Edit accessory Ability to Retire/Reactivate accessory
+      visit admin_bike_shop_path
+
+      expect(page).to have_content(@item_1.title)
+      expect(page).to have_content(@item_1.description)
+      expect(page).to have_content(@item_1.price)
+      expect(page).to have_css("img[src*='#{@item_1.image}']")
+      expect(page).to have_content(@item_2.title)
+      expect(page).to have_content(@item_2.description)
+      expect(page).to have_content(@item_2.price)
+      expect(page).to have_css("img[src*='#{@item_2.image}']")
+      expect(page).to have_content(@item_3.title)
+      expect(page).to have_content(@item_3.description)
+      expect(page).to have_content(@item_3.price)
+      expect(page).to have_css("img[src*='#{@item_3.image}']")
+
+      expect(page).to have_content("Retire/Reactivate")
+      expect(page).to have_content("Edit")
+    end
+    it 'allows admin to edit an accessory' do
+
+    end
+    it 'allows an admin to retire an accessory' do
+
     end
   end
 end
