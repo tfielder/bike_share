@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :orders
-  
+  has_many :user_addresses
+  has_many :addresses, through: :user_addresses
+
   has_secure_password
 
   enum role: {default: 0, admin: 1}

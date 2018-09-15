@@ -1,6 +1,7 @@
 <h1> Order #<%= @order.id %></h1>
  <% if current_admin? %>
   <%= @user_details %>
+  <%= @user_address %>
   <%end %>
 
 <p>Created: <%= @order.created_at %></p>
