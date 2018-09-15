@@ -44,7 +44,7 @@ describe 'as an admin' do
       expect(page).to have_content("Retire/Reactivate")
       expect(page).to have_content("Edit")
     end
-    it 'allows admin to edit an accessory' do
+    xit 'allows admin to edit an accessory' do
       visit admin_bike_shop_path
 
       expect(page).to have_content(@item_1.title)
@@ -61,7 +61,7 @@ describe 'as an admin' do
       expect(current_path).to eq(edit_admin_accessory_path)
 
     end
-    it 'allows an admin to retire an accessory' do
+    xit 'allows an admin to retire an accessory' do
 
     end
   end
