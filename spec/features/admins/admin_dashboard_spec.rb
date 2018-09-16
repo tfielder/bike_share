@@ -26,6 +26,10 @@ describe "Admin visits their dashboard" do
     @order3 = @user2.orders.create!(status: "cancelled")
     @order4 = @user2.orders.create!(status: "completed")
 
+    @user1.addresses.create(address: "creamy fields")
+    @user2.addresses.create(address: "creamy fields")
+    @admin.addresses.create(address: "creamy fields")
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_path
   end

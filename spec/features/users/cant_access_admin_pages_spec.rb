@@ -96,6 +96,7 @@ describe 'as a user' do
       expect(page).to_not have_content("Delete")
     end
     scenario 'as a user' do
+      @trip_1.destroy
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
       visit station_path(@station_1)
       expect(page).to_not have_content("Edit")

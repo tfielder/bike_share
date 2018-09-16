@@ -9,6 +9,17 @@
   <li>Dock Count: <%= @station.dock_count %></li>
   <li>City: <%= @station.city %></li>
   <li>Installation Date: <%= @station.installation_date.strftime("%m/%d/%Y")%></li>
+  <% if current_user %>
+    <% if Trip.all.size > 0 %>
+      <li>Rides Started Here: <%= @station.rides_started %></li>
+      <li>Rides Ended Here: <%= @station.rides_ended %></li>
+      <li>Most Frequent Destination: <%= @station.frequent_destination %></li>
+      <li>Most Frequent Origin: <%= @station.frequent_origination %></li>
+      <li>Date With Most Trips: <%= @station.most_trips %></li>
+      <li>Most Frequent User Zip Code: <%= @station.frequent_zip %></li>
+      <li>Most Frequently Used Bike ID: <%= @station.frequent_bike_id %></li>
+    <% end %>
+  <% end %>
   <% if current_admin? %>
     <li><%= link_to "Edit", edit_admin_station_path(@station) %></li>
     <li><%= link_to "Delete", admin_station_path(@station), method: :delete %></li>
