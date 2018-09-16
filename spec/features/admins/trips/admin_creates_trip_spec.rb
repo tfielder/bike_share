@@ -27,7 +27,7 @@ feature 'Admin creates trip' do
         expect(page).to have_content("Zip code:")
         expect(page).to have_button("Submit")
       end
-      context 'when I fill in the form and click submit' do
+      context 'when I fill in the form including a zip code and click submit' do
         scenario 'it creates a trip' do
           click_on "Create Trip"
 
@@ -55,6 +55,35 @@ feature 'Admin creates trip' do
           expect(page).to have_content(trip.bike_id)
           expect(page).to have_content(trip.subscription_type)
         end
+      end
+    end
+
+    context 'when I fill in the form excluding a zip code and click submit' do
+      scenario 'it creates a trip' do
+        click_on "Create Trip"
+
+
+        fill_in :trip_duration, with: 123
+        page.select("Lana station", from: :trip_start_station_id)
+        fill_in("Start date", :with => "1/1/2013")
+        page.select("Archer station", from: :trip_end_station_id)
+        fill_in("End date", :with => "1/1/2013")
+        fill_in :trip_bike_id, with: 79
+        fill_in :trip_subscription_type, with: "Shabam"
+
+        click_on "Submit"
+
+        trip = Trip.last
+        expect(current_path).to eq(trip_path(trip))
+        expect(page).to have_content("Successfully created trip ##{trip.id}!")
+        expect(page).to have_content(trip.duration)
+        expect(page).to have_content(trip.duration)
+        expect(page).to have_content(station_1.name)
+        expect(page).to have_content(station_2.name)
+        expect(page).to have_content(trip.start_date.strftime("%m/%d/%Y"))
+        expect(page).to have_content(trip.end_date.strftime("%m/%d/%Y"))
+        expect(page).to have_content(trip.bike_id)
+        expect(page).to have_content(trip.subscription_type)
       end
     end
   end
