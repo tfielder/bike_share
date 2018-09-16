@@ -12,10 +12,9 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def create
-    @condition = Condition.new(condition_params)
-    @condition.save
+    condition = Condition.create(condition_params)
     flash[:notice] = "Successfully created a new condition!"
-    redirect_to condition_path(@condition)
+    redirect_to condition_path(condition)
   end
 
   def edit

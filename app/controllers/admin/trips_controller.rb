@@ -24,10 +24,9 @@ before_action :set_trip, only: [:destroy, :edit, :update]
   end
 
   def create
-    @trip = Trip.new(trip_params)
-    @trip.save
-    flash[:notice] = "Successfully created trip ##{@trip.id}!"
-    redirect_to trip_path(@trip)
+    trip = Trip.create(trip_params)
+    flash[:notice] = "Successfully created trip ##{trip.id}!"
+    redirect_to trip_path(trip)
   end
 
   private
