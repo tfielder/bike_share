@@ -30,5 +30,4 @@ class AccessoriesController < ApplicationController
     def accessory_params
       params.require(:accessory).permit(:)
     end
-
 end

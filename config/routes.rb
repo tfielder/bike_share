@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/bike_shop', to: 'bike_shop#index'
   get 'admin/bike_shop', to: 'accessories#index'
   get 'admin/edit/bike_shop', to: 'accessories#edit'
+  post 'admin/bike_shop', to: 'accessories#update'
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
