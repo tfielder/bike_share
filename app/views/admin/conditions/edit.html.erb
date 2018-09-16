@@ -3,7 +3,7 @@
   <div class="user-form">
     <%= form_for [@admin, @condition] do |f| %>
       <div class="form-section">
-        <%= f.label :date, style: "margin-bottom:2%" %>:
+        <p><%= f.label :date%>:</p>
         <%= f.date_field :date, class: "form-control" %>
       </div>
     </br>
