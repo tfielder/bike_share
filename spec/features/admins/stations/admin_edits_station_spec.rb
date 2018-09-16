@@ -23,13 +23,13 @@ feature 'Admin edits station' do
         expect(page).to have_content("Dock count:")
         expect(page).to have_content("City:")
         expect(page).to have_content("Installation date:")
-        expect(page).to have_button("Submit Changes")
+        expect(page).to have_button("Submit")
       end
       context 'when I update the form and click submit' do
         scenario 'it updates a station' do
           click_on "Edit"
           fill_in :station_dock_count, with: 42
-          click_on "Submit Changes"
+          click_on "Submit"
           station.reload
 
           expect(current_path).to eq(station_path(station))
@@ -56,13 +56,13 @@ feature 'Admin edits station' do
         expect(page).to have_content("Dock count:")
         expect(page).to have_content("City:")
         expect(page).to have_content("Installation date:")
-        expect(page).to have_button("Submit Changes")
+        expect(page).to have_button("Submit")
       end
       context 'when I update the form and click submit' do
         scenario 'it updates a station' do
           click_on "Edit"
           fill_in :station_dock_count, with: 42
-          click_on "Submit Changes"
+          click_on "Submit"
           station.reload
 
           expect(current_path).to eq(station_path(station))
