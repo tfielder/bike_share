@@ -1,4 +1,9 @@
 <h1> Order #<%= @order.id %></h1>
+ <% if current_admin? %>
+  <%= @user_details %> <br />
+  <%= @user_address %>
+  <%end %>
+
 <p>Created: <%= @order.created_at %></p>
   <% if @order.status.downcase == "completed" || @order.status.downcase == "cancelled" %>
     <p>Status: <%= @order.status %>, <%= @order.updated_at %></p>
@@ -8,25 +13,27 @@
 <h3>Items:</h3>
 <% @accessories.each do |accessory, count| %>
   <ul>
-    <li><%= accessory.title %>: <%= number_to_currency(accessory.price) %></li>
+    <li><%= link_to accessory.title, accessory_path(accessory) %>: <%= number_to_currency(accessory.price) %></li>
     <li>Qty: <%= count %></li>
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
 </br>
 <% end %>
 <% if current_admin? %>
-<% if @order.status.downcase == 'ordered'%>
-  <%= form_for @order do |f| %>
-    <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
+  <% if @order.status.downcase == 'ordered'%>
+    <%= form_for @order do |f| %>
+      <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
+    <% end %>
   <% end %>
-<% end %>
-<% if @order.status.downcase == 'paid'%>
-  <%= form_for @order do |f| %>
-    <%= f.button 'Mark as Completed', type: 'submit', name: 'status', value: 'completed' %>
+  <% if @order.status.downcase == 'paid'%>
+    <%= form_for @order do |f| %>
+      <%= f.button 'Mark as Completed', type: 'submit', name: 'status', value: 'completed' %>
+    <% end %>
   <% end %>
-<% end %>
-<% if @order.status.downcase == 'paid' || @order.status.downcase == 'ordered' %>
-  <%= button_to "Cancel", order_path(@order), method: 'delete'%>
-<% end %>
+  <% if @order.status.downcase == 'paid' || @order.status.downcase == 'ordered' %>
+    <%= form_for @order do |f| %>
+      <%= f.button 'Cancel', type: 'submit', name: 'status', value: 'cancelled' %>
+    <% end %>
+  <% end %>
 <% end %>
 <h2>Total: $<%= '%0.2f' % @total_price %></h2>

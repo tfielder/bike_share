@@ -2,7 +2,13 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    if current_admin? || (current_user && @order.user == current_user)
+    if current_admin?
+      @user_details = @order.user.name
+      #binding.pry
+      @user_address = @order.user.addresses[0].address
+      @accessories = @order.accessory_count
+      @total_price = @order.total_price
+    elsif current_admin? || (current_user && @order.user == current_user)
       @accessories = @order.accessory_count
       @total_price = @order.total_price
     else
@@ -21,19 +27,6 @@ class OrdersController < ApplicationController
         flash[:notice] = "#{@order.id} not updated!"
       end
     end
-  end
-
-  def destroy
-    order = Order.find(params[:id])
-    accessories = order.accessories
-    accessories.each do |access|
-      order_acc = OrderAccessory.where(order_id: order.id, accessory_id: access.id).first
-      order_acc.destroy
-    end
-    order.destroy
-
-    redirect_to admin_dashboard_path
-    flash[:notice] = "Order #{params[:id]} was successfully deleted!"
   end
 
 end
