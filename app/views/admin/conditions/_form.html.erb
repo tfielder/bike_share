@@ -2,40 +2,40 @@
   <div class="user-form">
     <%= form_for [@admin, @condition] do |f| %>
       <div class="form-section">
-        <%= f.label :date %>:
+        <p><%= f.label :date %>:</p>
         <%= f.date_field :date, class: "form-control" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :max_temp %>:
+        <p><%= f.label :max_temp %>:</p>
         <%= f.text_field :max_temp, class: "form-control", placeholder: "Enter max temp in fahrenheit" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :mean_temp %>:
+        <p><%= f.label :mean_temp %>:</p>
         <%= f.text_field :mean_temp, class: "form-control", placeholder: "Enter mean temp in fahrenheit" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :min_temp %>:
+        <p><%= f.label :min_temp %>:</p>
         <%= f.text_field :min_temp, class: "form-control", placeholder: "Enter min temp in fahrenheit" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :mean_humidity%>:
+        <p><%= f.label :mean_humidity%>:</p>
         <%= f.text_field :mean_humidity, class: "form-control", placeholder: "Enter mean humidity" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :mean_visibility %>:
+        <p><%= f.label :mean_visibility %>:</p>
         <%= f.text_field :mean_visibility, class: "form-control", placeholder: "Enter mean visibility" %>
       </div>
       <div class="form-section">
-        <%= f.label :mean_wind_speed %>:
+        <p><%= f.label :mean_wind_speed %>:</p>
         <%= f.text_field :mean_wind_speed, class: "form-control", placeholder: "Enter mean wind speed" %>
       </div>
       <div class="form-section">
-        <%= f.label :precip %>:
+        <p><%= f.label :precip %>:</p>
         <%= f.text_field :precip, class: "form-control", placeholder: "Enter precipitation" %>
       </div>
     </br>

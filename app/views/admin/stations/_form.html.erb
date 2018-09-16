@@ -2,22 +2,22 @@
   <div class="user-form">
     <%= form_for [@admin, @station] do |f| %>
       <div class="form-section">
-        <%= f.label :name %>:
+        <p><%= f.label :name %>:</p>
         <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Enter station name" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :dock_count %>:
+        <p><%= f.label :dock_count %>:</p>
         <%= f.number_field :dock_count, class: "form-control", placeholder: "Enter station dock count" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :city %>:
+        <p><%= f.label :city %>:</p>
         <%= f.text_field :city, class: "form-control", placeholder: "Enter station city" %>
       </div>
     </br>
       <div class="form-section">
-        <%= f.label :installation_date %>:
+        <p><%= f.label :installation_date %>:</p>
         <%= f.date_field :installation_date, class: "form-control" %>
       </div>
     </br>

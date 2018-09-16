@@ -2,43 +2,43 @@
   <div class="user-form">
     <%= form_for [@admin, @trip] do |f| %>
       <div class="form-section">
-          <%= f.label :duration %>:
+          <p><%= f.label :duration %>:</p>
           <%= f.number_field :duration, autofocus: true, class: "form-control", placeholder: "Enter trip duration in seconds" %>
       </div>
     </br>
       <div class="form-section">
-          <%= f.label :start_station %>:
+          <p><%= f.label :start_station %>:</p>
           <%= f.collection_select :start_station_id, Station.all, :id, :name %>
       </div>
     </br>
       <div class="form-section">
-          <%= f.label :start_date %>:
+          <p><%= f.label :start_date %>:</p>
           <%= f.date_field :start_date, class: "form-control" %>
       </div>
     </br>
       <div class="form-section" id="end-station-dropdown">
-          <%= f.label :end_station %>:
+          <p><%= f.label :end_station %>:</p>
           <%= f.collection_select :end_station_id, Station.all, :id, :name %>
       </div>
     </br>
       <div class="form-section">
-          <%= f.label :end_date %>:
+          <p><%= f.label :end_date %>:</p>
           <%= f.date_field :end_date, class: "form-control" %>
       </div>
     </br>
     </br>
       <div class="form-section">
-          <%= f.label :bike_id %>:
+          <p><%= f.label :bike_id %>:</p>
           <%= f.number_field :bike_id, class: "form-control"%>
       </div>
     </br>
       <div class="form-section">
-          <%= f.label :subscription_type %>:
+          <p><%= f.label :subscription_type %>:</p>
           <%= f.text_field :subscription_type, class: "form-control", placeholder: "Enter subscription type"  %>
       </div>
     </br>
       <div class="form-section">
-          <%= f.label :zip_code %>:
+          <p><%= f.label :zip_code %>:</p>
           <%= f.text_field :zip_code, class: "form-control", placeholder: "Enter zip code" %>
       </div>
     </br>
