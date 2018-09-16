@@ -19,7 +19,7 @@ describe 'Admin views an individual order they see order detail w/ date and addr
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
     visit order_path(@order)
-    
+    #save_and_open_page
     expect(page).to have_content(Order.last.created_at)
     expect(page).to have_content(@address.address)
     expect(page).to have_content(@user1.name)

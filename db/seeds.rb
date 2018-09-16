@@ -191,28 +191,28 @@ puts "Accessory Created!"
 puts "Accessories Created!"
 ActiveRecord::Base.connection.reset_pk_sequence!('accessories')
 
-User.create!( name: "Autumn",
+admin1 = User.create!( name: "Autumn",
               email: "autumn@autumn.com",
               password: "123",
               password_confirmation: "123",
               role: 1
             )
 puts "Admin Created!"
-User.create!( name: "Maria",
+admin2 = User.create!( name: "Maria",
               email: "maria@maria.com",
               password: "123",
               password_confirmation: "123",
               role: 1
             )
 puts "Admin Created!"
-User.create!( name: "Tim",
+admin3 =  User.create!( name: "Tim",
               email: "tim@tim.com",
               password: "123",
               password_confirmation: "123",
               role: 1
             )
 puts "Admin Created!"
-User.create!( name: "Ben",
+admin4 = User.create!( name: "Ben",
               email: "ben1@ben1.com",
               password: "123",
               password_confirmation: "123",
@@ -235,6 +235,14 @@ user2 = User.create!( name: "test2",
 puts "User Created!"
 puts "Users Created!"
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
+address1 = user1.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+address2 = user2.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+address3 = admin1.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+address4 = admin2.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+address3 = admin3.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+address3 = admin4.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+ActiveRecord::Base.connection.reset_pk_sequence!('addresses')
+
 
 puts "Order Created"
 order1 = user1.orders.create!(status: "ordered")
