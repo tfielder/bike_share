@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   get '/bike_shop', to: 'bike_shop#index'
   get 'admin/bike_shop', to: 'accessories#index'
+  get 'admin/edit/bike_shop', to: 'accessories#edit'
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
   get '/stations-dashboard', to: 'stations#dash'
   get '/trips-dashboard', to: 'trips#dashboard'
   get '/condition-dashboard', to: 'conditions#dashboard'
+
 
   resources :conditions, only: [:index, :show]
 

@@ -21,7 +21,7 @@
     <% else %>
       <td>Active</td>
     <% end %>
-    <%= link_to "Edit", admin_dashboard_path%>
-    <%= link_to "Retire/Reactivate", admin_dashboard_path%>
+    <%= link_to "Edit", admin_dashboard_path, class: "edit"%>
+    <%= link_to "Retire/Reactivate", admin_dashboard_path, class: "retire"%>
   </tr>
   <% end %>
