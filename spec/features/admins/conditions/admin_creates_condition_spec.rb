@@ -25,10 +25,11 @@ feature 'Admin creates condition' do
         expect(page).to have_content("Precip:")
       end
       context 'when I fill in the form and click submit' do
-        xscenario 'it creates a condition' do
+        scenario 'it creates a condition' do
           click_on "Create Condition"
 
-          fill_in("Date", :with => "10/1/2013")
+          fill_in("Date", :with => "01/02/2013")
+          # fill_in(:condition_date, with: "1/2/2012")
           fill_in :condition_max_temp, with: 70.0
           fill_in :condition_mean_temp, with: 65.0
           fill_in :condition_min_temp, with: 55.0

@@ -12,9 +12,10 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def create
-    condition = Condition.create(condition_params)
+    @condition = Condition.new(condition_params)
+    @condition.save
     flash[:notice] = "Successfully created a new condition!"
-    redirect_to condition_path(condition)
+    redirect_to condition_path(@condition)
   end
 
   def edit
@@ -33,6 +34,6 @@ class Admin::ConditionsController < Admin::BaseController
     end
 
     def condition_params
-      params.require(:condition).permit(:max_temp, :mean_temp, :min_temp, :mean_humidity, :mean_visibility, :mean_wind_speed, :precip)
+      params.require(:condition).permit(:date, :max_temp, :mean_temp, :min_temp, :mean_humidity, :mean_visibility, :mean_wind_speed, :precip)
     end
 end
