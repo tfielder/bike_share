@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911171157) do
+ActiveRecord::Schema.define(version: 20180915214935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20180911171157) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.boolean "retired", default: false
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -79,6 +83,13 @@ ActiveRecord::Schema.define(version: 20180911171157) do
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
   end
 
+  create_table "user_addresses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_user_addresses_on_address_id"
+    t.index ["user_id"], name: "index_user_addresses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -93,4 +104,6 @@ ActiveRecord::Schema.define(version: 20180911171157) do
   add_foreign_key "orders", "users"
   add_foreign_key "trips", "stations", column: "end_station_id"
   add_foreign_key "trips", "stations", column: "start_station_id"
+  add_foreign_key "user_addresses", "addresses"
+  add_foreign_key "user_addresses", "users"
 end

@@ -7,6 +7,8 @@ describe 'accessing an order show page' do
     @user2 = User.create!(name: "You", email: "p@p.com", password: "123")
 
     @order = @user1.orders.create!(status: "completed")
+    @address = @user1.addresses.create!(address: "1300 Denver Dr., Denver CO 90210")
+
   end
   it 'as a registered user' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
@@ -37,6 +39,5 @@ describe 'accessing an order show page' do
     visit order_path(@order)
 
     expect(page).to have_content(Order.last.created_at)
-
   end
 end
