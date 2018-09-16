@@ -25,12 +25,13 @@ feature 'Admin edits condition' do
         expect(page).to have_content("Mean visibility:")
         expect(page).to have_content("Mean wind speed:")
         expect(page).to have_content("Precip:")
+        expect(page).to have_button("Submit")
       end
       context 'when I update the form and click submit' do
-        xscenario 'it updates a condition' do
+        scenario 'it updates a condition' do
           click_on "Edit"
           fill_in :condition_min_temp, with: 47.8
-          click_on "Submit Changes"
+          click_on "Submit"
           condition.reload
 
           expect(current_path).to eq(condition_path(condition))
@@ -39,7 +40,7 @@ feature 'Admin edits condition' do
           expect(page).to_not have_content("#{40.0}")
 
 
-          click_on "Submit Changes"
+          click_on "Submit"
           condition.reload
 
           expect(current_path).to eq(condition_path(condition))
@@ -58,7 +59,7 @@ feature 'Admin edits condition' do
     end
 
     context 'when I click on Edit' do
-      xscenario 'it takes me to an edit form' do
+      scenario 'it takes me to an edit form' do
         click_on "Edit"
 
         expect(current_path).to eq(edit_admin_condition_path(condition))
@@ -71,12 +72,13 @@ feature 'Admin edits condition' do
         expect(page).to have_content("Mean visibility:")
         expect(page).to have_content("Mean wind speed:")
         expect(page).to have_content("Precip:")
+        expect(page).to have_button("Submit")
       end
       context 'when I update the form and click submit' do
-        xscenario 'it updates a condition' do
+        scenario 'it updates a condition' do
           click_on "Edit"
           fill_in :condition_min_temp, with: 47.8
-          click_on "Submit Changes"
+          click_on "Submit"
           condition.reload
 
           expect(current_path).to eq(condition_path(condition))
