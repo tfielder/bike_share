@@ -60,7 +60,6 @@ describe 'as an admin' do
       first('.edit').click
 
       expect(current_path).to eq(edit_admin_accessory_path(@item_1))
-
     end
     xit 'allows an admin to retire an accessory' do
       visit admin_bike_shop_path
@@ -70,6 +69,8 @@ describe 'as an admin' do
       first('.retire').click
 
       expect(@item_1.retired).to eq(true)
+
+
     end
   end
 end

@@ -17,5 +17,4 @@ class Station < ApplicationRecord
     slug
   end
 
-
 end

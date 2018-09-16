@@ -26,9 +26,9 @@
       </td>
       <td>
         <% if item.retired %>
-          <%= link_to "Reactivate", admin_dashboard_path, class: "retire"%>
+          <%= link_to "Reactivate", admin_bike_shop_path, method: "put", class: "retire"%>
         <% else %>
-          <%= link_to "Retire", admin_dashboard_path, class: "retire"%>
+          <%= link_to "Retire", admin_bike_shop_path, method: "put", class: "retire"%>
         <% end %>
       </td>
   </tr>
