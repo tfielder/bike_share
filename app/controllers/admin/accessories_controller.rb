@@ -2,7 +2,8 @@ class Admin::AccessoriesController < Admin::BaseController
 
   def edit
     if current_user && current_user.admin?
-      @accessory = Accessory.find_by(accessory_params)
+      @accessory = Accessory.find_by(slug: params[:slug])
+      @admin = current_user
     else
       render file:'public/404'
     end

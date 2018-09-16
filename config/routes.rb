@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
     resource :dashboard, only: [:show]
-    resources :accessories, only: [:edit, :update]
+    resources :accessories, only: [:edit, :update], param: :slug
   end
   resources :stations, only: [:index]
 

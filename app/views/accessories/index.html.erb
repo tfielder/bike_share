@@ -22,7 +22,7 @@
       <td>Active</td>
     <% end %>
       <td>
-        <%= link_to "Edit", edit_admin_accessory_path(id: item.id), method: "get", class: "edit"%>
+        <%= link_to "Edit", edit_admin_accessory_path(item), method: "get", class: "edit"%>
       </td>
       <td>
         <% if item.retired %>
