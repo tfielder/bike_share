@@ -1,7 +1,6 @@
 class Admin::AccessoriesController < Admin::BaseController
 
   def edit
-    binding.pry
     if current_user && current_user.admin?
       @accessory = Accessory.find_by(accessory_params)
     else
