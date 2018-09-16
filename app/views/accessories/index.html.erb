@@ -22,10 +22,14 @@
       <td>Active</td>
     <% end %>
       <td>
-        <%= link_to "Edit", edit_admin_accessory_path, class: "edit"%>
+        <%= link_to "Edit", edit_admin_accessory_path(id: item.id), method: "get", class: "edit"%>
       </td>
       <td>
-        <%= link_to "Retire/Reactivate", admin_dashboard_path, class: "retire"%>
+        <% if item.retired %>
+          <%= link_to "Reactivate", admin_dashboard_path, class: "retire"%>
+        <% else %>
+          <%= link_to "Retire", admin_dashboard_path, class: "retire"%>
+        <% end %>
       </td>
   </tr>
   <% end %>

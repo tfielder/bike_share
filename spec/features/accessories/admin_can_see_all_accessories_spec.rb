@@ -27,7 +27,7 @@ describe 'as an admin' do
     end
     it 'shows a table with all accessories' do
       visit admin_bike_shop_path
-
+      save_and_open_page
       expect(page).to have_content(@item_1.title)
       expect(page).to have_content(@item_1.description)
       expect(page).to have_content(@item_1.price)
@@ -44,7 +44,7 @@ describe 'as an admin' do
       expect(page).to have_content("Retire/Reactivate")
       expect(page).to have_content("Edit")
     end
-    it 'allows admin to edit an accessory' do
+    xit 'allows admin to edit an accessory' do
       visit admin_bike_shop_path
 
       expect(page).to have_content(@item_1.title)
@@ -58,7 +58,7 @@ describe 'as an admin' do
 
       first('.edit').click
 
-      expect(current_path).to eq(edit_admin_accessory_path)
+      expect(current_path).to eq(edit_admin_accessory_path(@item_1))
 
     end
     xit 'allows an admin to retire an accessory' do
