@@ -12,10 +12,10 @@ feature 'Admin edits condition' do
     end
 
     context 'when I click on Edit' do
-      xscenario 'it takes me to an edit form' do
+      scenario 'it takes me to an edit form' do
         click_on "Edit"
 
-        expect(current_path).to eq(new_admin_condition_path)
+        expect(current_path).to eq(edit_admin_condition_path(condition))
         expect(page).to have_content("Edit condition:")
         expect(page).to have_content("Date:")
         expect(page).to have_content("Max temp:")
@@ -61,7 +61,7 @@ feature 'Admin edits condition' do
       xscenario 'it takes me to an edit form' do
         click_on "Edit"
 
-        expect(current_path).to eq(new_admin_condition_path)
+        expect(current_path).to eq(edit_admin_condition_path(condition))
         expect(page).to have_content("Edit condition:")
         expect(page).to have_content("Date:")
         expect(page).to have_content("Max temp:")

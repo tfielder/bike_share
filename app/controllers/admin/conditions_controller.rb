@@ -1,5 +1,5 @@
 class Admin::ConditionsController < Admin::BaseController
-  before_action :set_condition, only: [:destroy]
+  before_action :set_condition, only: [:destroy, :edit]
 
   def destroy
     @condition.destroy
@@ -18,6 +18,7 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def edit
+    @admin = current_user.role
   end
 
   private
