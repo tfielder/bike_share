@@ -7,7 +7,7 @@
           <%= f.number_field :duration, autofocus: true, class: "form-control", placeholder: "Enter trip duration in seconds" %>
       </div>
     </br>
-      <div class="form-section" id='start_station_dropdown'>
+      <div class="form-section">
           <%= f.label :start_station, style: "margin-bottom:2%" %>:
           <%= f.collection_select :start_station_id, Station.all, :id, :name %>
       </div>
@@ -40,7 +40,7 @@
     </br>
       <div class="form-section">
           <%= f.label :zip_code, style: "margin-bottom:2%" %>:
-          <%= f.number_field :zip_code, class: "form-control", placeholder: "Enter zip code" %>
+          <%= f.text_field :zip_code, class: "form-control", placeholder: "Enter zip code" %>
       </div>
     </br>
       <div class="form-section">
