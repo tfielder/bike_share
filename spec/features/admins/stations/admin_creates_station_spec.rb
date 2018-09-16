@@ -21,7 +21,7 @@ feature 'Admin creates station' do
         expect(page).to have_content("Installation date:")
         expect(page).to have_button("Submit")
       end
-      context 'when I update the form and click submit' do
+      context 'when I fill in the form and click submit' do
         scenario 'it creates a station' do
           click_on "Create Station"
 
@@ -29,7 +29,6 @@ feature 'Admin creates station' do
           fill_in :station_dock_count, with: 42
           fill_in :station_city, with: "Madrid"
           fill_in("Installation date", :with => "1/1/2013")
-          # page.find('#installation_date').set('10-10-2010')
 
           click_on "Submit"
 
@@ -52,7 +51,7 @@ feature 'Admin creates station' do
       visit new_admin_station_path
     end
     scenario 'I cannot see the new station page' do
-      expect(page).to_not have_content("Create Station")
+      expect(page).to_not have_content("Create a new station:")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
@@ -61,7 +60,7 @@ feature 'Admin creates station' do
       visit new_admin_station_path
     end
     scenario 'I cannot see the edit station page' do
-      expect(page).to_not have_content("Create Station")
+      expect(page).to_not have_content("Create a new station:")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
