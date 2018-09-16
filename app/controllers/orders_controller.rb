@@ -29,17 +29,4 @@ class OrdersController < ApplicationController
     end
   end
 
-  def destroy
-    order = Order.find(params[:id])
-    accessories = order.accessories
-    accessories.each do |access|
-      order_acc = OrderAccessory.where(order_id: order.id, accessory_id: access.id).first
-      order_acc.destroy
-    end
-    order.destroy
-
-    redirect_to admin_dashboard_path
-    flash[:notice] = "Order #{params[:id]} was successfully deleted!"
-  end
-
 end

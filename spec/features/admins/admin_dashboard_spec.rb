@@ -21,6 +21,10 @@ describe "Admin visits their dashboard" do
                   password_confirmation: "123",
                   role: 1
                 )
+    @user1.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+    @user2.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+    @admin.addresses.create!(address: "1300 Hogwarts Drive Hogwarts, CA 90210")
+
     @order1 = @user1.orders.create!(status: "ordered")
     @order2 = @user1.orders.create!(status: "paid")
     @order3 = @user2.orders.create!(status: "cancelled")
@@ -51,7 +55,7 @@ describe "Admin visits their dashboard" do
 
       expect(current_path).to eq(admin_dashboard_path)
 
-      expect(page).to_not have_link(@order1.id)
+      expect(page).to have_link(@order1.id)
       expect(page).to have_link(@order2.id)
     end
     it "can filter based on status" do
