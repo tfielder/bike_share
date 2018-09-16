@@ -1,5 +1,5 @@
 class Admin::ConditionsController < Admin::BaseController
-  before_action :set_condition, only: [:destroy, :edit]
+  before_action :set_condition, only: [:destroy, :edit, :update]
 
   def destroy
     @condition.destroy
@@ -19,6 +19,12 @@ class Admin::ConditionsController < Admin::BaseController
 
   def edit
     @admin = current_user.role
+  end
+
+  def update
+    @condition.update(condition_params)
+    flash[:notice] = "Successfully updated!"
+    redirect_to condition_path(@condition)
   end
 
   private

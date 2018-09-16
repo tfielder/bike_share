@@ -35,16 +35,8 @@ feature 'Admin edits condition' do
           condition.reload
 
           expect(current_path).to eq(condition_path(condition))
-          expect(:condition_min_temp).to eq(47.8)
           expect(page).to have_content("#{47.8}")
           expect(page).to_not have_content("#{40.0}")
-
-
-          click_on "Submit"
-          condition.reload
-
-          expect(current_path).to eq(condition_path(condition))
-
           expect(page).to have_content("Successfully updated!")
         end
       end
@@ -82,7 +74,6 @@ feature 'Admin edits condition' do
           condition.reload
 
           expect(current_path).to eq(condition_path(condition))
-          expect(:condition_min_temp).to eq(47.8)
           expect(page).to have_content("#{47.8}")
           expect(page).to_not have_content("#{40.0}")
           expect(page).to have_content("Successfully updated!")
