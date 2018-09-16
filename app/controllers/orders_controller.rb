@@ -4,8 +4,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if current_admin?
       @user_details = @order.user.name
-      #binding.pry
-      #@user_address = @order.user.addresses.address
+      @user_address = @order.user.addresses[0][:address]
       @accessories = @order.accessory_count
       @total_price = @order.total_price
     elsif current_admin? || (current_user && @order.user == current_user)
