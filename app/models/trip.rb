@@ -30,19 +30,9 @@ class Trip < ApplicationRecord
     Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
   end
 
-  def monthly_breakdown
-    Trip.select("date_trunc('month', start_date),date_trunc('year', start_date),count(start_date)").group("date_trunc('month', start_date)")
-
-    # .group('month, start_date')
-    # .order ('month, start_date')
-    # .count
+  def self.monthly_breakdown
+    Trip.select("date_trunc('month', start_date) AS month,count(start_date)").group("trips.start_date")
   end
-
-
-# SELECT date_trunc('year', start_date),count(start_date) FROM trips GROUP BY  date_trunc('year', start_date);
-#
-# SELECT date_trunc('month', start_date),count(start_date) FROM trips GROUP BY  date_trunc('month', start_date);
-#   end
 
   def self.user_subscription_breakdown
      Trip.select("subscription_type, count(subscription_type)").group("subscription_type").count("subscription_type")
