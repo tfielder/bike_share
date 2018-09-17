@@ -13,7 +13,7 @@
   <li>Mean Humidity: <%= @condition.mean_humidity %>%</li>
   <li>Mean Visibility: <%= @condition.mean_visibility %> miles</li>
   <li>Mean Wind Speed: <%= @condition.mean_wind_speed %> mph</li>
-  <li>Precipitation: <%= @condition.precip %></li>
+  <li>Precipitation: <%= @condition.precip %> inches</li>
   <% if current_admin? %>
     <li><%= link_to "Edit", edit_admin_condition_path(@condition) %></li>
     <li><%= link_to "Delete", admin_condition_path(@condition), method: :delete %></li>
