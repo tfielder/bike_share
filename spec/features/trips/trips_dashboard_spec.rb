@@ -44,7 +44,6 @@ describe'a registered user can visits trips dashboard' do
     @monthly_breakdown = trips.monthly_breakdown
 
     visit trips_dashboard_path
-    save_and_open_page
     expect(page).to have_content("Average Duration: #{@average} seconds")
     expect(page).to have_content("Longest Ride: #{@longest} seconds")
     expect(page).to have_content("Shortest Ride: #{@shortest} seconds")
