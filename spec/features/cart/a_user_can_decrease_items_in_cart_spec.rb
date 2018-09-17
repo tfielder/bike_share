@@ -4,8 +4,8 @@ describe 'a user should be able to decrease quantity in the cart' do
   it 'should decrease quantity of an item' do
     item = Accessory.create(title: "happy1", image: "image1", description: "sogood1", price: 10.01)
     visit bike_shop_path
-    first('.bike_shop_item_1').click_on("Add to Cart")
-    first('.bike_shop_item_1').click_on("Add to Cart")
+    first(".bike_shop_item_#{item.id}").click_on("Add to Cart")
+    first(".bike_shop_item_#{item.id}").click_on("Add to Cart")
     expect(page).to have_content("Cart: 2")
     click_on "Cart:"
 

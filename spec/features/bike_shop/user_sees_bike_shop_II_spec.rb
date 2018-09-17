@@ -20,7 +20,7 @@ describe 'as a visitor to /bike_shop' do
     end
 
     it 'shows a flash message that a specific accessory was added to the cart' do
-      first('.bike_shop_item_2').click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_2.id}").click_on("Add to Cart")
 
       expect(page).to have_content("#{@item_2.title} was added to the cart.")
 
@@ -29,11 +29,11 @@ describe 'as a visitor to /bike_shop' do
     it 'shows the cart count updated on all pages' do
       expect(page).to have_content("Cart: 0")
 
-      first('.bike_shop_item_2').click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_2.id}").click_on("Add to Cart")
 
       expect(page).to have_content("Cart: 1")
 
-      first('.bike_shop_item_3').click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_3.id}").click_on("Add to Cart")
 
       expect(page).to have_content("Cart: 2")
     end

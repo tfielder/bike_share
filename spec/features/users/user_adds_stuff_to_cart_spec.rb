@@ -19,15 +19,15 @@ describe 'User adds item to cart' do
 
     it 'displays a message' do
       visit bike_shop_path
-      within('.bike_shop_item_2') do
+      within(".bike_shop_item_#{@item_2.id}") do
         click_on("Add to Cart")
       end
 
-      within('.bike_shop_item_2') do
+      within(".bike_shop_item_#{@item_2.id}") do
         click_on("Add to Cart")
       end
 
-      within('.bike_shop_item_3') do
+      within(".bike_shop_item_#{@item_3.id}") do
         click_on("Add to Cart")
       end
 

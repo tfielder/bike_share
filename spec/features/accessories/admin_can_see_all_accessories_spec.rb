@@ -21,7 +21,7 @@ describe 'as an admin' do
 
       click_on "View All Accessories"
 
-      expect(current_path).to eq('/admin/bike_shop')
+      expect(current_path).to eq('/admin/bike-shop')
       expect(current_path).to eq(admin_bike_shop_path)
 
     end
@@ -61,13 +61,13 @@ describe 'as an admin' do
 
       expect(current_path).to eq(edit_admin_accessory_path(@item_1))
     end
-    xit 'allows an admin to retire an accessory' do
+    it 'allows an admin to retire an accessory' do
       visit admin_bike_shop_path
 
       expect(@item_1.retired).to eq(false)
 
       first('.toggle').click
-
+      @item_1.reload
       expect(@item_1.retired).to eq(true)
     end
   end
