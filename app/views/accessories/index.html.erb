@@ -27,9 +27,9 @@
       </td>
       <td>
         <% if item.retired %>
-          <%= link_to "Reactivate", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "retire"%>
+          <%= link_to "Reactivate", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "toggle"%>
         <% else %>
-          <%= link_to "Retire", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "retire"%>
+          <%= link_to "Retire", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "toggle"%>
         <% end %>
       </td>
   </tr>

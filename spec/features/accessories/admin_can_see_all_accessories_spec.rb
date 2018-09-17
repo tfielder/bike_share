@@ -66,11 +66,7 @@ describe 'as an admin' do
 
       expect(@item_1.retired).to eq(false)
 
-      first('.retire').click
-
-      expect(@item_1.retired).to eq(true)
-
-
+      first('.toggle').click
     end
   end
 end

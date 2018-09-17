@@ -19,9 +19,9 @@ class Admin::AccessoriesController < Admin::BaseController
     @accessory = Accessory.find_by(slug: params[:slug])
     @admin = current_user
     if @accessory.retired
-      @accessory.update_attribute(:retired, false)
+      @accessory.update_attributes!(retired: false)
     else
-      @accessory.update_attribute(:retired, true)
+      @accessory.update_attributes!(retired: true)
     end
     redirect_to admin_bike_shop_path
   end
