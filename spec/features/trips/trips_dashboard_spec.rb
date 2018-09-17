@@ -41,10 +41,9 @@ describe'a registered user can visits trips dashboard' do
     @customer_percentage = (trips.user_subscription_breakdown["Customer"].to_f/Trip.count * 100).round(2)
     @weather_on_most_trips = Condition.condition_on_date(@date_with_most_trips_day).first
     @weather_on_least_trips = Condition.condition_on_date(@date_with_least_trips_day).first
-
+    @monthly_breakdown = trips.monthly_breakdown
 
     visit trips_dashboard_path
-
     expect(page).to have_content("Average Duration: #{@average} seconds")
     expect(page).to have_content("Longest Ride: #{@longest} seconds")
     expect(page).to have_content("Shortest Ride: #{@shortest} seconds")
@@ -71,5 +70,7 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Mean Wind Speed: #{@weather_on_least_trips.mean_wind_speed}")
     expect(page).to have_content("Mean Precipitation: #{@weather_on_least_trips.precip}")
     expect(page).to have_content("Subscriber breakdown: #{@user_subscription_breakdown_count_subscriber} subscribers and #{@user_subscription_breakdown_count_customer} customers. #{@subscriber_percentage}% subscribers and #{@customer_percentage}% customers.")
+    expect(page).to have_content("Monthly Breakdown: 01/01/2018 4")
+
   end
 end

@@ -30,7 +30,8 @@ class Trip < ApplicationRecord
     Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
   end
 
-  def monthly_breakdown
+  def self.monthly_breakdown
+    Trip.select("date_trunc('month', start_date) AS month,count(start_date)").group("trips.start_date")
   end
 
   def self.user_subscription_breakdown

@@ -10,10 +10,10 @@ describe "as an admin" do
       @admin = User.create!(name: "Dr.Who", email: "thedoctor@tardis.com", password: "blue", password_confirmation: "blue", role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     end
     it 'allows an admin to edit an item' do
       visit edit_admin_accessory_path(@item_1)
+
       expect(page).to have_content("Image")
       expect(page).to have_content("Title")
       expect(page).to have_content("Description")

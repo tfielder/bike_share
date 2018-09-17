@@ -62,7 +62,7 @@ RSpec.describe Trip, type: :model do
       expect(Trip.most_bike_rides.bike_id).to eq(2)
       expect(Trip.least_bike_rides.bike_id).to eq(4)
     end
-    it 'should return the date with the most trips and the least trups' do
+    it 'should return the date with the most trips and the least trips' do
       station_1 = Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
       station_2 = Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
       trip_1 = Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subsciber", zip_code: 94127 )
@@ -86,7 +86,15 @@ RSpec.describe Trip, type: :model do
       expect(Trip.user_subscription_breakdown["Customer"]).to eq(2)
       expect(Trip.user_subscription_breakdown["Subscriber"].to_f/Trip.all.count * 100).to eq(50)
       expect(Trip.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100).to eq(50)
-
+    end
+    it 'should return the monthly breakdown of trips' do
+    station_1 = Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
+    station_2 = Station.create(name:"2 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
+    trip_1 = Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subscriber", zip_code: 94127 )
+    trip_2 = Trip.create(duration: 2, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Subscriber", zip_code: 94127 )
+    trip_3 = Trip.create!(duration: 42, start_date: ("09/01/2018"), start_station:station_1, end_date: ("09/01/2018"), end_station:station_2,bike_id: 4, subscription_type:"Customer", zip_code: 94127 )
+    trip_4 = Trip.create(duration: 2, start_date: ("9/01/2018"), start_station:station_1, end_date: ("10/01/2018"), end_station:station_2,bike_id: 2, subscription_type:"Customer", zip_code: 94127 )
+    expect(Trip.monthly_breakdown[0].count).to eq(4)
     end
     it "::trips_high, ::trips_low, ::trips_avg" do
       station_1 = Station.create(name:"1 station",dock_count: 3, city: "Denver", installation_date: Date.strptime("03/23/2016", '%m/%d/%Y'))
