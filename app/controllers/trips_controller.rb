@@ -31,6 +31,7 @@ class TripsController < ApplicationController
       @customer_percentage = (trips.user_subscription_breakdown["Customer"].to_f/Trip.all.count * 100).round(2)
       @weather_on_most_trips = Condition.condition_on_date(@date_with_most_trips_day).first
       @weather_on_least_trips = Condition.condition_on_date(@date_with_least_trips_day).first
+      @monthly_breakdown = trips.monthly_breakdown
 
     else
       render file: '/public/404'
