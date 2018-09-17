@@ -1,0 +1,34 @@
+<div class="user-form-container container">
+  <div class="user-form">
+    <%= form_for [:admin, @accessory] do |f| %>
+      <div class="form-section">
+        <p><%= f.label :image %>:</p>
+        <%= f.text_field :image, class: "form-control", placeholder: "Enter an image URL" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <p><%= f.label :title %>:</p>
+        <%= f.text_field :title, class: "form-control", placeholder: "Enter a name for the item" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <p><%= f.label :description %>:</p>
+        <%= f.text_field :description, class: "form-control", placeholder: "Enter a description" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <p><%= f.label :price %>:</p>
+        <%= f.text_field :price, class: "form-control", placeholder: "Enter a price" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <p><%= f.label :slug%>:</p>
+        <%= f.text_field :slug, class: "form-control", placeholder: "Enter the item name" %>
+      </div>
+    </br>
+      <div class="form-section">
+        <%= f.submit 'Submit', class: "btn" %>
+      </div>
+    <% end  %>
+  </div>
+</div>
