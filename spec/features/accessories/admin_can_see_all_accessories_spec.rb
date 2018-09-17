@@ -61,12 +61,14 @@ describe 'as an admin' do
 
       expect(current_path).to eq(edit_admin_accessory_path(@item_1))
     end
-    it 'allows an admin to retire an accessory' do
+    xit 'allows an admin to retire an accessory' do
       visit admin_bike_shop_path
 
       expect(@item_1.retired).to eq(false)
 
       first('.toggle').click
+
+      expect(@item_1.retired).to eq(true)
     end
   end
 end
