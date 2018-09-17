@@ -26,6 +26,18 @@ class Admin::AccessoriesController < Admin::BaseController
     redirect_to admin_bike_shop_path
   end
 
+  def new
+    @accessory = Accessory.new()
+  end
+
+  def index
+    if current_user && current_user.admin?
+      @accessories = Accessory.all
+    else
+      render file:'public/404'
+    end
+  end
+
   private
     def accessory_params
       params.require(:accessory).permit(:image, :title, :description, :price, :slug, :retired)

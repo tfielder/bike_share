@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
   get '/bike_shop', to: 'bike_shop#index'
-  get 'admin/bike_shop', to: 'accessories#index'
+  get 'admin/bike_shop', to: 'admin/accessories#index'
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
     resource :dashboard, only: [:show]
-    resources :accessories, only: [:edit, :update, :toggle], param: :slug do
+    resources :accessories, only: [:edit, :update, :toggle, :new, :create], param: :slug do
       patch :update_accessory, on: :member
     end
   end
