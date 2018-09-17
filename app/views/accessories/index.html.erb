@@ -12,6 +12,7 @@
   </tr>
   <% @accessories.each do |item| %>
   <tr>
+    <% @accessory = item %>
     <td><img src="<%= item.image %>" alt="thumbnail"></td>
     <td><%= item.title %></td>
     <td><%= item.price %></td>
@@ -26,9 +27,9 @@
       </td>
       <td>
         <% if item.retired %>
-          <%= link_to "Reactivate", admin_bike_shop_path, method: "put", class: "retire"%>
+          <%= link_to "Reactivate", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "retire"%>
         <% else %>
-          <%= link_to "Retire", admin_bike_shop_path, method: "put", class: "retire"%>
+          <%= link_to "Retire", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "retire"%>
         <% end %>
       </td>
   </tr>
