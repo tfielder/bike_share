@@ -21,7 +21,7 @@ describe 'as an admin' do
 
       click_on "View All Accessories"
 
-      expect(current_path).to eq('/admin/bike_shop')
+      expect(current_path).to eq('/admin/bike-shop')
       expect(current_path).to eq(admin_bike_shop_path)
 
     end
