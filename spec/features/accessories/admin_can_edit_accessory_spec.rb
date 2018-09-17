@@ -19,8 +19,9 @@ describe "as an admin" do
       expect(page).to have_content("Description")
       expect(page).to have_content("Price")
     end
-    it 'actually edits an item' do
+    it 'edits an item' do
       visit edit_admin_accessory_path(@item_1)
+
       fill_in "Image", with: "Cool"
       fill_in "Title", with: "Da boss"
       fill_in "Description", with: "The coolest"
