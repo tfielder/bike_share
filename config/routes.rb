@@ -11,11 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
   get '/bike_shop', to: 'bike_shop#index'
-<<<<<<< HEAD
-  get 'admin/bike_shop', to: 'admin/accessories#index'
-=======
-  get 'admin/bike-shop', to: 'accessories#index'
->>>>>>> 2ddbfc74aac318b667eb95b6febffe0cddac69ed
+  get 'admin/bike-shop', to: 'admin/accessories#index'
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
