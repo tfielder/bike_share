@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/trips-dashboard', to: 'trips#dashboard'
   get '/condition-dashboard', to: 'conditions#dashboard'
 
+
   resources :conditions, only: [:index, :show]
 
   resources :accessories, only: [:show], param: :slug
@@ -37,6 +38,9 @@ Rails.application.routes.draw do
     resources :trips, only: [:update, :destroy, :new, :create, :edit]
     resources :conditions, only: [:update, :destroy, :new, :create, :edit]
     resource :dashboard, only: [:show]
+    resources :accessories, only: [:edit, :update, :toggle], param: :slug do
+      patch :update_accessory, on: :member
+    end
   end
   resources :stations, only: [:index]
 

@@ -55,11 +55,11 @@ describe 'as a user' do
     end
   end
   describe 'cannot view admin conditions pages' do
-    xscenario 'as a visitor' do
+    scenario 'as a visitor' do
       visit edit_admin_condition_path(@condition_1)
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
-    xscenario 'as a user' do
+    scenario 'as a user' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
       visit edit_admin_condition_path(@condition_1)
       expect(page).to have_content("The page you were looking for doesn't exist.")

@@ -12,6 +12,7 @@
   </tr>
   <% @accessories.each do |item| %>
   <tr>
+    <% @accessory = item %>
     <td><img src="<%= item.image %>" alt="thumbnail"></td>
     <td><%= item.title %></td>
     <td><%= item.price %></td>
@@ -21,7 +22,15 @@
     <% else %>
       <td>Active</td>
     <% end %>
-    <%= link_to "Edit", admin_dashboard_path%>
-    <%= link_to "Retire/Reactivate", admin_dashboard_path%>
+      <td>
+        <%= link_to "Edit", edit_admin_accessory_path(item), method: "get", class: "edit"%>
+      </td>
+      <td>
+        <% if item.retired %>
+          <%= link_to "Reactivate", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "toggle"%>
+        <% else %>
+          <%= link_to "Retire", update_accessory_admin_accessory_path(item.slug), method: :patch, class: "toggle"%>
+        <% end %>
+      </td>
   </tr>
   <% end %>
