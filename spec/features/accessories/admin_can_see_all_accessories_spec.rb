@@ -61,7 +61,7 @@ describe 'as an admin' do
       expect(current_path).to eq(edit_admin_accessory_path)
 
     end
-    xit 'allows an admin to retire an accessory' do
+    it 'allows an admin to retire an accessory' do
 
     end
   end
