@@ -10,6 +10,7 @@ class Admin::AccessoriesController < Admin::BaseController
   end
 
   def update
+    @accessory = Accessory.find_by(slug: params[:slug])
     @accessory.update(accessory_params)
     flash[:notice] = "Successfully updated!"
     redirect_to admin_bike_shop_path
@@ -28,7 +29,7 @@ class Admin::AccessoriesController < Admin::BaseController
 
   private
     def accessory_params
-      params.require(:accessory).permit(:image, :title, :description, :price, :slug, :retired)
+      params.require(:accessory).permit(:image, :title, :description, :price, :retired)
     end
 
 end
