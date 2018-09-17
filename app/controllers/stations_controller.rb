@@ -6,13 +6,7 @@ class StationsController < ApplicationController
   end
 
   def show
-    @rides_started_here = 1 #count of trips with starting id == @station.id
-    @rides_ended_here = 1
-    @destination_station_from_here = 1
-    @origination_station_ending_here = 1
-    @most_trips_on_date = 1
-    @most_frequent_zipcode = 1
-    @most_famous_bike = 1
+
   end
 
   def dash
