@@ -71,7 +71,7 @@ feature 'Admin creates condition' do
     before do
       visit new_admin_condition_path
     end
-    scenario 'I cannot see the edit condition page' do
+    scenario 'I cannot see the new condition page' do
       expect(page).to_not have_content("Create a new condition:")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
