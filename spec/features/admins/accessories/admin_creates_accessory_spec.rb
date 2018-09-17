@@ -23,8 +23,9 @@ feature 'Admin creates accessory' do
       context 'when I fill in the form and click submit' do
         scenario 'it creates a accessory' do
           click_on "Create Accessory"
-      
+
           fill_in :accessory_title, with: "Lights Out"
+          fill_in :accessory_image, with: "dark"
           fill_in :accessory_description, with: "If you weren't afraid of the dark, you are now."
           fill_in :accessory_price, with: 172.0
 
@@ -33,10 +34,10 @@ feature 'Admin creates accessory' do
           accessory = Accessory.last
 
           expect(current_path).to eq(accessory_path(accessory))
-          expect(page).to have_content("Successfully created a new accessory!")
-          expect(page).to have_content("Title: #{accessory.title}")
+          expect(page).to have_content("Successfully created #{accessory.title}!")
+          expect(page).to have_content("#{accessory.title}")
           expect(page).to have_content("Description: #{accessory.description}")
-          expect(page).to have_content("Price: #{accessory.price}")
+          expect(page).to have_content("Price: $#{'%0.2f' % accessory.price}")
         end
       end
     end
