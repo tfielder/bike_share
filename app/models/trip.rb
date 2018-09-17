@@ -30,8 +30,13 @@ class Trip < ApplicationRecord
     Station.select("name, count(trips.end_station_id) as count").joins("JOIN trips ON stations.id = trips.end_station_id").group(:name).order("count(trips.end_station_id) desc").limit(1).first
   end
 
-  # def monthly_breakdown
-  Trip.where(:start_date) 
+  def monthly_breakdown
+    Trip
+    .group('month, start_date')
+    .order ('month, start_date')
+    .count
+  end
+
 #     SELECT count(start_date) FROM trips WHERE date_trunc('month', start_date) = TIM
 # ESTAMP '2020-01-01 00:00:00' AND date_trunc('year', start_date) = TIMESTAMP '2020-01-01' GROUP BY start_
 # date;
@@ -39,6 +44,9 @@ class Trip < ApplicationRecord
 #
 # SELECT date_trunc('month', start_date),count(start_date) FROM trips GROUP BY  date_trunc('month', start_date);
 #   end
+  # def year
+  #   Trip.group('year, start_date').order('count_all desc').count
+  # end
 
   def self.user_subscription_breakdown
      Trip.select("subscription_type, count(subscription_type)").group("subscription_type").count("subscription_type")
