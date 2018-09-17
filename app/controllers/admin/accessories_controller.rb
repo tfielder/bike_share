@@ -1,8 +1,8 @@
 class Admin::AccessoriesController < Admin::BaseController
+  before_action :set_accessory, only: [:destroy, :edit, :update]
 
   def edit
     if current_user && current_user.admin?
-      @accessory = Accessory.find_by(slug: params[:slug])
       @admin = current_user
     else
       render file:'public/404'
@@ -31,8 +31,9 @@ class Admin::AccessoriesController < Admin::BaseController
   end
 
   def create
-    accessory = Accessory.create(accessory_params)
-    flash[:notice] = "Successfully created a new accessory!"
+    accessory = Accessory.new(accessory_params)
+    accessory.save
+    flash[:notice] = "Successfully created #{accessory.title}!"
     redirect_to accessory_path(accessory)
   end
 
@@ -46,7 +47,11 @@ class Admin::AccessoriesController < Admin::BaseController
 
   private
     def accessory_params
-      params.require(:accessory).permit(:image, :title, :description, :price, :slug, :retired)
+      params.require(:accessory).permit(:image, :title, :description, :price, :retired)
+    end
+
+    def set_accessory
+      @accessory = Accessory.find_by(slug: params[:slug])
     end
 
 end
