@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :update]
 
   resources :users, only: [:new, :create, :edit, :update]
-  get '/bike_shop', to: 'bike_shop#index'
+  get '/bike-shop', to: 'bike_shop#index'
   get 'admin/bike-shop', to: 'admin/accessories#index'
 
   get '/dashboard', to: 'users#dashboard'
