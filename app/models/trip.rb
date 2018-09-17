@@ -31,22 +31,18 @@ class Trip < ApplicationRecord
   end
 
   def monthly_breakdown
-    Trip
-    .group('month, start_date')
-    .order ('month, start_date')
-    .count
+    Trip.select("date_trunc('month', start_date),date_trunc('year', start_date),count(start_date)").group("date_trunc('month', start_date)")
+
+    # .group('month, start_date')
+    # .order ('month, start_date')
+    # .count
   end
 
-#     SELECT count(start_date) FROM trips WHERE date_trunc('month', start_date) = TIM
-# ESTAMP '2020-01-01 00:00:00' AND date_trunc('year', start_date) = TIMESTAMP '2020-01-01' GROUP BY start_
-# date;
+
 # SELECT date_trunc('year', start_date),count(start_date) FROM trips GROUP BY  date_trunc('year', start_date);
 #
 # SELECT date_trunc('month', start_date),count(start_date) FROM trips GROUP BY  date_trunc('month', start_date);
 #   end
-  # def year
-  #   Trip.group('year, start_date').order('count_all desc').count
-  # end
 
   def self.user_subscription_breakdown
      Trip.select("subscription_type, count(subscription_type)").group("subscription_type").count("subscription_type")
