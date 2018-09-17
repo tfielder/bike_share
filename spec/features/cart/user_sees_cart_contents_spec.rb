@@ -13,9 +13,9 @@ describe 'As a registered user' do
 
       visit bike_shop_path
 
-      first('.bike_shop_item_2').click_on("Add to Cart")
-      first('.bike_shop_item_2').click_on("Add to Cart")
-      first('.bike_shop_item_3').click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_2.id}").click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_2.id}").click_on("Add to Cart")
+      first(".bike_shop_item_#{@item_3.id}").click_on("Add to Cart")
 
       visit cart_path
     end

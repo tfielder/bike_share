@@ -23,10 +23,10 @@ feature 'Admin creates accessory' do
       context 'when I fill in the form and click submit' do
         scenario 'it creates a accessory' do
           click_on "Create Accessory"
-
-          fill_in :title, with: "Lights Out"
-          fill_in :Description, with: "If you weren't afraid of the dark, you are now."
-          fill_in :price, with: 172.0
+      
+          fill_in :accessory_title, with: "Lights Out"
+          fill_in :accessory_description, with: "If you weren't afraid of the dark, you are now."
+          fill_in :accessory_price, with: 172.0
 
           click_on "Submit"
 

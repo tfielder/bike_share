@@ -7,9 +7,6 @@ describe Station, type: :model do
     it {should validate_presence_of :city}
     it {should validate_presence_of :installation_date}
   end
-  describe 'relationships' do
-    xit {should have_many :trips}
-  end
   describe 'methods' do
     before(:each) do
       user = User.create(name: "Beemo", email: "bmo@email.com", password: "pass", password_confirmation: "pass")

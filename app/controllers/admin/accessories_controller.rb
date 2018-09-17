@@ -30,6 +30,12 @@ class Admin::AccessoriesController < Admin::BaseController
     @accessory = Accessory.new()
   end
 
+  def create
+    accessory = Accessory.create(accessory_params)
+    flash[:notice] = "Successfully created a new accessory!"
+    redirect_to accessory_path(accessory)
+  end
+
   def index
     if current_user && current_user.admin?
       @accessories = Accessory.all
