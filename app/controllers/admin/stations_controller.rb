@@ -7,7 +7,8 @@ before_action :set_station, only: [:destroy, :edit, :update]
   end
 
   def create
-    station = Station.create(station_params)
+    station = Station.new(station_params)
+    station.save
     flash[:notice] = "Successfully created #{station.name}!"
     redirect_to station_path(station)
   end

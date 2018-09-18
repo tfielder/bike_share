@@ -6,7 +6,7 @@ class StationsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def dash
