@@ -30,5 +30,22 @@ describe "as an admin" do
 
       expect(current_path).to eq(admin_bike_shop_path)
     end
+    it "should render a 404 if user is not logged in or admin" do
+      user = User.create!(name: "Dr.Who2", email: "thedoctor@tardis2.com", password: "blue", password_confirmation: "blue", role: 0)
+
+      allow_any_instance_of(
+        ApplicationController).to receive(
+          :current_user).and_return(
+            nil)
+      visit edit_admin_accessory_path(@item_1)
+      expect(page).to have_content("404")
+
+      allow_any_instance_of(
+        ApplicationController).to receive(
+          :current_user).and_return(
+            user)
+      visit edit_admin_accessory_path(@item_1)
+      expect(page).to have_content("404")
+    end
   end
 end
