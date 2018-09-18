@@ -180,3 +180,18 @@ table {
   display: flex;
   justify-content: space-around;
 }
+
+.time-stamp {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item-link a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.item-link a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
