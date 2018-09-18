@@ -87,5 +87,9 @@ describe "Admin visits their dashboard" do
       expect(page).to_not have_link(@order3.id)
       expect(page).to have_link(@order4.id)
     end
+    it "should show Admin's personal information" do
+      expect(page).to have_content(@admin.addresses.first.address)
+      expect(page).to have_content(@admin.name)
+    end
   end
 end

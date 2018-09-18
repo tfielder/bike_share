@@ -73,4 +73,8 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Monthly Breakdown: 01/01/2018 4")
 
   end
+  it "should send me to 404 if not logged in" do
+    visit trips_dashboard_path
+    expect(page).to have_content("The page you were looking for doesn't exist (404)")
+  end
 end
