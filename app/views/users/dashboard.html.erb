@@ -1,5 +1,11 @@
 <h1>Your Dashboard</h1>
 </br>
+<h2><%= current_user.name %></h2>
+<% if current_user.addresses.first %>
+  <h3><%= current_user.addresses.first.address %></h3>
+<% end %>
+</br>
+
 <%= link_to "Edit Account", edit_user_path(@user)%>
 </br>
 </br>

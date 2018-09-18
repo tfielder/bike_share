@@ -1,4 +1,13 @@
+</br>
+<h2><%= current_user.name %></h2>
+<% if current_user.addresses.first %>
+  <h3><%= current_user.addresses.first.address %></h3>
+<% end %>
+</br>
+
 <%= link_to "View All Accessories", admin_bike_shop_path%>
+
+
 
 <% if @orders.count > 0 %>
   <%= "Your Orders" %>
