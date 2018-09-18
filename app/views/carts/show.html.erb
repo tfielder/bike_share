@@ -1,7 +1,8 @@
 <h1>Cart</h1>
+<div class='cart-holder'>
 <% @accessories.each do |item, count| %>
-<div class= "accessory">
-  <ul>
+<div class="cart-accessory">
+  <ul class="accessory-deets">
     <li>
       <img class='accessory-image' src="<%= item.image %>" alt="holder.jpg" height="50" width="50">
     </li>
@@ -23,7 +24,8 @@
 
   </ul>
 </div>
-  <% end %>
+<% end %>
+</div>
 
 </br>
   <h2>Cart Total: <%= number_to_currency(@cart.cart_total) %></h2>
