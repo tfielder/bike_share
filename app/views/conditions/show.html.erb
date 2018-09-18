@@ -4,8 +4,8 @@
   <h1>Condition</h1>
 <% end %>
 </br>
-
-<ul>
+<div class="condition-show">
+<ul class="condition-card">
   <li>Date: <%= @condition.date.strftime("%m/%d/%Y") %></li>
   <li>Max Temperature: <%= @condition.max_temp %> °F</li>
   <li>Mean Temperature: <%= @condition.mean_temp %> °F</li>
@@ -19,3 +19,4 @@
     <li><%= link_to "Delete", admin_condition_path(@condition), method: :delete %></li>
   <% end %>
 </ul>
+</div>

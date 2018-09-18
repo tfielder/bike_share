@@ -89,5 +89,94 @@ h1 {
 .accessory-deets {
   display: flex;
   justify-content: space-around;
-  height: 60px;
+  height: 70px;
+  line-height: 55px;
+  background-color: #466362;
+  margin: 10px;
+  color: #d7e8e7;
+}
+
+.cart-total {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.checkout-button {
+  font-size: 20px;
+}
+
+.condition-table {
+  border: solid;
+  border-color: white;
+  text-align: center;
+}
+td {
+  border: solid;
+  border-color: white;
+  width: 100px;
+  padding: 5px;
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+th {
+  border: solid;
+  border-color: white;
+  background-color: #466362;
+  color: #d7e8e7;
+}
+
+caption {
+  padding: 5px;
+  display: table-caption;
+  caption-side: top;
+  text-align: center;
+  color: #30323d;
+}
+
+table {
+  margin: 30px;
+}
+.table-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.condition-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.condition-card {
+  text-align: left;
+  padding: 15px 5px 5px 50px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+  width: 300px;
+  height: 220px;
+}
+
+.condition-card a{
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.condition-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.create-link a {
+  color: #d7e8e7;
+}
+
+.condition-show {
+  display: flex;
+  justify-content: space-around;
 }
