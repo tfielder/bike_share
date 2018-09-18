@@ -1,5 +1,6 @@
 <h1>Bike Shop</h1>
 
+<div class="bike-shop-holder">
 <% @accessories.each_with_index do |item, index| %>
   <div class="bike_shop_item_<%= item.id %>">
     <ul>
@@ -16,3 +17,4 @@
   </div>
 </br>
 <% end %>
+</div>

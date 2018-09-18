@@ -1,3 +1,53 @@
  @import "bootstrap";
  @import "reset";
  @import "style";
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #d7e8e7;
+  padding: 5px 0px 5px 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.welcome-card-holder {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-card {
+  text-align: center;
+  background-color: #829399;
+  padding: 25px;
+  border-radius: 30%;
+}
+
+.welcome-card a {
+  font-size: 20px;
+  color: #30323d;
+}
+
+.accessory-show-card {
+  border-radius: 30%;
+  text-align: center;
+  margin: 20px 200px 0px 200px;
+  padding: 30px;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+}
+
+.accessory-image {
+  border-radius: 30%;
+}
+
+.bike-shop-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
