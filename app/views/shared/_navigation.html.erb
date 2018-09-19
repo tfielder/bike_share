@@ -29,9 +29,7 @@
           <%= link_to "Log In", login_path, class: "nav-link" %>
         </li>
       <% end %>
-      <li class="nav-item">
-        <%= link_to "Cart:", cart_path, class: "nav-link" %> <%= @cart.total_count %>
-      </li>
+
       <li class="nav-item">
         <%= link_to "Stations", stations_path, class: "nav-link" %>
       </li>
@@ -40,6 +38,9 @@
       </li>
       <li class="nav-item">
         <%= link_to "Conditions", conditions_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Cart: #{@cart.total_count}", cart_path, class: "nav-link" %> 
       </li>
       <li class="nav-item">
         <%= link_to "Bike Shop", bike_shop_path, class: "nav-link" %>
