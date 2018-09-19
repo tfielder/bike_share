@@ -31,7 +31,7 @@ class Trip < ApplicationRecord
   end
 
   def self.monthly_breakdown
-    Trip.select("date_trunc('month', start_date) AS month,count(start_date)").group("trips.start_date")
+    Trip.select("date_trunc('month', start_date) AS month, count(start_date)").group("date_trunc('month', start_date)").order("date_trunc('month', start_date)")
   end
 
   def self.user_subscription_breakdown
