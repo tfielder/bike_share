@@ -32,6 +32,7 @@ class TripsController < ApplicationController
       @weather_on_most_trips = Condition.condition_on_date(@date_with_most_trips_day).first
       @weather_on_least_trips = Condition.condition_on_date(@date_with_least_trips_day).first
       @monthly_breakdown = trips.monthly_breakdown
+      @yearly_breakdown = trips.yearly_breakdown
 
     else
       render file: '/public/404'

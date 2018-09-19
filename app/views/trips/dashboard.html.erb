@@ -1,9 +1,16 @@
 <h1>Trips Dashboard</h1>
+<br>
+<%= link_to "Trips Index", trips_path %>
+<br>
+<br>
+<div class='trip-dash-holder'>
 <h2>Average Duration: <%= @average %> seconds</h2>
 <h2>Longest Ride: <%=@longest %> seconds</h2>
 <h2>Shortest Ride: <%=@shortest %> seconds</h2>
+<br>
 <h2>Start Station with most trips: <%= @most_rides_start_count %> trips at <%=@most_rides_start_name%> </h2>
 <h2>End Station with most trips: <%= @most_rides_end_count %> trips at <%=@most_rides_end_name%> </h2>
+<br>
 <h2>Bike with the most rides: Bike <%=@most_bike_rides_id%> had  <%=@most_bike_rides_count %> rides</h2>
 <h2>Bike with the least rides: Bike <%=@least_bike_rides_id%> had <%=@least_bike_rides_count%> rides</h2>
 </br>
@@ -35,6 +42,15 @@
 <h2>Monthly Breakdown:</h2>
 <ul>
   <% @monthly_breakdown.each do |breakdown| %>
-    <li><%= breakdown.month.strftime("%m/%d/%Y")%>: <%= breakdown.count %></li>
+    <li><%= breakdown.month.strftime("%m/%Y")%>: <%= breakdown.count %></li>
   <% end %>
 </ul>
+<br>
+<br>
+<h2>Yearly Breakdown:</h2>
+<ul>
+  <% @yearly_breakdown.each do |breakdown| %>
+    <li><%= breakdown.year.strftime("%Y")%>: <%= breakdown.count %></li>
+  <% end %>
+</ul>
+</div>

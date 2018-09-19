@@ -159,7 +159,7 @@ table {
   font-size: 20px;
   color: #d7e8e7;
   width: 300px;
-  height: 220px;
+  height: 260px;
 }
 
 .condition-card a{
@@ -233,6 +233,89 @@ table {
 }
 
 .station-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.trip-dash-holder {
+  color: #d7e8e7;
+  background-color: #466362;
+  padding: 20px;
+  margin-left: 110px;
+  margin-right: 110px;
+  border-radius: 20%;
+}
+
+.trip-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.trip-card {
+  text-align: left;
+  padding: 15px 5px 5px 50px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 280px;
+  height: 210px;
+}
+
+.trip-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.trip-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.order-dash-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.order-dash-card {
+  text-align: left;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 180px;
+  height: 165px;
+}
+
+.order-dash-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.order-dash-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+.order-dash-card2 {
+  text-align: left;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 180px;
+  height: 220px;
+}
+
+.order-dash-card2 a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.order-dash-card2 a:hover{
   background-color: #d7e8e7;
   color: #466362;
 }

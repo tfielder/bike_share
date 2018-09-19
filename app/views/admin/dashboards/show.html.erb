@@ -1,25 +1,27 @@
+<h1>Admin Dashboard</h1>
 </br>
+<div class="account-infor">
 <h2><%= current_user.name %></h2>
 <% if current_user.addresses.first %>
   <h3><%= current_user.addresses.first.address %></h3>
 <% end %>
 </br>
-
+</div>
+<br>
 <%= link_to "View All Accessories", admin_bike_shop_path%>
-
-
+<br>
+<br>
 
 <% if @orders.count > 0 %>
   <%= "Your Orders" %>
+  <div class="order-dash-holder">
     <% @orders.each do |order| %>
       <div>
-          <ul>
+          <ul class="order-dash-card">
             <li>Order ID: <%= link_to "#{order.id}", order_path(order) %></li>
             <li>Contents: </li>
             <% order.accessory_count.each do |accessory| %>
               <p>Item: <%= accessory[0].title %></p>
-              <p>Qty: <%= accessory[1] %></p>
-              <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
             <% end %>
             <li>Order Total: $<%= '%.2f' % order.total_price %></li>
             <% if order.status.downcase == 'paid' || order.status.downcase == 'ordered' %>
@@ -29,6 +31,7 @@
       </div>
       </br>
     <% end %>
+  </div>
 <% end %>
 
 <ul>
@@ -40,17 +43,19 @@
 </ul>
 
 <% if @all_orders.count > 0 %>
+<div class="order-dash-holder">
     <% @all_orders.each do |order| %>
       <div>
-          <ul>
+          <ul class="order-dash-card2">
             <li>Order ID: <%= link_to "#{order.user.name}", order_path(order) %>: <%= link_to "#{order.id}", order_path(order) %></li>
+          </br>
             <li>Contents: </li>
             <% order.accessory_count.each do |accessory| %>
               <p>Item: <%= accessory[0].title %></p>
-              <p>Qty: <%= accessory[1] %></p>
-              <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
             <% end %>
+            <br>
             <li>Order Total: $<%= '%.2f' % order.total_price %></li>
+            <br>
             <% if order.status.downcase == 'ordered'%>
               <%= form_for order do |f| %>
                 <%= f.button 'Mark as Paid', type: 'submit', name: 'status', value: 'paid' %>
@@ -70,4 +75,10 @@
       </div>
       </br>
     <% end %>
+  </div>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>

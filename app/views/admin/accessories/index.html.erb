@@ -9,13 +9,15 @@
     <th>Price</th>
     <th>Description</th>
     <th>Status</th>
+    <th>Edit</th>
+    <th>Retire/Activate</th>
   </tr>
   <% @accessories.each do |item| %>
   <tr>
     <% @accessory = item %>
     <td><img src="<%= item.image %>" alt="thumbnail"></td>
     <td><%= item.title %></td>
-    <td><%= item.price %></td>
+    <td><%= number_to_currency(item.price) %></td>
     <td><%= item.description %></td>
     <% if item.retired == true %>
       <td>Retired</td>
