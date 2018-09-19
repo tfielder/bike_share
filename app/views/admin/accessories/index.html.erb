@@ -15,7 +15,7 @@
   <% @accessories.each do |item| %>
   <tr>
     <% @accessory = item %>
-    <td><img src="<%= item.image %>" alt="thumbnail"></td>
+    <td><img src="<%= item.image %>" alt="thumbnail" height="200" width="200"></td>
     <td><%= item.title %></td>
     <td><%= number_to_currency(item.price) %></td>
     <td><%= item.description %></td>

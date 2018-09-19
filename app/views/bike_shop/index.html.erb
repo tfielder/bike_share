@@ -4,7 +4,7 @@
 <% @accessories.each_with_index do |item, index| %>
   <div class="bike_shop_item_<%= item.id %> bike-shop-show-card">
     <ul>
-      <img src= "<%= item.image %>" />
+      <img src= "<%= item.image %>" height="200" width="200" />
       <li><%= link_to item.title, accessory_path(item) %></li>
       <li><%= number_to_currency(item.price) %></li>
       <li><%= item.description %></li>
