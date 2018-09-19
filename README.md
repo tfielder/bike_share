@@ -19,6 +19,9 @@ Ruby version - 2.4.1
 Rails version - 5.1.6
 
 Original bike share data may be accessed here: https://www.kaggle.com/benhamner/sf-bay-area-bike-share
+The original data set was selectively modified.
+In order to retain the primary keys on the data set the following line of code is utilized in the seeding process:
+`ActiveRecord::Base.connection.reset_pk_sequence!('<dataset file path>')`
 
 Database - PostgreSQL
 
