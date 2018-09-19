@@ -32,7 +32,8 @@
 </ul>
 </br>
 <h2>Subscriber breakdown: <%=@user_subscription_breakdown_count_subsriber%> subscribers and <%= @user_subscription_breakdown_count_customer %> customers. <%= @subscriber_percentage%>% subscribers and <%= @customer_percentage %>% customers.</h2>
-<h2>Monthly Breakdown:<% @monthly_breakdown.each do |breakdown| %>
-                            <%= breakdown.month.strftime("%m/%d/%Y")%>
-                            <%= breakdown.count %>
-                            <% end %> </h2>
+<h2>Monthly Breakdown:<% @monthly_breakdown.each do |breakdown| %></h2>
+
+                          <p><%= breakdown.count %> rides in <%= breakdown.month.strftime("%m/%d/%Y")%> <% end %></p>
+
+                      
