@@ -18,6 +18,8 @@ Specs and such:
 Ruby version - 2.4.1
 Rails version - 5.1.6
 
+Original bike share data may be accessed here: https://www.kaggle.com/benhamner/sf-bay-area-bike-share
+
 Database - PostgreSQL
 
 Test suite created through Rspec
