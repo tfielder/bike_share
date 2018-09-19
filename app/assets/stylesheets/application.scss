@@ -1,3 +1,321 @@
  @import "bootstrap";
  @import "reset";
  @import "style";
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #d7e8e7;
+  padding: 5px 0px 5px 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mr-auto {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-card-holder {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-card {
+  text-align: center;
+  background-color: #829399;
+  padding: 25px;
+  border-radius: 30%;
+}
+
+.welcome-card a {
+  font-size: 20px;
+  color: #30323d;
+}
+
+.accessory-show-card {
+  border-radius: 30%;
+  text-align: center;
+  margin: 20px 200px 0px 200px;
+  padding: 30px;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+}
+
+.accessory-image {
+  border-radius: 30%;
+}
+
+.bike-shop-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.bike-shop-show-card {
+  border-radius: 30%;
+  text-align: center;
+  margin: 10px;
+  padding: 30px;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+  width: 300px;
+  height: 400px;
+}
+
+.bike-shop-show-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.bike-shop-show-card a:hover {
+  border-radius: 20%;
+  background-color: #d7e8e7;
+  color: #466362;
+  text-decoration: underline;
+}
+
+.bike-shop-show-card img{
+  border-radius: 30%;
+}
+
+.accessory-deets {
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+  line-height: 55px;
+  background-color: #466362;
+  margin: 10px;
+  color: #d7e8e7;
+}
+
+.cart-total {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.checkout-button {
+  font-size: 20px;
+}
+
+.condition-table {
+  border: solid;
+  border-color: white;
+  text-align: center;
+}
+td {
+  border: solid;
+  border-color: white;
+  width: 100px;
+  padding: 5px;
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+th {
+  border: solid;
+  border-color: white;
+  background-color: #466362;
+  color: #d7e8e7;
+}
+
+caption {
+  padding: 5px;
+  display: table-caption;
+  caption-side: top;
+  text-align: center;
+  color: #30323d;
+}
+
+table {
+  margin: 30px;
+}
+.table-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.condition-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.condition-card {
+  text-align: left;
+  padding: 15px 5px 5px 50px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+  width: 300px;
+  height: 260px;
+}
+
+.condition-card a{
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.condition-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.create-link a {
+  color: #d7e8e7;
+}
+
+.condition-show {
+  display: flex;
+  justify-content: space-around;
+}
+
+.time-stamp {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item-link a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.item-link a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.data-holder {
+  color: #d7e8e7;
+  background-color: #466362;
+  padding: 20px;
+  margin-left: 110px;
+  margin-right: 110px;
+  border-radius: 10%;
+}
+.data-holder h2{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.station-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.station-card {
+  text-align: left;
+  padding: 15px 5px 5px 30px;
+  margin: 5px;
+  border-radius: 20%;
+  background-color: #466362;
+  font-size: 20px;
+  color: #d7e8e7;
+  width: 280px;
+  height: 200px;
+}
+
+.station-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.station-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.trip-dash-holder {
+  color: #d7e8e7;
+  background-color: #466362;
+  padding: 20px;
+  margin-left: 110px;
+  margin-right: 110px;
+  border-radius: 20%;
+}
+
+.trip-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.trip-card {
+  text-align: left;
+  padding: 15px 5px 5px 50px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 280px;
+  height: 235px;
+}
+
+.trip-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.trip-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+
+.order-dash-holder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.order-dash-card {
+  text-align: left;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 180px;
+  height: 165px;
+}
+
+.order-dash-card a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.order-dash-card a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}
+.order-dash-card2 {
+  text-align: left;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 30%;
+  background-color: #466362;
+  color: #d7e8e7;
+  width: 180px;
+  height: 220px;
+}
+
+.order-dash-card2 a {
+  color: #d7e8e7;
+  text-decoration: underline;
+}
+
+.order-dash-card2 a:hover{
+  background-color: #d7e8e7;
+  color: #466362;
+}

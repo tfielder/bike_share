@@ -3,21 +3,26 @@
   <%= @user_details %> <br />
   <%= @user_address %>
   <%end %>
-
-<p>Created: <%= @order.created_at %></p>
+<br>
+<p class='time-stamp'>Created: <%= @order.created_at %></p>
   <% if @order.status.downcase == "completed" || @order.status.downcase == "cancelled" %>
-    <p>Status: <%= @order.status %>, <%= @order.updated_at %></p>
+    <p class='time-stamp'>Status: <%= @order.status %>, <%= @order.updated_at %></p>
   <% else %>
-    <p>Status: <%= @order.status %><p>
+    <p class='time-stamp'>Status: <%= @order.status %><p>
   <% end %>
+</br>
 <h3>Items:</h3>
+<div class="cart-accessory">
 <% @accessories.each do |accessory, count| %>
-  <ul>
-    <li><%= link_to accessory.title, accessory_path(accessory) %>: <%= number_to_currency(accessory.price) %></li>
+  <ul class="accessory-deets">
+    <li>
+      <img class='accessory-image' src="<%= accessory.image %>" alt="holder.jpg" height="50" width="50">
+    </li>
+    <li class='item-link'><%= link_to accessory.title, accessory_path(accessory) %> </li>
+    <li><%= number_to_currency(accessory.price) %></li>
     <li>Qty: <%= count %></li>
     <li>Subtotal: <%= number_to_currency(accessory.price * count) %></li>
   </ul>
-</br>
 <% end %>
 <% if current_admin? %>
   <% if @order.status.downcase == 'ordered'%>
@@ -36,4 +41,5 @@
     <% end %>
   <% end %>
 <% end %>
-<h2>Total: $<%= '%0.2f' % @total_price %></h2>
+</div>
+<h2 class='time-stamp'>Total: $<%= '%0.2f' % @total_price %></h2>

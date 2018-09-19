@@ -16,8 +16,9 @@
   <%= link_to "Trip Dashboard", trips_dashboard_path, class: "nav-link" %>
 <% end %>
 </br>
+<div class="trip-holder">
 <% @trips.each do |trip| %>
-  <ul>
+  <ul class="trip-card">
     <li><%= link_to trip.id, trip_path(trip) %></li>
     <li>Duration: <%= trip.duration%> seconds </li>
     <li>Start Date: <%= trip.start_date.strftime("%m/%d/%Y") %></li>
@@ -33,4 +34,5 @@
     <% end %>
   </ul>
   <% end %>
+</div>
     <%= will_paginate @trips %>

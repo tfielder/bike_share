@@ -1,29 +1,32 @@
 <h1>Your Dashboard</h1>
 </br>
+<div class='account-info'>
 <h2><%= current_user.name %></h2>
+<br>
 <% if current_user.addresses.first %>
-  <h3><%= current_user.addresses.first.address %></h3>
+  <h2><%= current_user.addresses.first.address %></h2>
 <% end %>
 </br>
+</div>
 
 <%= link_to "Edit Account", edit_user_path(@user)%>
 </br>
 </br>
 <% if @orders.count > 0 %>
   <%= "Your Orders" %>
+  <div class="order-dash-holder">
     <% @orders.each do |order| %>
-      <div>
-          <ul>
-            <li>Order ID: <%= link_to "#{order.id}", order_path(order) %></li>
+          <ul class='order-dash-card'>
+            <li><%= link_to "Order ID: #{order.id}", order_path(order) %></li>
+            <br>
             <li>Contents: </li>
             <% order.accessory_count.each do |accessory| %>
               <p>Item: <%= accessory[0].title %></p>
-              <p>Qty: <%= accessory[1] %></p>
-              <p>Item Price: $<%= '%.2f' % accessory[0].price %></p>
             <% end %>
+            <br>
             <li>Order Total: $<%= '%.2f' % order.total_price %></li>
           </ul>
-      </div>
       </br>
     <% end %>
+    </div>
 <% end %>

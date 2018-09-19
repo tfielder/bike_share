@@ -6,7 +6,7 @@
 </br>
 
 <% if current_admin? %>
-<div class="btn">
+<div>
   <%= link_to "Create Condition", new_admin_condition_path %>
 </div>
 <% end %>
@@ -16,9 +16,9 @@
   <%= link_to "Condition Dashboard", condition_dashboard_path %>
 <% end %>
 <br>
-
+<div class="condition-holder">
 <% @conditions.each do |condition| %>
-  <ul>
+  <ul class='condition-card'>
     <li><%= link_to "Date: #{condition.date.strftime("%m/%d/%Y")}", condition_path(condition.id) %></li>
     <li>Max Temperature: <%= condition.max_temp %> °F</li>
     <li>Mean Temperature: <%= condition.mean_temp %> °F</li>
@@ -33,4 +33,5 @@
     <% end %>
   </ul>
 <% end %>
+</div>
 <br>

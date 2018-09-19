@@ -17,7 +17,7 @@
 <% end %>
 <br>
 
-<div class='card-holder'>
+<div class="station-holder">
   <% @stations.each do |station| %>
     <ul class="station-card">
       <li>Station: <%= link_to station.name , station_path(station) %></li>

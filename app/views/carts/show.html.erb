@@ -1,7 +1,8 @@
 <h1>Cart</h1>
+<div class='cart-holder'>
 <% @accessories.each do |item, count| %>
-<div class= "accessory">
-  <ul>
+<div class="cart-accessory">
+  <ul class="accessory-deets">
     <li>
       <img class='accessory-image' src="<%= item.image %>" alt="holder.jpg" height="50" width="50">
     </li>
@@ -9,7 +10,7 @@
       <%= item.title %>
     </li>
     <li>
-      Price: <%= number_to_currency(item.price) %>
+      <%= number_to_currency(item.price) %>
     </li>
     <li>
       Qty: <%= count %>
@@ -23,14 +24,19 @@
 
   </ul>
 </div>
-  <% end %>
-
+<% end %>
+</div>
+<br>
+<br>
 </br>
-  <h2>Cart Total: <%= number_to_currency(@cart.cart_total) %></h2>
+  <h2 class="cart-total">Cart Total: <%= number_to_currency(@cart.cart_total) %></h2>
+</br>
+</br>
 </br>
   <% if current_user %>
-    <h3><%= button_to "Checkout", checkout_index_path %></h3>
+    <h3 class="checkout-button"><%= button_to "Checkout", checkout_index_path %></h3>
   <% else %>
-    <h3><%= button_to "Checkout", checkout_index_path, disabled: true %></h3>
+    <h3 class="checkout-button"><%= button_to "Checkout", checkout_index_path, disabled: true %></h3>
+    <br>
     <h3><%= link_to "Login/Create Account to Checkout", login_path, method: :get%></h3>
   <% end %>
