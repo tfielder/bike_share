@@ -7,20 +7,35 @@
     <%= link_to "See all Stations", stations_path %>
   <% end %>
 </br>
-
+<br>
+<div class="data-holder">
 <h2>Total Stations Count: <%= @count %></h2>
+<br>
+<br>
 <h2>Average Bikes Available Per Station: <%= @average %></h2>
+<br>
+<br>
 <h2>Most Bikes Available:</h2>
     <ul>
       <% @station_most_bikes_names.each do |station| %>
         <li><%= @most_bikes %> at <%= station %></li>
       <% end %>
     </ul>
+    <br>
+    <br>
 <h2>Fewest Bikes Available:</h2>
     <ul>
       <% @station_least_bikes_names.each do |station| %>
         <li><%= @least_bikes %> at <%= station %></li>
       <% end %>
     </ul>
+    <br>
+    <br>
 <h2>Newest Installed Station: <%= @newest_station.name %>, <%= @newest_station.installation_date %></h2>
+<br>
 <h2>Oldest Installed Station: <%= @oldest_station.name %>, <%= @oldest_station.installation_date %></h2>
+</div>
+<br>
+<br>
+<br>
+<br>
