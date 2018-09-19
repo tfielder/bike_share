@@ -42,7 +42,7 @@
 <h2>Monthly Breakdown:</h2>
 <ul>
   <% @monthly_breakdown.each do |breakdown| %>
-    <li><%= breakdown.month.strftime("%m/%Y")%>: <%= breakdown.count %></li>
+    <li><%= breakdown.count %> rides in <%= breakdown.month.strftime("%m/%Y")%> <% end %></li>
   <% end %>
 </ul>
 <br>

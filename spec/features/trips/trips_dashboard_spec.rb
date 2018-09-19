@@ -70,7 +70,7 @@ describe'a registered user can visits trips dashboard' do
     expect(page).to have_content("Mean Wind Speed: #{@weather_on_least_trips.mean_wind_speed}")
     expect(page).to have_content("Mean Precipitation: #{@weather_on_least_trips.precip}")
     expect(page).to have_content("Subscriber breakdown: #{@user_subscription_breakdown_count_subscriber} subscribers and #{@user_subscription_breakdown_count_customer} customers. #{@subscriber_percentage}% subscribers and #{@customer_percentage}% customers.")
-    expect(page).to have_content("Monthly Breakdown:\n01/2018: 4")
+    expect(page).to have_content("4 rides in 01/2018")
 
   end
   it "should send me to 404 if not logged in" do
