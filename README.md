@@ -12,7 +12,7 @@ Description: Bikeshare is an app that provides visitors with information on the 
 
 To get started:
 
-visit: https://abmt-bikeshare.herokuapp.com/ 
+visit: https://bike-sharer.herokuapp.com/
 
 Specs and such:
 Ruby version - 2.4.1
